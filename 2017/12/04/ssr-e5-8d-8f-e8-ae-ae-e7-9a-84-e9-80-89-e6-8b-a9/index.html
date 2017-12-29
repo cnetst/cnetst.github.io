@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>SSR协议的选择 | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="其实这个要说的少得多，总之就一句话，能用auth_aes128_md5或auth_aes128_sha1的，就直接用这两个，最好不要开启兼容，其它的协议都不建议。但如果要解释的话，这个说来话长，需要一点点说明其它的协议的特性。以下简略说明一下各协议的问题。 首先我们来看原版协议（origin），原版协议有着最少的数据冗余，在没有限制的情况下，必然是原版协议速度最快，这是毫无疑问的。其它的协议的兼容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSR协议的选择">
+<meta property="og:url" content="http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/index.html">
+<meta property="og:site_name" content="RPChen`s Blog">
+<meta property="og:description" content="其实这个要说的少得多，总之就一句话，能用auth_aes128_md5或auth_aes128_sha1的，就直接用这两个，最好不要开启兼容，其它的协议都不建议。但如果要解释的话，这个说来话长，需要一点点说明其它的协议的特性。以下简略说明一下各协议的问题。 首先我们来看原版协议（origin），原版协议有着最少的数据冗余，在没有限制的情况下，必然是原版协议速度最快，这是毫无疑问的。其它的协议的兼容">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-29T03:44:34.913Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSR协议的选择">
+<meta name="twitter:description" content="其实这个要说的少得多，总之就一句话，能用auth_aes128_md5或auth_aes128_sha1的，就直接用这两个，最好不要开启兼容，其它的协议都不建议。但如果要解释的话，这个说来话长，需要一点点说明其它的协议的特性。以下简略说明一下各协议的问题。 首先我们来看原版协议（origin），原版协议有着最少的数据冗余，在没有限制的情况下，必然是原版协议速度最快，这是毫无疑问的。其它的协议的兼容">
+    
+        <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">RPChen</h5>
+          <a href="mailto:rpccec@gmail.com" title="rpccec@gmail.com" class="mail">rpccec@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                存档
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SSR协议的选择</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SSR协议的选择</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-04T07:41:46.000Z" itemprop="datePublished" class="page-time">
+  2017-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/转载存档/">转载存档</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SSR协议的选择</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-04 15:41:46" datetime="2017-12-04T07:41:46.000Z"  itemprop="datePublished">2017-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/转载存档/">转载存档</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">其实这个要说的少得多，总之就一句话，能用auth_aes128_md5或auth_aes128_sha1的，就直接用这两个，最好不要开启兼容，其它的协议都不建议。但如果要解释的话，这个说来话长，需要一点点说明其它的协议的特性。以下简略说明一下各协议的问题。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">首先我们来看原版协议（origin），原版协议有着最少的数据冗余，在没有限制的情况下，必然是原版协议速度最快，这是毫无疑问的。其它的协议的兼容，全是为了兼容原版协议。那既然原版理论上最快为什么不直接用？因为它没有数据完整性校验，无法确认数据是否被篡改，容易被攻击，它也没有做数据包的长度混淆，可以通过数据包长度统计分析检测出来（例如此专利中所说的方案）。当然如果你所在的地区直接使用没有感觉有什么问题，那直接使用就可以了，没有必要考虑后面的。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">接着来看原版的OTA协议，这个协议增加了从客户端到服务端单向的完整性校验，于是服务端到客户端的方向还是存在同样的问题，且它也没有做数据包的长度混淆，一样可以通过数据包长度统计分析检测出来。另外此协议并非能抵抗CCA（Chosen ciphertext attack），依然可以通过CCA来确定这是不是OTA协议（通过服务端行为攻击，具体方法这里不说）。</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">然后再看SSR的auth_sha1和auth_sha1_v2协议，这两协议几乎一样，这两协议都有双向的完整性校验，有数据包的长度混淆，有抵抗重放攻击的能力，但缺点是不能完全抵抗CCA，可使用检测OTA的方法检测出来（不用改动一行代码，但无法区分到底是OTA还是auth_sha1，如要确定，那只要对服务端发向客户端的方向发起CCA攻击即可区分）</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">再来看看SSR的auth_sha1_v4协议，相对于auth_sha1，在抵抗CCA方面有改进，但依然不是完全抵抗CCA，尽管多增加了长度校验避免服务端行为攻击，但因为校验使用的是CRC32，而CRC32可以通过已知的正确的数据包，再通过同时修改包长度字段和CRC32来伪造出正确的值，所以虽然攻击难度增加了，但并非完全抵抗CCA。不过某防火墙要如此针对性的攻击此协议的可能性非常低，可以认为基本安全，但如果你条件允许，那还是看下面两个协议吧。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">最后再看看auth_aes128_md5和auth_aes128_sha1，这两协议在关键的认证数据区使用Encrypt-then-MAC，使其无法CCA，而后续的数据包均使用HMAC，且每个连接的不同数据包用的HMAC的KEY都不一样，之前的攻击方案均失效。对于这个协议我自己还没有想到有效的攻击手段，并且此协议的网络利用率比其它的auth系列协议要高，也是唯一一组抗CCA的协议，所以我推荐大家使用这个协议。不过唯一的缺点是这个协议计算量会比其它的协议要多，代码编写较复杂。关于此协议我写了一个简要的文档说明。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">其它花絮：因为auth_aes128_md5协议的前数百个字节不是random的就是HMAC或加密的，总之前面一大堆表面看起来都像是random，所以我曾经试过直接用这个协议裸跑（不使用加密也不使用混淆），结果显示完全能正常使用。但还是不建议大家这么做，毕竟后面还是带着明文的，要是关键字检测会检测到那么后面的话就挂了（但给我的感觉是这个明文关键字检测并不严厉，似乎只针对http, TLS, socks等已知协议）</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">关于协议就简略讲到这里了（如何攻击这里不讲，否则要列举一堆例子和演示代码，更具体的以后会有机会讲的），有什么问题可补充。</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">最初我设计这个混淆的时候并没有想到如今产生了如此多的黑科技用法，只是想着伪装为看起来像正常的流量，减少被注意到的可能性而已。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">对于大多数人来说，混淆并不是必须使用的，不使用混淆其实都能正常使用，而且在这当中有近一半人所在的地区的网络，直接使用原版的SS能获得更好的速度。那么什么时候你应该使用混淆呢？第一类是遇到QoS情况的，使用混淆能提速的人，第二类是所在网络有严格限制，仅能使用80/443端口，不认识的协议根本不能用的（如学校、公司、政府办公网络），第三类是对自己的隐私有要求的，希望在运营商的连接记录里留下看起来正常的访问记录，第四类是试图绕过学校或运营商的计费系统的人，第五类其它黑科技用途保密。以上第四类并不在本文的讨论范围，这属于漏洞利用的非法用途。下文仅针对前三类进行展开。</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">首先是混淆参数的问题。这个混淆参数可根据你的设定，伪装为对任意host的访问，但我不建议你填写此参数，但建议服务端节点带有域名及正确的解析，这样你不需要填写参数，客户端将直接使用你的节点的域名作为参数。为什么应该这样做呢？因为我了解到，运营商已经在少数地区布置了DNS验证系统（有可能是故意针对SSR的），如果你发出的http/tls请求里的域名解析出的IP地址列表，与你所连接的实际IP不一致，多次请求后就可能会把此IP加入临时黑名单。所以，如果节点有域名，那么参数不写其实是最好的，很多人都习惯写一个大公司网站的域名，其实这反而留下了一个可被检测的地方。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">针对第一类人，关于QoS的问题，唯一的办法就是测试了，各地区不同，不同时间效果也不同，不同端口和混淆参数效果也不同。服务端同时开几个端口，一些开http，一些开tls，多测测测出你认为速度较好的组合使用就好。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">针对第二类人，那么首先要了解清楚所在的网络环境的限制方式，包括访问端口限制，访问域名限制，协议类型限制，访问IP限制。如果你发现存在访问IP限制，那你可以死心了，除非你在此网络下有另一个节点可以通过它作二级代理访问无IP限制的外部网络。对于端口限制，它限制只能哪些端口，那么你在服务端就开哪些端口，而协议类型除了特别变态的，一般都能用http，如果有域名限制，那么混淆参数就填写能用的域名即可。另外很多公司还有一类外网的访问限制，就是必须通过它提供的二级代理，这时你只需要在客户端的二级代理的地方对应的填写一下即可（部分代理可能必须填写UserAgent）。基本上就是见招拆招，如果有太特别的，没法解决的可联系我说说是什么奇葩的限制（例如不少高校网络都要安装专用的登陆（监控）客户端还只能windows使用，还会劫持你流量的方式才能上网，还限制只能单网卡什么的，那确实非常恶心）。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">针对第三类人，如果是联通的比较好办，它提供了可供查询的列表，实验一下你就明白具体效果了。对于其它的运营商，这个列表也绝对是有的，只是不公开给你查询罢了，如果你担心这个，那开启混淆就好了。这种情况下建议使用国内服务器中转并混淆参数使用国内的网站域名。当然，对于这类情况，能更好的减少流量被注意的可能性，即使你所在的网络并没有QoS或其它限制，也能减少被无故限速的风险。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">关于混淆就讲到这里了，有什么问题可补充。下一篇将会讲协议的选择</span></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-29T03:44:34.913Z" itemprop="dateUpdated">2017-12-29 11:44:34</time>
+</span><br>
+
+
+        
+        转载请注明出处：<a href="/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/" target="_blank" rel="external">http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/</a>
+        
+    </div>
+    <footer>
+        <a href="http://www.rpchen.com">
+            <img src="/img/avatar.jpg" alt="RPChen">
+            RPChen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/&title=《SSR协议的选择》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/&title=《SSR协议的选择》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR协议的选择》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/04/powershell-e5-91-bd-e4-bb-a4/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">PowerShell命令</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SSR单端口多用户配置方法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p><span>RPChen &copy; 2017</span>
+            <span>
+                
+              Power by <a href="http://www.rpchen.com/" target="_blank">RPChen</a>
+		  </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/&title=《SSR协议的选择》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/&title=《SSR协议的选择》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR协议的选择》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3aQZLbMAwEQP//005Vro6lAUA4OrROrrWKZvNAYod4veLn/ff59pf35fP5zuc4yd8/3zn24OHh4bWmnkzu1IR6y1FdUDw8PLxt3vVhsPLDX96/fiefMx4eHt4TeMkkkqK8uqC9EfDw8PCewKtu2b1yOT+c8PDw8P4vL48Gkjj11JL9NGvBw8PDq2UChQuwJ3xevN/Dw8PDG9yqz1sBkgOmOk5hnnh4eHgLvOuJ7vUyJW9eh7mFAwMPDw/vKK+39U/K7smy5qHDzbmHh4eHN+All/S99oIeO/+2EB/j4eHhLfCqQWp5a46L4+uieXR04eHh4R3iVRuhroerls7VhUtm+7WYxsPDw1vm5fHrJESYj3bzK3h4eHhrvOpFfrUJYFJw55FH844ODw8Pr7/fviYb96SB4FQrQ6GNAA8PD2/AiwrTAalaoOfRcHKM4eHh4W3wqmFBNFwr8J00K9yA8fDw8I7yJv/wv4OnWtlWF/r6Mx4eHt4Gr3ql1IsPqqHw5MDAw8PD2+blUWkvoj0VLiQHwE1JjYeHh3eUl7cL5FM8cCMXh8s3KTUeHh7eMm8evyZTnBw/+VGBh4eH90ter0Wg1zRQbdgqIPHw8PAWeHmZm5fOvYi2yugdbHh4eHineNWtOZ9u3jTQDGqTb/Hw8PAWeHlEmxwAvZ+cLHE1OMbDw8Ob8ybFcZV36imU73h4eHhrvHygCaMXH4+aD/Dw8PCO8nrbcW8Svdgibyz4xxGFh4eHt8D7zYSq+UDvkqyZuODh4eG1eHkRnEcVSQFdDWR75T4eHh7eHq96AdYrZ39TpuPh4eE9mZdMqxfU9oJjPDw8vKfxJht6LyA+cGGGh4eHt8brXfbP2wt6Acd6ZwQeHh7e4Oorv4iqxsHVAyZpF2hS8fDw8FLeHwRA2k9qYAbPAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'RPChen | 个人博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'RPChen | 个人博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

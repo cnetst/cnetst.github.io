@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>SSR单端口多用户配置方法 | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="第一部分：直接修改服务端配置文件大法，仅适用于使用单用户配置的情况 首先是服务端的配置 服务端把协议(protocol)配置为 auth_aes128_md5 或 auth_aes128_sha1，然后在协议参数(protocol_param)配置所有可用的用户id及其密码，示例如下： “protocol”: “auth_aes128_sha1”, “protocol_param”: “64#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSR单端口多用户配置方法">
+<meta property="og:url" content="http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/index.html">
+<meta property="og:site_name" content="RPChen`s Blog">
+<meta property="og:description" content="第一部分：直接修改服务端配置文件大法，仅适用于使用单用户配置的情况 首先是服务端的配置 服务端把协议(protocol)配置为 auth_aes128_md5 或 auth_aes128_sha1，然后在协议参数(protocol_param)配置所有可用的用户id及其密码，示例如下： “protocol”: “auth_aes128_sha1”, “protocol_param”: “64#12">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-29T03:44:34.913Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSR单端口多用户配置方法">
+<meta name="twitter:description" content="第一部分：直接修改服务端配置文件大法，仅适用于使用单用户配置的情况 首先是服务端的配置 服务端把协议(protocol)配置为 auth_aes128_md5 或 auth_aes128_sha1，然后在协议参数(protocol_param)配置所有可用的用户id及其密码，示例如下： “protocol”: “auth_aes128_sha1”, “protocol_param”: “64#12">
+    
+        <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">RPChen</h5>
+          <a href="mailto:rpccec@gmail.com" title="rpccec@gmail.com" class="mail">rpccec@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                存档
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SSR单端口多用户配置方法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SSR单端口多用户配置方法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-04T07:36:31.000Z" itemprop="datePublished" class="page-time">
+  2017-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/转载存档/">转载存档</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SSR单端口多用户配置方法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-04 15:36:31" datetime="2017-12-04T07:36:31.000Z"  itemprop="datePublished">2017-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/转载存档/">转载存档</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">第一部分：直接修改服务端配置文件大法，仅适用于使用单用户配置的情况</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 首先是服务端的配置</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 服务端把协议(protocol)配置为 auth_aes128_md5 或 auth_aes128_sha1，然后在协议参数(protocol_param)配置所有可用的用户id及其密码，示例如下：</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">“protocol”: “auth_aes128_sha1”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol_param”: “64#12345:breakwa11,233:zhihuyaowan”,</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">含义：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 在#前面的表示每个用户的最大客户端数，照着写这个值或者不填都可以，但必须有#号。在#后，以英文逗号分隔所有的用户，而英文冒号的前面是用户的id，注意这个id必须是范围在 1~2147483647之间，后面的是用户的密码，密码不能有特殊符号，建议仅使用数字和大小写字母</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">然后是客户端的配置（此处配置同样适合下文的其它配置模式）</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 客户端方面非常简单，需要使用用户id为12345的连接，那么在客户端的协议参数(protocol_param)里面填写 12345:breakwa11 就行了，如果使用id为233的同理，其它参数服务端怎么配置的就怎么写</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">那既然多用户可以单端口了，那能不能做得更像一个网站？完全可以的，如果是http的话，服务端安装一个nginx之类，把端口开在8080（监听127.0.0.1），然后SSR的端口开在80，同时在SSR的user-config.json里修改参数 “redirect” : “127.0.0.1:8080”, 这时，直接用浏览器打开，就可以直接看到你开的网站了，而改成用SSR客户端连接就成了服务端了。不过注意的是这时候最好要开相应的混淆哦ヽ(´▽｀)ノ</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">目前这个是刚出的功能，还在测试中，后端和面板还没有相应的支持，也没有流量控制等，建议几个人自己合玩的时候可以这样用，特别地在某些学校或公司这个功能非常好用的哦。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">第二部分：使用mudbjson模式配置（适合单服务器多人合用或试用服务器）</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 2017-02-21更新：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 现mudbjson模式多用户已支持，简要说明如下：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 首先先创建对应的用户id，如果这个id大于65535，那么此用户仅用于多用户模式，小于等于65535时会同时监听这个端口。然后创建多用户端口，相应的protocol_param里就填写”#”就行了，以下是配置示例：</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">[</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “d”: 0,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “enable”: 1,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “method”: “aes-128-cfb”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs”: “tls1.2_ticket_auth_compatible”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “passwd”: “vwHF%35j”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “port”: 12345,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol”: “auth_aes128_sha1”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol_param”: “#”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “transfer_enable”: 1125899906842624,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “u”: 0,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “user”: “12345”</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> },</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “d”: 0,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “enable”: 1,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “method”: “aes-128-cfb”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs”: “tls1.2_ticket_auth_compatible”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “passwd”: “E&amp;iWmlxu”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “port”: 10001,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol”: “auth_sha1_v4”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “transfer_enable”: 536870912,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “u”: 0,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “user”: “10001”</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> },</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “d”: 0,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “enable”: 1,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “method”: “aes-128-cfb”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs”: “tls1.2_ticket_auth_compatible”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “passwd”: “4~fGiKeY”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “port”: 100002,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol”: “auth_sha1_v4”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “transfer_enable”: 10737418240,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “u”: 0,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “user”: “100002”</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> }</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> ]</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">在以上例子中，端口12345是多用户端口（可看成一个公共用户，但无法直接使用），有两个子用户，一个是10001，一个是100002，而10001用户，既可以使用10001端口，也能通过多用户方式使用12345端口。而100002用户只能使用端口12345。在使用端口12345时，实际的使用流量会统计到10001或100002上。注意的是用户10001在配置客户端使用多用户端口12345的话，配置密码为”vwHF%35j”，即除了协议参数均填写此端口的配置，仅协议参数改为”10001:E&amp;iWmlxu”即可。</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">其它：在使用mujson_mgr.py脚本添加协议参数时请使用-G且参数使用英文双引号包起来</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 如有不明白可留言问</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">第三部分：使用面板支持（适合站长多服务器下使用）</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 2017-01-24更新：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 现在已经有支持此单端口多用户的面板及相应的后端，具体参见 <a href="https://github.com/esdeathlove/ss-panel-v3-mod" target="_blank" rel="noopener">https://github.com/esdeathlove/ss-panel-v3-mod</a></span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">2017-02-21更新：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 如果使用老面板，包括sspanel和WHMCS等，后端更新到最新后，那么可以在user-config.json内，修改或添加如下字段</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “additional_ports” : {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “6666”: {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “passwd”: “pubpassword”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “method”: “aes-128-ctr”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol”: “auth_aes128_md5”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol_param”: “#”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs”: “tls1.2_ticket_auth_compatible”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs_param”: “”</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> }</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> },</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 其中6666是那个端口（如果要设置多个，就additional_ports内再添加一个，注意逗号分隔），protocol必须为auth_aes128_md5或auth_aes128_sha1，protocol_param只需且必须写一个#。（直接复制以上内容时记得修改密码配置）</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">第四部分：高级端口转发</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 如果设置多个多用户端口，想设置不同端口不同的转发规则以最大化伪装为其它服务，例如开了80端口和443端口作为多用户端口（以additional_ports方式作为示例）：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “additional_ports” : {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “80”: {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “passwd”: “pubpassword”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “method”: “aes-128-ctr”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol”: “auth_aes128_md5”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol_param”: “#”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs”: “tls1.2_ticket_auth_compatible”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs_param”: “”</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> },</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “443”: {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “passwd”: “pubpassword”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “method”: “aes-128-ctr”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol”: “auth_aes128_md5”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol_param”: “#”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs”: “tls1.2_ticket_auth_compatible”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs_param”: “”</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> }</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> },</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 同时本地的nginx/apache开启端口1080和1443，那么在user-config.json里修改如下参数：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “redirect” : [“<em>:80#127.0.0.1:1080”, “</em>:443#127.0.0.1:1443”],</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">配置好后，直接访问80或443端口，将是个正常的网站，用SSR去连接则为代理服务。</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 其它：nginx的rewrite规则默认会使用监听的端口，这时会导致rewrite有问题，需要指定一下端口号</span></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-29T03:44:34.913Z" itemprop="dateUpdated">2017-12-29 11:44:34</time>
+</span><br>
+
+
+        
+        转载请注明出处：<a href="/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/" target="_blank" rel="external">http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/</a>
+        
+    </div>
+    <footer>
+        <a href="http://www.rpchen.com">
+            <img src="/img/avatar.jpg" alt="RPChen">
+            RPChen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/&title=《SSR单端口多用户配置方法》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/&title=《SSR单端口多用户配置方法》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR单端口多用户配置方法》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">SSR协议的选择</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/04/ssr-e6-90-ad-e5-bb-ba/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SSR搭建</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p><span>RPChen &copy; 2017</span>
+            <span>
+                
+              Power by <a href="http://www.rpchen.com/" target="_blank">RPChen</a>
+		  </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/&title=《SSR单端口多用户配置方法》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/&title=《SSR单端口多用户配置方法》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR单端口多用户配置方法》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEhElEQVR42u3aS3LiQBAFQN//0swBPMB7VSKG1qRWDixa6mTR9fv5ia/Hr+vZPck6z1Zu3+T3ms/+++z+iy9MmDBhwvSVTI+XV3JPe//sJ3n93c2d0XtiwoQJE6bDmTYPzl/u9UGehAivQ4pkw8m+MGHChAkTps0nyZG/DzU2aTAmTJgwYfqfmTYbu7a4nJee23QaEyZMmDDdj6ldri34Jq+VP3fW8lwVozFhwoQJ07FM+cF8v78/Mt+ECRMmTJi+hulRXjO+2QBNm5bvR46eroMJEyZMmI5l2ieTeSm2HfSZJcZtQJPvFxMmTJgwnciUbCxvT7atx83x3JahZ4M7mDBhwoTpHkztEu34Tg7a4l71VkXSiwkTJkyYjmX6RCk2STvbI382fJOEC0/3ggkTJkyYDmdqW4ZR5fiiMmtOdlUq/tNuDxMmTJgwfTFT20qcHeF5WzTZ3qYY3b5zAYcJEyZMmL6SKW8f7g/pzZ15sjprptZzQ5gwYcKE6SimfSNwPzqTX235+II0HhMmTJgwHcuUFz3bv/M2Z54Mzw74HCWixIQJEyZMRzElNG3COTvgZ+3GfTgSoWPChAkTpmOZ2rTw9THfEifr7AOCvI36JojBhAkTJkzHMs023z6gPbDbom1+5LfhAiZMmDBhuh9TzjEr/s6akZtkuC3yPv0WJkyYMGE6iqldKFm6XS1Pm/chwnD0BxMmTJgw3YIpKnGORnxmT0mKs+067b6KqjMmTJgwYfp6pqRlmB/w15Z382bnJuAoqgKYMGHChOkQpnbp2eb3hePZAGsbUrzZIyZMmDBhOpapTgUX/9183r5hG+jkY6yYMGHChOlEpmhAMzDeD9O0ae0sIR9+FxMmTJgwHci0KeDOyq/tsGn+U+UBx7DIiwkTJkyYDmfaF1VnTcS82TlLv9uwBhMmTJgw3YOpHanZtD9b0HbNzfH/5nNMmDBhwnQs06yMm2xm01Ntk+T8p9q0RTFhwoQJ04lM7YhnWx6djd3MisXJOyTf+svfmDBhwoTpcKbPBQFJUt2m0/v3rPeLCRMmTJgOZ9qM1OQl1DaV3XNf9m6YMGHChOlYpk0K2j6srTTnReFZeFGHHZgwYcKE6VimWXOx/W+bQufJav7jXRCsYMKECROmw5naEmp7hM9Q9j/AbNAnilMwYcKECdMXM+ULtcXZnGNWqM0P8iRhfjNyhAkTJkyYbsF0VYsxCSxy6DwUaMu4RaiBCRMmTJhuwdQGAe2L7lPQ2bBOHqA83SMmTJgwYTqWKQFqW4BXwW0Ghq59OiZMmDBhOpfpUV55K7E9aJM729Lw5vj/S5EXEyZMmDAdyLQ/Ez8xNJOv3I7+tKtdFjpgwoQJE6Z/yvSJkm40ELMOHfKtzkIHTJgwYcJ0J6bNsEuyjTZcmA0MXVtiLsZ3MGHChAnTjZiS9Dj/JC8Tt0+frYAJEyZMmDDl6Wg7VJo3O/ftz7x4jQkTJkyY7sHUDuvMSqV7oKR027ZRIyxMmDBhwnQsU1vuTF46f/V2eHSzveRZqwsTJkyYMH0X0x8HOC/g+9gcFwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'RPChen | 个人博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'RPChen | 个人博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

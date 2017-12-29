@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>ESXI强制标记硬盘SSD | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="列出： esxcli storage core device list 标记： esxcli storage nmp satp rule add -s VMW_SATP_LOCAL -d naa.6b8ca3a0f451a90021a1485e0526587c -o enable_ssd 回收： esxcli storage core claiming reclaim -d naa.6b8ca3a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESXI强制标记硬盘SSD">
+<meta property="og:url" content="http://www.rpchen.com/2017/12/04/esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd/index.html">
+<meta property="og:site_name" content="RPChen`s Blog">
+<meta property="og:description" content="列出： esxcli storage core device list 标记： esxcli storage nmp satp rule add -s VMW_SATP_LOCAL -d naa.6b8ca3a0f451a90021a1485e0526587c -o enable_ssd 回收： esxcli storage core claiming reclaim -d naa.6b8ca3a">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-29T03:44:34.913Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ESXI强制标记硬盘SSD">
+<meta name="twitter:description" content="列出： esxcli storage core device list 标记： esxcli storage nmp satp rule add -s VMW_SATP_LOCAL -d naa.6b8ca3a0f451a90021a1485e0526587c -o enable_ssd 回收： esxcli storage core claiming reclaim -d naa.6b8ca3a">
+    
+        <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">RPChen</h5>
+          <a href="mailto:rpccec@gmail.com" title="rpccec@gmail.com" class="mail">rpccec@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                存档
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ESXI强制标记硬盘SSD</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">ESXI强制标记硬盘SSD</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-04T08:44:22.000Z" itemprop="datePublished" class="page-time">
+  2017-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记存档/">笔记存档</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ESXI强制标记硬盘SSD</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-04 16:44:22" datetime="2017-12-04T08:44:22.000Z"  itemprop="datePublished">2017-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记存档/">笔记存档</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">列出：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> esxcli storage core device list</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 标记：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> esxcli storage nmp satp rule add -s VMW_SATP_LOCAL -d naa.6b8ca3a0f451a90021a1485e0526587c -o enable_ssd</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 回收：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> esxcli storage core claiming reclaim -d naa.6b8ca3a0f451a90021a1485e0526587c</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 查看：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> esxcli storage core device list -d naa.6b8ca3a0f451a90021a1485e0526587c</span></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-29T03:44:34.913Z" itemprop="dateUpdated">2017-12-29 11:44:34</time>
+</span><br>
+
+
+        
+        转载请注明出处：<a href="/2017/12/04/esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd/" target="_blank" rel="external">http://www.rpchen.com/2017/12/04/esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd/</a>
+        
+    </div>
+    <footer>
+        <a href="http://www.rpchen.com">
+            <img src="/img/avatar.jpg" alt="RPChen">
+            RPChen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd/&title=《ESXI强制标记硬盘SSD》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd/&title=《ESXI强制标记硬盘SSD》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ESXI强制标记硬盘SSD》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/06/e4-b8-89-e6-98-9f-e5-b7-a5-e7-a8-8b-e4-bb-a3-e7-a0-81/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">三星工程代码</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/04/e7-94-b3-e8-af-b7lets-encrypt-e8-af-81-e4-b9-a6/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">申请Lets Encrypt证书</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p><span>RPChen &copy; 2017</span>
+            <span>
+                
+              Power by <a href="http://www.rpchen.com/" target="_blank">RPChen</a>
+		  </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd/&title=《ESXI强制标记硬盘SSD》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd/&title=《ESXI强制标记硬盘SSD》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ESXI强制标记硬盘SSD》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/esxi-e5-bc-ba-e5-88-b6-e6-a0-87-e8-ae-b0-e7-a1-ac-e7-9b-98ssd/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADK0lEQVR42u3aS3LbMBAFQN3/0szWKUf0exg6JYKNlcuWCDS4GM/n9YrX8WV9/c27T74G63izvj//+18vXtjY2Ng3YR+nKzlKcoj8W+efyS/i/LTY2NjY+7HPQ1F7lPNvrQXLnB2FVWxsbOwHs88PlIeuPLCdXxY2NjY29ho7/6c/D2NHvLCxsbGx14pKbarQFoDaq/lPtTRsbGzsj2fnXdHP//lX+tvY2NjYH8w+ynUeeK46Yhu6agU2Njb2Ruxrm685oL2OJBFqz4+NjY29E7vdoA0kkwSjHfpZTFGwsbGxb8tuw885uL24PCBNWgI/ZGDY2NjYN2e3Azpr5fhJE3ct4pz3ArCxsbF3Yq9R10Zt8mQj/1bbhMDGxsbelV3/+14yJm3jfPfi9WBjY2M/gN2O0UxGdtpEpW0e/GN3bGxs7I3Y89ZvmzZM2glryLYEho2NjX1Hdn4fOXstLWlfxmJRCRsbG/sB7CQItYX7tRJ/yyuaxNjY2NhbsCdjl224ageDrk1y3va3sbGxsW/OnhTlJ0Eof9pawzjZHRsbG3sn9lrgaYPTWllqPqxThC5sbGzsTdmTkZpri0qTdKW4OWxsbOxbsVvY77Vj1xKS/LR/fQsbGxt7O/ZaQjIZ02kLRm0j+Yd9sbGxsTdirwWktsSTpCuTk+StAmxsbOz92JNwkl/KvAE8eTH1mA42Njb2Fuy8cZuU8vNkZq1xW788bGxs7K3Z8+brJPs54pX0bd+GQ2xsbOxN2VcNxEzGKyeJRxJiCwY2Njb2TdjzQNKmGfkI5rXPf10bP7GxsbE/jJ1skIec/GlrDYm1076dV8LGxsZ+ADtPKubJSVvGylvF2NjY2E9jz0s27YhPfinzkhM2Njb2TuxJ8agt8ax9Jr++onKGjY2NvRG7DQZrIz75E9bCWB5c60vBxsbGvgm7beKulZ/acNWmRnVJCxsbG3s79lpgyJOWSQhcmz+KGr3Y2NjYj2Rf1U5IgtnaLtGO2NjY2I9n5ylEm4q0Q0KLzQNsbGzs7djz5m4b5K5qA/x6ewAbGxv749l5o3dSuM+v+PwKJsND2NjY2Nux/wCyT4aSai/+xAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'RPChen | 个人博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'RPChen | 个人博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
