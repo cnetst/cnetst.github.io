@@ -13,24 +13,25 @@
     
     
     
-    <title>RedHat命令 | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
+    <title>SSR搭建 | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="">
-    <meta name="description" content="帮助手册： man **  查看进程： PS 监听端口： netstat -anp | grep 665">
+    <meta name="keywords" content="SS">
+    <meta name="description" content="SSR服务器端搭建```wget –no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.shchmod +x shadowsocksR.sh./shadowsocksR.sh 2&amp;gt;&amp;amp;1 | tee shadowsocksR.log sh">
+<meta name="keywords" content="SS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RedHat命令">
-<meta property="og:url" content="http://www.rpchen.com/2017/12/04/redhat-e5-91-bd-e4-bb-a4/index.html">
+<meta property="og:title" content="SSR搭建">
+<meta property="og:url" content="http://www.rpchen.com/2017/12/04/ssr-deploy/index.html">
 <meta property="og:site_name" content="RPChen`s Blog">
-<meta property="og:description" content="帮助手册： man **  查看进程： PS 监听端口： netstat -anp | grep 665">
+<meta property="og:description" content="SSR服务器端搭建```wget –no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.shchmod +x shadowsocksR.sh./shadowsocksR.sh 2&amp;gt;&amp;amp;1 | tee shadowsocksR.log sh">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-29T03:44:34.913Z">
+<meta property="og:updated_time" content="2017-12-29T08:04:57.114Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RedHat命令">
-<meta name="twitter:description" content="帮助手册： man **  查看进程： PS 监听端口： netstat -anp | grep 665">
+<meta name="twitter:title" content="SSR搭建">
+<meta name="twitter:description" content="SSR服务器端搭建```wget –no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.shchmod +x shadowsocksR.sh./shadowsocksR.sh 2&amp;gt;&amp;amp;1 | tee shadowsocksR.log sh">
     
         <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
     
@@ -104,7 +105,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">RedHat命令</div>
+        <div class="flex-col header-title ellipsis">SSR搭建</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -126,15 +127,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">RedHat命令</h1>
+        <h1 class="title">SSR搭建</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-12-04T08:05:04.000Z" itemprop="datePublished" class="page-time">
+                <time datetime="2017-12-04T07:35:01.000Z" itemprop="datePublished" class="page-time">
   2017-12-04
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记存档/">笔记存档</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/上网/">上网</a></li></ul>
 
             
         </h5>
@@ -148,16 +149,23 @@
 
 <div class="container body-wrap">
     
-<article id="post-redhat-e5-91-bd-e4-bb-a4"
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SSR服务器端搭建"><span class="post-toc-text">SSR服务器端搭建</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#shadowsocks-json-位置"><span class="post-toc-text">shadowsocks.json 位置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#重启进程"><span class="post-toc-text">重启进程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#卸载"><span class="post-toc-text">卸载</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-ssr-deploy"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">RedHat命令</h1>
+        <h1 class="post-card-title">SSR搭建</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-12-04 16:05:04" datetime="2017-12-04T08:05:04.000Z"  itemprop="datePublished">2017-12-04</time>
+            <time class="post-time" title="2017-12-04 15:35:01" datetime="2017-12-04T07:35:01.000Z"  itemprop="datePublished">2017-12-04</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记存档/">笔记存档</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/上网/">上网</a></li></ul>
 
 
 
@@ -169,9 +177,10 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">帮助手册：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> man **</span></p>
-<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 查看进程：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> PS</span></p>
-<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">监听端口：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> netstat -anp | grep 665</span></p>
+            <h1 id="SSR服务器端搭建"><a href="#SSR服务器端搭建" class="headerlink" title="SSR服务器端搭建"></a>SSR服务器端搭建</h1><p>```<br>wget –no-check-certificate <a href="https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh" target="_blank" rel="noopener">https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh</a><br>chmod +x shadowsocksR.sh<br>./shadowsocksR.sh 2>&amp;1 | tee shadowsocksR.log</p>
+<h1 id="shadowsocks-json-位置"><a href="#shadowsocks-json-位置" class="headerlink" title="shadowsocks.json 位置"></a>shadowsocks.json 位置</h1><p><code>/etc/shadowsocks.json</code></p>
+<h1 id="重启进程"><a href="#重启进程" class="headerlink" title="重启进程"></a>重启进程</h1><p><code>/etc/init.d/shadowsocks restart</code></p>
+<h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><p><code>./shadowsocksR.sh uninstall</code></p>
 
         </div>
 
@@ -179,12 +188,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-12-29T03:44:34.913Z" itemprop="dateUpdated">2017-12-29 11:44:34</time>
+    最后更新时间：<time datetime="2017-12-29T08:04:57.114Z" itemprop="dateUpdated">2017-12-29 16:04:57</time>
 </span><br>
 
 
         
-        转载请注明出处：<a href="/2017/12/04/redhat-e5-91-bd-e4-bb-a4/" target="_blank" rel="external">http://www.rpchen.com/2017/12/04/redhat-e5-91-bd-e4-bb-a4/</a>
+        转载请注明出处：<a href="/2017/12/04/ssr-deploy/" target="_blank" rel="external">http://www.rpchen.com/2017/12/04/ssr-deploy/</a>
         
     </div>
     <footer>
@@ -200,6 +209,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SS/">SS</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -208,7 +219,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/redhat-e5-91-bd-e4-bb-a4/&title=《RedHat命令》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-deploy/&title=《SSR搭建》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -218,22 +229,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/redhat-e5-91-bd-e4-bb-a4/&title=《RedHat命令》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-deploy/&title=《SSR搭建》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/redhat-e5-91-bd-e4-bb-a4/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-deploy/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《RedHat命令》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/redhat-e5-91-bd-e4-bb-a4/&via=http://www.rpchen.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR搭建》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-deploy/&via=http://www.rpchen.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/redhat-e5-91-bd-e4-bb-a4/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-deploy/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -256,20 +267,13 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2017/12/04/vsftpd-e9-85-8d-e7-bd-ae-e6-96-87-e4-bb-b6-e8-af-a6-e8-a7-a3/" id="post-prev" class="post-nav-link">
+      <a href="/2017/12/04/ssr-oneportduouser/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">vsftpd配置文件详解</h4>
+        <h4 class="title">SSR单端口多用户配置方法</h4>
       </a>
     </div>
   
 
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2017/12/04/powershell-e5-91-bd-e4-bb-a4/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">PowerShell命令</h4>
-      </a>
-    </div>
   
 </nav>
 
@@ -327,7 +331,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/redhat-e5-91-bd-e4-bb-a4/&title=《RedHat命令》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-deploy/&title=《SSR搭建》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -337,22 +341,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/redhat-e5-91-bd-e4-bb-a4/&title=《RedHat命令》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-deploy/&title=《SSR搭建》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/redhat-e5-91-bd-e4-bb-a4/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-deploy/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《RedHat命令》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/redhat-e5-91-bd-e4-bb-a4/&via=http://www.rpchen.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR搭建》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-deploy/&via=http://www.rpchen.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/redhat-e5-91-bd-e4-bb-a4/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-deploy/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -363,7 +367,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aS27DMAxF0ex/0+40RWrhPlIpYOpqFKStrOMBK35eL7yut8V/8+6v3r/5/EyeUlwyZMh4LONarrsHcBL5hsDWr0aGDBknMNaHWG/NA27tWeQFyZAhQ8Y6vJIrHQ+jMmTIkLGLkSaoteujDBkyZKRJLNoOB+U0ed6Wi8uQIeOBDH6I///8lf6GDBkyHsW4wkV2SNuZtRT3124yZMgYzUhTzXSQIi3P1UY6ZMiQcQ4jTWVryScfs0hhMmTImM2oDUnUHsnLdrUzyJAhYx6jljqug28rXILEeMMchwwZMh7F4AGuVlAjRbrNSbIMGTLGMXiZvjP6QPD830DxvilDhoxxDP5THlJ5qOWv7I8kVoYMGeMYPK2tJcNk5CsdxUBnkyFDxjhGmjryJkFaSmuBZciQcQAjLcOlQxJpwhy/JhkyZAxl8KCWMvie/FJ4ewYZMmSMZqSFs12jGPxzUM6TIUPGUAZvDNSamv0wjU4lQ4aM0YxaD4Ew0h3S5kQweCFDhowRjM541t6CWmdnGTJknMZIAbsORAY7goArQ4aMcYy0qdm5VqYJbXHYQoYMGSMY/aJ/2kJIhzkQVYYMGaMZfJGH8SR2b0NChgwZJzA6wxO15mU/4MqQIeNMRlrQ7/RLebCOU1kZMmTIANU7nsTWWghJr0CGDBmnM3gK2j8oum7KkCHjAEYnEe10UDsvS4YMGecwaveuDpVfHPlVUoYMGUMZP7PJk2EMAlIBAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACN0lEQVR42u3awW4CMQxF0fn/n55uuqjUEu6zQ6VxblYIweCThYljXxde94+1fv/+tdZPe/Xd6xNLhgwZj2Xcy0V+gLz/6pnk9To2GTJknMMgQfCA1gmapF0emwwZMmS8+sz658mxkm+ZDBkyZNQYtSDIoVOGDBkyOkUsOSbyC7u0eN5Wi8uQIeOBDH7r/v+vP9LfkCFDxqMYd7jId9NU3onn+zkyZMgYzeAJjjc1SbnLRzeC4Q8ZMmQMZfD0R0IhxWe//XDxQGXIkDGO0W808gGLdLPW35UhQ8ZsRppG07Zi5yq/2ACQIUPGOEank8DHJkgK7myWDBkyzmHUwuIHSpLK0+s5GTJknMDgd1ad0Pn2bRjLkCFDxmgGv2JLkX1wp9kpQ4aMeYw0RaZXcmlxW7yGkyFDxlDGukBdp1r+ybRJGW+TDBkyxjF4adoJlwTdOoDKkCHjAAZJo7zETY+GJH2/2RQZMmQcw0iTIC9r+5vy5jMyZMgYzUjbAOuAOuMavJBGzUsZMmSMY5B+5jpo3iRIS1z+lyBDhoxzGLyTsCsF1/oYfzxHhgwZBzD2lpppmuYL9WBlyJAxiHGHqzb4FVzx1+pvGTJkjGakaa5T7vJRsLRRIUOGjBMYtWEvXo7WjptpC0GGDBknMHixmjYJ0hTMU78MGTJk1ArIzzU7i8MWMmTIOJLBj3q8tZkm2W3/GzJkyHgUgxSx6eApL3c7ha4MGTJOYKQHvrRM3ZWONzQ1ZciQ8TzGF26ES6m0fePCAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

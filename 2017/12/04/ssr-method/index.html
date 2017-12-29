@@ -23,7 +23,7 @@
     <meta name="description" content="其实这个要说的少得多，总之就一句话，能用auth_aes128_md5或auth_aes128_sha1的，就直接用这两个，最好不要开启兼容，其它的协议都不建议。但如果要解释的话，这个说来话长，需要一点点说明其它的协议的特性。以下简略说明一下各协议的问题。 首先我们来看原版协议（origin），原版协议有着最少的数据冗余，在没有限制的情况下，必然是原版协议速度最快，这是毫无疑问的。其它的协议的兼容">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSR协议的选择">
-<meta property="og:url" content="http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/index.html">
+<meta property="og:url" content="http://www.rpchen.com/2017/12/04/ssr-method/index.html">
 <meta property="og:site_name" content="RPChen`s Blog">
 <meta property="og:description" content="其实这个要说的少得多，总之就一句话，能用auth_aes128_md5或auth_aes128_sha1的，就直接用这两个，最好不要开启兼容，其它的协议都不建议。但如果要解释的话，这个说来话长，需要一点点说明其它的协议的特性。以下简略说明一下各协议的问题。 首先我们来看原版协议（origin），原版协议有着最少的数据冗余，在没有限制的情况下，必然是原版协议速度最快，这是毫无疑问的。其它的协议的兼容">
 <meta property="og:locale" content="zh-CN">
@@ -148,7 +148,7 @@
 
 <div class="container body-wrap">
     
-<article id="post-ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9"
+<article id="post-ssr-method"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
@@ -204,7 +204,7 @@
 
 
         
-        转载请注明出处：<a href="/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/" target="_blank" rel="external">http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/</a>
+        转载请注明出处：<a href="/2017/12/04/ssr-method/" target="_blank" rel="external">http://www.rpchen.com/2017/12/04/ssr-method/</a>
         
     </div>
     <footer>
@@ -228,7 +228,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/&title=《SSR协议的选择》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-method/&title=《SSR协议的选择》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -238,22 +238,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/&title=《SSR协议的选择》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-method/&title=《SSR协议的选择》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-method/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR协议的选择》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/&via=http://www.rpchen.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR协议的选择》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-method/&via=http://www.rpchen.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-method/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -276,7 +276,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2017/12/04/powershell-e5-91-bd-e4-bb-a4/" id="post-prev" class="post-nav-link">
+      <a href="/2017/12/04/powershellcode/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">PowerShell命令</h4>
       </a>
@@ -285,7 +285,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/" id="post-next" class="post-nav-link">
+      <a href="/2017/12/04/ssr-oneportduouser/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">SSR单端口多用户配置方法</h4>
       </a>
@@ -347,7 +347,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/&title=《SSR协议的选择》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-method/&title=《SSR协议的选择》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -357,22 +357,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/&title=《SSR协议的选择》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-method/&title=《SSR协议的选择》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-method/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR协议的选择》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/&via=http://www.rpchen.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR协议的选择》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-method/&via=http://www.rpchen.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-method/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -383,7 +383,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3aQZLbMAwEQP//005Vro6lAUA4OrROrrWKZvNAYod4veLn/ff59pf35fP5zuc4yd8/3zn24OHh4bWmnkzu1IR6y1FdUDw8PLxt3vVhsPLDX96/fiefMx4eHt4TeMkkkqK8uqC9EfDw8PCewKtu2b1yOT+c8PDw8P4vL48Gkjj11JL9NGvBw8PDq2UChQuwJ3xevN/Dw8PDG9yqz1sBkgOmOk5hnnh4eHgLvOuJ7vUyJW9eh7mFAwMPDw/vKK+39U/K7smy5qHDzbmHh4eHN+All/S99oIeO/+2EB/j4eHhLfCqQWp5a46L4+uieXR04eHh4R3iVRuhroerls7VhUtm+7WYxsPDw1vm5fHrJESYj3bzK3h4eHhrvOpFfrUJYFJw55FH844ODw8Pr7/fviYb96SB4FQrQ6GNAA8PD2/AiwrTAalaoOfRcHKM4eHh4W3wqmFBNFwr8J00K9yA8fDw8I7yJv/wv4OnWtlWF/r6Mx4eHt4Gr3ql1IsPqqHw5MDAw8PD2+blUWkvoj0VLiQHwE1JjYeHh3eUl7cL5FM8cCMXh8s3KTUeHh7eMm8evyZTnBw/+VGBh4eH90ter0Wg1zRQbdgqIPHw8PAWeHmZm5fOvYi2yugdbHh4eHineNWtOZ9u3jTQDGqTb/Hw8PAWeHlEmxwAvZ+cLHE1OMbDw8Ob8ybFcZV36imU73h4eHhrvHygCaMXH4+aD/Dw8PCO8nrbcW8Svdgibyz4xxGFh4eHt8D7zYSq+UDvkqyZuODh4eG1eHkRnEcVSQFdDWR75T4eHh7eHq96AdYrZ39TpuPh4eE9mZdMqxfU9oJjPDw8vKfxJht6LyA+cGGGh4eHt8brXfbP2wt6Acd6ZwQeHh7e4Oorv4iqxsHVAyZpF2hS8fDw8FLeHwRA2k9qYAbPAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3aS07DQBAFwNz/0mHDBiHMe9MGacblVZQEp8uLZvrzesXX+9v1/f3rb67d7eYLAwNjW8b78kqCuw73Gpy8vo4NAwPjOYwkiOTTHHz9yPLYMDAwMEZJMD7wYWBgYPxFwm0PfEnRi4GBgXHNSIrY/GdycFs831CLY2BgbMjIg/j/138y38DAwNiK8S6v5G/bVD6J5/M+GBgYRzPyBJcvRiRttYTdxoOBgXEqY9LQTwrdPMnm7bnXPFAMDIxtGe2gsU2jbaDXj+nLOxgYGEczknzV/nDOq8+wa003DAyMzRlrhWi7NpGk4DyGX2awGBgYD2CsNffXWmztw/rx+xgYGEcz8iSYf5q36vIitljLwMDAOJqxdgTMD4iToebNlToGBsbmjLUUOVm5aPHFUBMDA+M4xnyNtS1Z29Cjx4SBgfEYxqTUnKyRzePBwMA4lTFpabWNtiQprz0UDAyMUxlr6xHt0W1tOSwvpzEwMM5mTMaNbUE7GY5G5S4GBsYDGG1izVPzWru/XrbAwMB4MKNt9LcpeG0A8GMtjoGBcTQjLzXvasYVu2mTGSwGBsbmjHd55YfC+WgzX8XAwMA4m9GmuTa95g21JKHnR0wMDIzzGHmSvWs8sDZ+wMDAwMiL1XZhIj9EtvfEwMDAmB/gJqOFehSKgYGBUbbS2uNjm2Rv+7+BgYGxFaMdBqwVvZMB6m21OAYGxoaMdsUhXwirC9Gg9B0NNTEwMPZjfAAPA5NhYdB+RwAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

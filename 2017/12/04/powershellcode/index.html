@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>PowerShell命令 | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="PowerShell">
+    <meta name="description" content="1.查询值：Get-ADUser -Filter {pager -eq &amp;quot;a1&amp;quot;} 2.修改值：Set-ADUser -DisplayName * get-ADUser -Filter {employeeid -eq &amp;quot;010738955&amp;quot;}|Set-ADUser -employeeid **** Import-Csv -Path c:\abc.csv |">
+<meta name="keywords" content="PowerShell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PowerShell命令">
+<meta property="og:url" content="http://www.rpchen.com/2017/12/04/powershellcode/index.html">
+<meta property="og:site_name" content="RPChen`s Blog">
+<meta property="og:description" content="1.查询值：Get-ADUser -Filter {pager -eq &amp;quot;a1&amp;quot;} 2.修改值：Set-ADUser -DisplayName * get-ADUser -Filter {employeeid -eq &amp;quot;010738955&amp;quot;}|Set-ADUser -employeeid **** Import-Csv -Path c:\abc.csv |">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-29T08:00:28.649Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PowerShell命令">
+<meta name="twitter:description" content="1.查询值：Get-ADUser -Filter {pager -eq &amp;quot;a1&amp;quot;} 2.修改值：Set-ADUser -DisplayName * get-ADUser -Filter {employeeid -eq &amp;quot;010738955&amp;quot;}|Set-ADUser -employeeid **** Import-Csv -Path c:\abc.csv |">
+    
+        <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">RPChen</h5>
+          <a href="mailto:rpccec@gmail.com" title="rpccec@gmail.com" class="mail">rpccec@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                存档
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">PowerShell命令</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">PowerShell命令</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-04T07:53:38.000Z" itemprop="datePublished" class="page-time">
+  2017-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记存档/">笔记存档</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-查询值："><span class="post-toc-text">1.查询值：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-修改值："><span class="post-toc-text">2.修改值：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-查询导出："><span class="post-toc-text">3.查询导出：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-批量导入查询导出："><span class="post-toc-text">4.批量导入查询导出：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-新建："><span class="post-toc-text">5.新建：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-批量创建AD："><span class="post-toc-text">6.批量创建AD：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-启用Exchange："><span class="post-toc-text">7.启用Exchange：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8-查询用户信息："><span class="post-toc-text">8.查询用户信息：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#9-迁移用户数据库："><span class="post-toc-text">9.迁移用户数据库：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#10-启用Skype"><span class="post-toc-text">10.启用Skype:</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-powershellcode"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">PowerShell命令</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-12-04 15:53:38" datetime="2017-12-04T07:53:38.000Z"  itemprop="datePublished">2017-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记存档/">笔记存档</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="1-查询值："><a href="#1-查询值：" class="headerlink" title="1.查询值："></a>1.查询值：</h1><p><code>Get-ADUser -Filter {pager -eq &quot;a1&quot;}</code></p>
+<h1 id="2-修改值："><a href="#2-修改值：" class="headerlink" title="2.修改值："></a>2.修改值：</h1><p><code>Set-ADUser -DisplayName *</code></p>
+<p><code>get-ADUser -Filter {employeeid -eq &quot;010738955&quot;}|Set-ADUser -employeeid ****</code></p>
+<p><code>Import-Csv -Path c:\abc.csv | foreach {Set-ADUser -Identity $.name -DisplayName $.DisplayName}</code></p>
+<h1 id="3-查询导出："><a href="#3-查询导出：" class="headerlink" title="3.查询导出："></a>3.查询导出：</h1><p><code>Get-ADUser -Filter -Properties -SearchBase &quot;OU=GZ,DC=CONTOSO,DC=COM&quot; | Select-Object name,department |Export-Csv -NoTypeInformation -Encoding UTF8 -Path &quot;c:\dep.csv&quot;</code></p>
+<h1 id="4-批量导入查询导出："><a href="#4-批量导入查询导出：" class="headerlink" title="4.批量导入查询导出："></a>4.批量导入查询导出：</h1><p><code>Import-Csv -Path d:\1.csv | foreach {Get-ADUser $_.name -Properties * } |select name,LogonWorkstations|Export-Csv -NoTypeInformation -Encoding UTF8 -Path &quot;d:\dep.csv&quot;</code></p>
+<h1 id="5-新建："><a href="#5-新建：" class="headerlink" title="5.新建："></a>5.新建：</h1><p><code>New-ADUser -Name ken -DisplayName ken -SamAccountName ken -Company canway -UserPrincipalName ken -AccountPassword (ConvertTo-SecureString 1qaz@WSX -AsPlainText -Force) -Enabled $true -Path &quot;ou=it,ou=gz,dc=contoso,dc=com&quot;</code></p>
+<h1 id="6-批量创建AD："><a href="#6-批量创建AD：" class="headerlink" title="6.批量创建AD："></a>6.批量创建AD：</h1><p><code>Import-csv d:\0.csv | foreach {New-ADUser -Name $.name -description $.FullChineseName -givenName $.FirstName -DisplayName $.name -Samaccountname $.name -UserPrincipalName $.un -Surname $.LastName -Company $.StaffCompany -officephone $.officephone -employeeid $.StaffNo -department $.Department -manager $.SuperiorManager -title $_.AccountTitle -AccountPassword (ConvertTo-SecureString Kaifa@123 -AsPlainText -Force) -Path &quot;OU=MDBU1_Users,OU=MDBU1,OU=kfft,DC=gwkf,DC=cn&quot; -ChangePasswordAtlogon $True –Enabled $True}</code></p>
+<h1 id="7-启用Exchange："><a href="#7-启用Exchange：" class="headerlink" title="7.启用Exchange："></a>7.启用Exchange：</h1><p><code>Enable-Mailbox -Identity ShuangShuangGuan -Alias &#39;****&#39; -Database &#39;KFSZStaff05&#39;</code></p>
+<h1 id="8-查询用户信息："><a href="#8-查询用户信息：" class="headerlink" title="8.查询用户信息："></a>8.查询用户信息：</h1><p><code>Get-MailboxStatistics &#39;XiuJuanLi1&#39; | fl</code></p>
+<h1 id="9-迁移用户数据库："><a href="#9-迁移用户数据库：" class="headerlink" title="9.迁移用户数据库："></a>9.迁移用户数据库：</h1><p><code>&quot;BoXie&quot; | New-MoveRequest -TargetDatabase &#39;KFDGManagers01&#39;</code></p>
+<h1 id="10-启用Skype"><a href="#10-启用Skype" class="headerlink" title="10.启用Skype:"></a>10.启用Skype:</h1><p><code>Enable-CsUser –Identity ShuangShuangGuan -RegistrarPool SZSkypePool01.gwkf.cn -SipAddressType UserPrincipalName</code></p>
+<p><code>Import-csv d:\0.csv | foreach {New-ADUser -Name $.name -description $.description -givenName $.givenName -DisplayName $.name -Samaccountname $.name -UserPrincipalName $.un -Surname $.sn -Company $.company -title $_.title -AccountPassword (ConvertTo-SecureString Kaifa@123 -AsPlainText -Force) -Path &quot;OU=CCBU_Users,OU=CCBU,OU=KFPI,DC=gwkf,DC=cn&quot; -ChangePasswordAtlogon $True –Enabled $True}</code></p>
+<p><code>Import-csv c:\ADuser.csv | foreach {New-ADUser -Name $.Name -DisplayName $.Displayname -Samaccountname $.Samaccountname -UserPrincipalName $.UserPrincipalName -Company $.Company -Department $.Department -Surname $.Surname -GivenName $.GivenName -AccountPassword (ConvertTo-SecureString $.AccountPassword -AsPlainText -Force) -Path $.Path -ChangePasswordAtlogon $True –Enabled $True}</code></p>
+<p><code>Import-csv d:\A.csv|foreach{get-adcomputer $_.computer -properties * }|Select-Object name,operatingsystem |Export-Csv -NoTypeInformation -Encoding UTF8 -Path &quot;d:\c.csv&quot;</code></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-29T08:00:28.649Z" itemprop="dateUpdated">2017-12-29 16:00:28</time>
+</span><br>
+
+
+        
+        转载请注明出处：<a href="/2017/12/04/powershellcode/" target="_blank" rel="external">http://www.rpchen.com/2017/12/04/powershellcode/</a>
+        
+    </div>
+    <footer>
+        <a href="http://www.rpchen.com">
+            <img src="/img/avatar.jpg" alt="RPChen">
+            RPChen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PowerShell/">PowerShell</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/powershellcode/&title=《PowerShell命令》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/powershellcode/&title=《PowerShell命令》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/powershellcode/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PowerShell命令》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/powershellcode/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/powershellcode/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/04/redhatcode/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">RedHat命令</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/04/ssr-method/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SSR协议的选择</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p><span>RPChen &copy; 2017</span>
+            <span>
+                
+              Power by <a href="http://www.rpchen.com/" target="_blank">RPChen</a>
+		  </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/powershellcode/&title=《PowerShell命令》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/powershellcode/&title=《PowerShell命令》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/powershellcode/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PowerShell命令》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/powershellcode/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/powershellcode/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aQY7DIAwF0Nz/0pntSNXQb0NGgjxWVdskPCq5YPu64nH/GuP3748xvttf115PDAwMjG0Z93BUGZ+fjsHJ6/HcMDAw3sNIJjH+ThJwq8/Kn4uBgYGRB9/qthIDAwPjOcbMN/MFwsDAwKgeYhNGnrCrHp6XncUxMDA2ZORZ9/9//Uh9AwMDYyvGXRxJoq0ayhfMCgMD42jG/MYuOl4W2yx688HAwDiV0UvZ51flLWJ5ei77aTAwMM5hJEfWKiy/Nl+CZpoPAwPjNYyZKVYDbvXTco4QAwNjQ0b+4HxCeQNZb1MYdYtgYGAcxFhwWXDUTJYmb8i4elPBwMDYlpFv15LQmYTa8dazVyLFwMA4mzETLpP2iJmiZnlZMTAwXsN44oA6XzqN5omBgXE0Y2pDFgfEXrPFIzVYDAyMbRm9tobeFjC/T9LkgYGBcTbjbo3qIbaayS9vVTEwMI5mjAPZqkT/zD0LB10MDIxXMmaScdV2il77xYK1xMDA2JbRS4T10v3VMkAh4GJgYLyGkTeE9QLusvcxMDBewJhJrvVKm1+qqdU2MgwMjEMZvZJAtXkrD9nVZYoeiYGBsTljJszNNGSsarwowzAwMLZlVIPsTAmzegcMDAyMaqDME/3VUkH+D/DlLI6BgYFRZFTbwqaOrBgYGBjFFH+1tJnPcFnAxcDA2JCRHGJ74XJVQXRBswUGBsa2jJl9V95mUW25yJvMMDAwjmb8ALLmvCpxsBhtAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'RPChen | 个人博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'RPChen | 个人博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

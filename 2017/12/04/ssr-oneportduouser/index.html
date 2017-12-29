@@ -23,7 +23,7 @@
     <meta name="description" content="第一部分：直接修改服务端配置文件大法，仅适用于使用单用户配置的情况 首先是服务端的配置 服务端把协议(protocol)配置为 auth_aes128_md5 或 auth_aes128_sha1，然后在协议参数(protocol_param)配置所有可用的用户id及其密码，示例如下： “protocol”: “auth_aes128_sha1”, “protocol_param”: “64#12">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSR单端口多用户配置方法">
-<meta property="og:url" content="http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/index.html">
+<meta property="og:url" content="http://www.rpchen.com/2017/12/04/ssr-oneportduouser/index.html">
 <meta property="og:site_name" content="RPChen`s Blog">
 <meta property="og:description" content="第一部分：直接修改服务端配置文件大法，仅适用于使用单用户配置的情况 首先是服务端的配置 服务端把协议(protocol)配置为 auth_aes128_md5 或 auth_aes128_sha1，然后在协议参数(protocol_param)配置所有可用的用户id及其密码，示例如下： “protocol”: “auth_aes128_sha1”, “protocol_param”: “64#12">
 <meta property="og:locale" content="zh-CN">
@@ -148,7 +148,7 @@
 
 <div class="container body-wrap">
     
-<article id="post-ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95"
+<article id="post-ssr-oneportduouser"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
@@ -195,7 +195,7 @@
 
 
         
-        转载请注明出处：<a href="/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/" target="_blank" rel="external">http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/</a>
+        转载请注明出处：<a href="/2017/12/04/ssr-oneportduouser/" target="_blank" rel="external">http://www.rpchen.com/2017/12/04/ssr-oneportduouser/</a>
         
     </div>
     <footer>
@@ -219,7 +219,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/&title=《SSR单端口多用户配置方法》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-oneportduouser/&title=《SSR单端口多用户配置方法》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -229,22 +229,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/&title=《SSR单端口多用户配置方法》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-oneportduouser/&title=《SSR单端口多用户配置方法》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-oneportduouser/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR单端口多用户配置方法》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/&via=http://www.rpchen.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR单端口多用户配置方法》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-oneportduouser/&via=http://www.rpchen.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-oneportduouser/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -267,7 +267,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2017/12/04/ssr-e5-8d-8f-e8-ae-ae-e7-9a-84-e9-80-89-e6-8b-a9/" id="post-prev" class="post-nav-link">
+      <a href="/2017/12/04/ssr-method/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">SSR协议的选择</h4>
       </a>
@@ -276,7 +276,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2017/12/04/ssr-e6-90-ad-e5-bb-ba/" id="post-next" class="post-nav-link">
+      <a href="/2017/12/04/ssr-deploy/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">SSR搭建</h4>
       </a>
@@ -338,7 +338,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/&title=《SSR单端口多用户配置方法》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2017/12/04/ssr-oneportduouser/&title=《SSR单端口多用户配置方法》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -348,22 +348,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/&title=《SSR单端口多用户配置方法》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2017/12/04/ssr-oneportduouser/&title=《SSR单端口多用户配置方法》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2017/12/04/ssr-oneportduouser/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR单端口多用户配置方法》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/&via=http://www.rpchen.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSR单端口多用户配置方法》 — RPChen`s Blog&url=http://www.rpchen.com/2017/12/04/ssr-oneportduouser/&via=http://www.rpchen.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-e5-8d-95-e7-ab-af-e5-8f-a3-e5-a4-9a-e7-94-a8-e6-88-b7-e9-85-8d-e7-bd-ae-e6-96-b9-e6-b3-95/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2017/12/04/ssr-oneportduouser/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -374,7 +374,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEhElEQVR42u3aS3LiQBAFQN//0swBPMB7VSKG1qRWDixa6mTR9fv5ia/Hr+vZPck6z1Zu3+T3ms/+++z+iy9MmDBhwvSVTI+XV3JPe//sJ3n93c2d0XtiwoQJE6bDmTYPzl/u9UGehAivQ4pkw8m+MGHChAkTps0nyZG/DzU2aTAmTJgwYfqfmTYbu7a4nJee23QaEyZMmDDdj6ldri34Jq+VP3fW8lwVozFhwoQJ07FM+cF8v78/Mt+ECRMmTJi+hulRXjO+2QBNm5bvR46eroMJEyZMmI5l2ieTeSm2HfSZJcZtQJPvFxMmTJgwnciUbCxvT7atx83x3JahZ4M7mDBhwoTpHkztEu34Tg7a4l71VkXSiwkTJkyYjmX6RCk2STvbI382fJOEC0/3ggkTJkyYDmdqW4ZR5fiiMmtOdlUq/tNuDxMmTJgwfTFT20qcHeF5WzTZ3qYY3b5zAYcJEyZMmL6SKW8f7g/pzZ15sjprptZzQ5gwYcKE6SimfSNwPzqTX235+II0HhMmTJgwHcuUFz3bv/M2Z54Mzw74HCWixIQJEyZMRzElNG3COTvgZ+3GfTgSoWPChAkTpmOZ2rTw9THfEifr7AOCvI36JojBhAkTJkzHMs023z6gPbDbom1+5LfhAiZMmDBhuh9TzjEr/s6akZtkuC3yPv0WJkyYMGE6iqldKFm6XS1Pm/chwnD0BxMmTJgw3YIpKnGORnxmT0mKs+067b6KqjMmTJgwYfp6pqRlmB/w15Z382bnJuAoqgKYMGHChOkQpnbp2eb3hePZAGsbUrzZIyZMmDBhOpapTgUX/9183r5hG+jkY6yYMGHChOlEpmhAMzDeD9O0ae0sIR9+FxMmTJgwHci0KeDOyq/tsGn+U+UBx7DIiwkTJkyYDmfaF1VnTcS82TlLv9uwBhMmTJgw3YOpHanZtD9b0HbNzfH/5nNMmDBhwnQs06yMm2xm01Ntk+T8p9q0RTFhwoQJ04lM7YhnWx6djd3MisXJOyTf+svfmDBhwoTpcKbPBQFJUt2m0/v3rPeLCRMmTJgOZ9qM1OQl1DaV3XNf9m6YMGHChOlYpk0K2j6srTTnReFZeFGHHZgwYcKE6VimWXOx/W+bQufJav7jXRCsYMKECROmw5naEmp7hM9Q9j/AbNAnilMwYcKECdMXM+ULtcXZnGNWqM0P8iRhfjNyhAkTJkyYbsF0VYsxCSxy6DwUaMu4RaiBCRMmTJhuwdQGAe2L7lPQ2bBOHqA83SMmTJgwYTqWKQFqW4BXwW0Ghq59OiZMmDBhOpfpUV55K7E9aJM729Lw5vj/S5EXEyZMmDAdyLQ/Ez8xNJOv3I7+tKtdFjpgwoQJE6Z/yvSJkm40ELMOHfKtzkIHTJgwYcJ0J6bNsEuyjTZcmA0MXVtiLsZ3MGHChAnTjZiS9Dj/JC8Tt0+frYAJEyZMmDDl6Wg7VJo3O/ftz7x4jQkTJkyY7sHUDuvMSqV7oKR027ZRIyxMmDBhwnQsU1vuTF46f/V2eHSzveRZqwsTJkyYMH0X0x8HOC/g+9gcFwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3awW6sMAwF0P7/T9Ptk0bM3OswfSKcrFDLACcLy3b88xOv45/1+vezO1//+/qr1+uzX12wMDAwbss43q6zF5xdv//cFdiHDcLAwHgAo330LOC+v3+2QRgYGBhJ6EyC6Sx8Y2BgYMwYSQDNw2sefDEwMDCSIvbahl3yrq/U4hgYGDdk5B/x99dfOd/AwMC4FeMoV5vw5SHyWFgYGBh7M/IAl7f726e14NONw8DA2JqRjEckjOS3bVNvWLJiYGBsxMiTudno2NKRZIzEwMB4AiNvzefBepbwDVtvGBgYWzPWhy3yBLG9sw3NGBgYuzLaY4BZkdmOWdRtOAwMjK0Z65g8pK4H5Q/bioGBsSmjfVz7cR/aZEHS+T5BxMDAeAJjlvAlj27vaYvY01IWAwNjU0abiuUHCW0BnG8cBgbG0xjtIEUCzptuM+RpaoiBgbEpI2mo5YMR+VFB/rRhnouBgbEFIwm1syC4kizWIyAYGBhbM64qVtvjyTwQ51uAgYGxN2NWlOaNsFm7vx5Tw8DAeBhjliyutP7bc4wPXUMMDIxNGbNErR2YyFtyeYMPAwNjb8ZRrlnTbdbCq+tvDAyMTRltmJs9um3AJSXrMGRjYGDclpEH2bywXP/0L063YWBg3JbRjjUkyd9VbbioDMbAwMAoW/azKYjZGzEwMDDadHA9xWzfgoGB8RzG7DAgT/vWDxIuq8UxMDBuyFia1CgHKf5X6YuBgXFbxi9l1NsZJdoCNQAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
