@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>LNMP安装 | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="LNMP,LAMP,LNMPA">
+    <meta name="description" content="12yum -y install wgetwget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;amp;&amp;amp; tar zxf lnmp1.4.tar.gz &amp;amp;&amp;amp; cd lnmp1.4 &amp;amp;&amp;amp; ./install.sh lnmp 默认安装lnmp可不写，如需要安装LNMPA或LAMP，将./install.sh 后面">
+<meta name="keywords" content="LNMP,LAMP,LNMPA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LNMP安装">
+<meta property="og:url" content="http://www.rpchen.com/2018/01/02/LNMPinstall/index.html">
+<meta property="og:site_name" content="RPChen`s Blog">
+<meta property="og:description" content="12yum -y install wgetwget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;amp;&amp;amp; tar zxf lnmp1.4.tar.gz &amp;amp;&amp;amp; cd lnmp1.4 &amp;amp;&amp;amp; ./install.sh lnmp 默认安装lnmp可不写，如需要安装LNMPA或LAMP，将./install.sh 后面">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-02T02:19:18.535Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LNMP安装">
+<meta name="twitter:description" content="12yum -y install wgetwget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;amp;&amp;amp; tar zxf lnmp1.4.tar.gz &amp;amp;&amp;amp; cd lnmp1.4 &amp;amp;&amp;amp; ./install.sh lnmp 默认安装lnmp可不写，如需要安装LNMPA或LAMP，将./install.sh 后面">
+    
+        <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">RPChen</h5>
+          <a href="mailto:rpccec@gmail.com" title="rpccec@gmail.com" class="mail">rpccec@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                存档
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">LNMP安装</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">LNMP安装</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-02T02:16:23.000Z" itemprop="datePublished" class="page-time">
+  2018-01-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/建站/">建站</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-LNMPinstall"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">LNMP安装</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-02 10:16:23" datetime="2018-01-02T02:16:23.000Z"  itemprop="datePublished">2018-01-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/建站/">建站</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line">wget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;&amp; tar zxf lnmp1.4.tar.gz &amp;&amp; cd lnmp1.4 &amp;&amp; ./install.sh lnmp</span><br></pre></td></tr></table></figure>
+<p>默认安装lnmp可不写，如需要安装LNMPA或LAMP，将./install.sh 后面的参数替换为lnmpa或lamp即可。如需更改网站和数据库目录先修改安装包目录下的 lnmp.conf 文件。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-01-02T02:19:18.535Z" itemprop="dateUpdated">2018-01-02 10:19:18</time>
+</span><br>
+
+
+        
+        转载请注明出处：<a href="/2018/01/02/LNMPinstall/" target="_blank" rel="external">http://www.rpchen.com/2018/01/02/LNMPinstall/</a>
+        
+    </div>
+    <footer>
+        <a href="http://www.rpchen.com">
+            <img src="/img/avatar.jpg" alt="RPChen">
+            RPChen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LAMP/">LAMP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LNMP/">LNMP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LNMPA/">LNMPA</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/01/02/LNMPinstall/&title=《LNMP安装》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/01/02/LNMPinstall/&title=《LNMP安装》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/01/02/LNMPinstall/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LNMP安装》 — RPChen`s Blog&url=http://www.rpchen.com/2018/01/02/LNMPinstall/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/01/02/LNMPinstall/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/02/lnmpfile/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">LNMP文件目录</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/02/http2https/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">http转https(nginx)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p><span>RPChen &copy; 2017 - 2018</span>
+            <span>
+                
+              Power by <a href="http://www.rpchen.com/" target="_blank">RPChen</a>
+		  </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/01/02/LNMPinstall/&title=《LNMP安装》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/01/02/LNMPinstall/&title=《LNMP安装》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/01/02/LNMPinstall/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LNMP安装》 — RPChen`s Blog&url=http://www.rpchen.com/2018/01/02/LNMPinstall/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/01/02/LNMPinstall/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHElEQVR42u3aS27EIBAFwLn/pZ1tpMjM6wZHMhSrkeIYyosW/fl84nX9WuO/3q3x88kuCxYGBsZrGcn242OND/H3PdXfyafBwMA4gXF3rPGrx++Jto9JX86MgYGBUQyO1RCMgYGB8VzAzdPOapjGwMDA6CWxSYjMw2h1r2W5OAYGxgsZedX9/38/0t/AwMB4FeMqrvzaV21MXhMLAwNjb0Ye4PLxiB67OmyBgYFxJmMmla0msTPPYGBgnMlYO2DxXKuysDsGBsYBjJlCWP58PorRrA5iYGBswagW18ZXtPF/5aH5kTELDAyMjRgJcuZCmSfJeaKLgYGxN6OaTCbXuF5g7X3E2/4GBgbGRoxewasafKshuJxsY2BgbM1IBil6AxnVoY1qG6Bwz8XAwNiCsapMnyervdyz2bzEwMB4OSMPr/lwWC+MJpfF2ysmBgbGAYy8AZnE7zxxXdbIxMDA2JrRSyDza+JaUvTpMTAwtmZUW4y9JuV8gzM6DwYGxnaMXjNy5ujV8a9ojAwDA+NgRjVEzrQ/Z3bBwMA4hzHTsOyV8FZRMTAwdmVcxZWTkoMmJbnyKBgGBsZ2jHzlpJxXvVaWa4cYGBgbMZIgm7QhqyFyJuBiYGCcyaiWzKpDq72CWiH0Y2BgYMSkfFQiCamFdgUGBgbGA8+sGjXDwMA4h5GEwuTCl4TXtQkwBgbGCYxlIa+Vgs68GQMD4wDGD1E9DcujWgtGAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

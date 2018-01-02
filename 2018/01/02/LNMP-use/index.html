@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>LNMP使用教程 | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="LNMP">
+    <meta name="description" content="添加网站(虚拟主机)执行：lnmp vhost add 伪静态管理LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。虚拟主机配置文件在：/usr/local/nginx">
+<meta name="keywords" content="LNMP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LNMP使用教程">
+<meta property="og:url" content="http://www.rpchen.com/2018/01/02/LNMP-use/index.html">
+<meta property="og:site_name" content="RPChen`s Blog">
+<meta property="og:description" content="添加网站(虚拟主机)执行：lnmp vhost add 伪静态管理LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。虚拟主机配置文件在：/usr/local/nginx">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-02T02:31:33.432Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LNMP使用教程">
+<meta name="twitter:description" content="添加网站(虚拟主机)执行：lnmp vhost add 伪静态管理LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。虚拟主机配置文件在：/usr/local/nginx">
+    
+        <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">RPChen</h5>
+          <a href="mailto:rpccec@gmail.com" title="rpccec@gmail.com" class="mail">rpccec@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                存档
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">LNMP使用教程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">LNMP使用教程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-02T02:26:35.000Z" itemprop="datePublished" class="page-time">
+  2018-01-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/建站/">建站</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加网站-虚拟主机"><span class="post-toc-text">添加网站(虚拟主机)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#伪静态管理"><span class="post-toc-text">伪静态管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#上传网站程序"><span class="post-toc-text">上传网站程序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#已存在虚拟主机添加ssl证书开启https"><span class="post-toc-text">已存在虚拟主机添加ssl证书开启https</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列出网站-虚拟主机"><span class="post-toc-text">列出网站(虚拟主机)</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-LNMP-use"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">LNMP使用教程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-02 10:26:35" datetime="2018-01-02T02:26:35.000Z"  itemprop="datePublished">2018-01-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/建站/">建站</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="添加网站-虚拟主机"><a href="#添加网站-虚拟主机" class="headerlink" title="添加网站(虚拟主机)"></a>添加网站(虚拟主机)</h2><p>执行：<code>lnmp vhost add</code></p>
+<h2 id="伪静态管理"><a href="#伪静态管理" class="headerlink" title="伪静态管理"></a>伪静态管理</h2><p>LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。<br>伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。<br>虚拟主机配置文件在：<code>/usr/local/nginx/conf/vhost/域名.conf</code></p>
+<p>伪静态规则文件需要放在<code>/usr/local/nginx/conf/</code> 下面。<br>编辑虚拟主机配置文件，可以使用vi、nano或winscp，后2个工具对新手来说简单些。</p>
+<p>例如前面我们添加的虚拟主机，打开后前半部分配置会显示如下：<br>在<code>root /home/wwwroot/www.vpser.net</code>;这一行下面添加：<br><code>include wordpress.conf;</code><br>上面的wordpress.conf为伪静态文件，如需要其他伪静态文件自己创建个并上传到/usr/local/nginx/conf/ 下面并include 伪静态.conf; 加完保存，</p>
+<p>执行：<code>/etc/init.d/nginx restart</code> 重启生效，如果报错可能是添加有误或伪静态规则有误。</p>
+<h2 id="上传网站程序"><a href="#上传网站程序" class="headerlink" title="上传网站程序"></a>上传网站程序</h2><p>如果已经安装FTP服务器可以直接使用ftp客户端通过你的FTP信息登录后上传网站或sftp等软件上传网站，设置好相关权限开始安装即可。<br>上传网站后建议执行：<code>chown www:www -R /path/to/dir</code> 对网站目录进行权限设置，/path/to/dir替换为你网站目录。<br>为了安全可以将一些不需要PHP运行的上传文件之类的目录去掉执行权限，参考：<a href="http://www.vpser.net/security/lnmp-remove-nginx-php-execute.html" target="_blank" rel="noopener">http://www.vpser.net/security/lnmp-remove-nginx-php-execute.html</a></p>
+<h2 id="已存在虚拟主机添加ssl证书开启https"><a href="#已存在虚拟主机添加ssl证书开启https" class="headerlink" title="已存在虚拟主机添加ssl证书开启https"></a>已存在虚拟主机添加ssl证书开启https</h2><p>对于已存在的虚拟主机添加https站点，可以执行：<code>lnmp ssl add</code> 命令添加ssl证书，目前有两种方式一种是使用自备的ssl证书，二是采用Let’sEncrypt的免费证书。添加过程和前面的添加虚拟主机的过程是一样的，只是会多一项填写ssl证书和key的步骤或直接选择Let’sEncrypt自动生成证书。<br>如果是1.*版本升级到1.4或更改版本的需要参考：<a href="https://lnmp.org/faq/upgrade1-4.html" target="_blank" rel="noopener">https://lnmp.org/faq/upgrade1-4.html</a> 中的说明，如果有提示不安全或不显示小绿锁上面链接中也有说明。</p>
+<h2 id="列出网站-虚拟主机"><a href="#列出网站-虚拟主机" class="headerlink" title="列出网站(虚拟主机)"></a>列出网站(虚拟主机)</h2><p>执行：<code>lnmp vhost list</code></p>
+<p>##删除网站(虚拟主机)##<br>执行：<code>lnmp vhost del</code></p>
+<p>删除网站会先列出当前已有虚拟主机，按提示输入要删除的虚拟主机域名 回车确认。</p>
+<p>这里只是删除虚拟主机配置文件，网站文件并不会删除需要自己删除。<br>LNMP 1.2下需要执行：<code>chattr -i /网站目录/.user.ini</code> 后才能删除网站目录。</p>
+<p>当执行chown或chmod对网站目录属主属组或权限进行操作时可能会提示chown: changing ownership of `/home/wwwroot/default/.user.ini’: Operation not permitted，不需要理会，如果有强迫症可以参考前面先进行chattr -i的操作。</p>
+<p>##默认网站(虚拟主机)##<br>LNMP默认网站配置文件：<code>/usr/local/nginx/conf/nginx.conf</code><br>LNMPA默认网站配置文件：<code>/usr/local/nginx/conf/nginx.conf</code> 和 <code>/usr/local/apache/conf/extra/httpd-vhosts.conf</code><br>LAMP默认网站配置文件：<code>/usr/local/apache/conf/extra/httpd-vhosts.conf</code></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-01-02T02:31:33.432Z" itemprop="dateUpdated">2018-01-02 10:31:33</time>
+</span><br>
+
+
+        
+        转载请注明出处：<a href="/2018/01/02/LNMP-use/" target="_blank" rel="external">http://www.rpchen.com/2018/01/02/LNMP-use/</a>
+        
+    </div>
+    <footer>
+        <a href="http://www.rpchen.com">
+            <img src="/img/avatar.jpg" alt="RPChen">
+            RPChen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LNMP/">LNMP</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/01/02/LNMP-use/&title=《LNMP使用教程》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/01/02/LNMP-use/&title=《LNMP使用教程》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/01/02/LNMP-use/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LNMP使用教程》 — RPChen`s Blog&url=http://www.rpchen.com/2018/01/02/LNMP-use/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/01/02/LNMP-use/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/02/SSPanel-500/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">SSPanel 500 错误</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/02/lnmpfile/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">LNMP文件目录</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p><span>RPChen &copy; 2017 - 2018</span>
+            <span>
+                
+              Power by <a href="http://www.rpchen.com/" target="_blank">RPChen</a>
+		  </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/01/02/LNMP-use/&title=《LNMP使用教程》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/01/02/LNMP-use/&title=《LNMP使用教程》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/01/02/LNMP-use/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LNMP使用教程》 — RPChen`s Blog&url=http://www.rpchen.com/2018/01/02/LNMP-use/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/01/02/LNMP-use/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvklEQVR42u3aS47CMBAFQO5/6cwWiYnz2h2bIJVXCExS3rTcn9crXsfbev/mc0/+37P9NyxcXNw29xiu8Z6zX8fvOvs8fgsuLu5+bvXR4wN3nn/xX1xc3Adzx7hxUEsuTLi4uL/OzcMcLi7ub3GriGpQ+0KuhouL2+DmVcp1n5fUd3Fxcae4R3GNLx9z3MLbcXFxt3DzgDJXDJ379WInLi7uFm5+o7iXPpdQ4eLi7uTmYaUKqjZoW0MYuLi4bW4SYpIQdu915/SQuLi4W7hJ03QuIcmJ1QYtLi7ufm6niZIcoNO2wcXF3cPtlyo6LZYkjP6T/ODi4i7m5o3P/s5qGSUKZ7i4uMu4nQfNNWXzam7UUMHFxV3GHW/NiyBzHd1qERYXF3c1N09gCg2P4EqU4KI5Mlxc3MXcPOGpBsEOERcX97vcfCWjG3Pr4gm4uLiLuUdxzaVMSckjOiQuLu4WbidszR2mMBUSD3bg4uKu4OZBJx+bqKZShasSLi7uRm410HSaLjdcX3BxcR/GraY6+WhFYRgLFxf3Ydz8MEtKqLi4uBu5/aBTTXLyQIaLi7uf2884OoXUfBgUFxd3C/cPDv/sCxzYoOoAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
