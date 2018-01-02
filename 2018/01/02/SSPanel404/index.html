@@ -20,18 +20,18 @@
     
     
     <meta name="keywords" content="SS,SSPanel">
-    <meta name="description" content="nginx伪静态设置：  vi /usr/local/nginx/conf/vhost/你的域名.conf添加location /{    try_files $uri $uri/ /index.php$is_args$args;}">
+    <meta name="description" content="nginx伪静态设置： vi /usr/local/nginx/conf/vhost/你的域名.conf 添加  location /{    try_files $uri $uri/ /index.php$is_args$args;}">
 <meta name="keywords" content="SS,SSPanel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSPanel 除主页外404错误">
 <meta property="og:url" content="http://www.rpchen.com/2018/01/02/SSPanel404/index.html">
 <meta property="og:site_name" content="RPChen`s Blog">
-<meta property="og:description" content="nginx伪静态设置：  vi /usr/local/nginx/conf/vhost/你的域名.conf添加location /{    try_files $uri $uri/ /index.php$is_args$args;}">
+<meta property="og:description" content="nginx伪静态设置： vi /usr/local/nginx/conf/vhost/你的域名.conf 添加  location /{    try_files $uri $uri/ /index.php$is_args$args;}">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-02T03:00:44.604Z">
+<meta property="og:updated_time" content="2018-01-02T03:15:38.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSPanel 除主页外404错误">
-<meta name="twitter:description" content="nginx伪静态设置：  vi /usr/local/nginx/conf/vhost/你的域名.conf添加location /{    try_files $uri $uri/ /index.php$is_args$args;}">
+<meta name="twitter:description" content="nginx伪静态设置： vi /usr/local/nginx/conf/vhost/你的域名.conf 添加  location /{    try_files $uri $uri/ /index.php$is_args$args;}">
     
         <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
     
@@ -171,8 +171,10 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>nginx伪静态设置：</p>
+<pre><code>vi /usr/local/nginx/conf/vhost/你的域名.conf
+</code></pre><p>添加</p>
 <blockquote>
-<p>vi /usr/local/nginx/conf/vhost/你的域名.conf<br>添加<br>location /<br>{<br>    try_files $uri $uri/ /index.php$is_args$args;<br>}</p>
+<p>location /<br>{<br>    try_files $uri $uri/ /index.php$is_args$args;<br>}</p>
 </blockquote>
 
         </div>
@@ -181,7 +183,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-01-02T03:00:44.604Z" itemprop="dateUpdated">2018-01-02 11:00:44</time>
+    最后更新时间：<time datetime="2018-01-02T03:15:38.877Z" itemprop="dateUpdated">2018-01-02 11:15:38</time>
 </span><br>
 
 

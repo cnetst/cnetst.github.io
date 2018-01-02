@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.rpchen.com/"/>
-  <updated>2018-01-02T03:00:44.604Z</updated>
+  <updated>2018-01-02T03:15:38.877Z</updated>
   <id>http://www.rpchen.com/</id>
   
   <author>
@@ -21,17 +21,19 @@
     <link href="http://www.rpchen.com/2018/01/02/SSPanel404/"/>
     <id>http://www.rpchen.com/2018/01/02/SSPanel404/</id>
     <published>2018-01-02T02:58:18.000Z</published>
-    <updated>2018-01-02T03:00:44.604Z</updated>
+    <updated>2018-01-02T03:15:38.877Z</updated>
     
-    <content type="html"><![CDATA[<p>nginx伪静态设置：</p><blockquote><p>vi /usr/local/nginx/conf/vhost/你的域名.conf<br>添加<br>location /<br>{<br>    try_files $uri $uri/ /index.php$is_args$args;<br>}</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>nginx伪静态设置：</p><pre><code>vi /usr/local/nginx/conf/vhost/你的域名.conf</code></pre><p>添加</p><blockquote><p>location /<br>{<br>    try_files $uri $uri/ /index.php$is_args$args;<br>}</p></blockquote>]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;nginx伪静态设置：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vi /usr/local/nginx/conf/vhost/你的域名.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;添加&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;vi /usr/local/nginx/conf/vhost/你的域名.conf&lt;br&gt;添加&lt;br&gt;location /&lt;br&gt;{&lt;br&gt;    try_files $uri $uri/ /index.php$
+&lt;p&gt;location /&lt;br&gt;{&lt;br&gt;    try_fil
       
     
     </summary>
@@ -50,15 +52,17 @@
     <link href="http://www.rpchen.com/2018/01/02/SSPanel-install/"/>
     <id>http://www.rpchen.com/2018/01/02/SSPanel-install/</id>
     <published>2018-01-02T02:39:07.000Z</published>
-    <updated>2018-01-02T02:58:01.228Z</updated>
+    <updated>2018-01-02T03:14:51.084Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-新建网站"><a href="#1-新建网站" class="headerlink" title="1.新建网站"></a>1.新建网站</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lnmp vhost add</span><br></pre></td></tr></table></figure><p>vi打开你的nginx站点配置文件：<code>/usr/local/nginx/conf/vhost/域名.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /usr/local/nginx/conf/vhost/你的域名.conf</span><br></pre></td></tr></table></figure></p><p>添加下面这段代码到你的配置文件中:</p><blockquote><p>location /<br>{<br>    try_files $uri $uri/ /index.php$is_args$args;<br>}</p></blockquote><p>并在root那一行在后面添加一个public:</p><blockquote><p>root  /home/wwwroot/s.rpchen.com/public;</p></blockquote><h2 id="2-安装前端"><a href="#2-安装前端" class="headerlink" title="2.安装前端"></a>2.安装前端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd /home/wwwroot/域名</span><br><span class="line">yum install git -y</span><br><span class="line">git clone https://github.com/glzjin/ss-panel-v3-mod.git tmp -b new_master &amp;&amp; mv tmp/.git . &amp;&amp; rm -rf tmp &amp;&amp; git reset --hard</span><br><span class="line">chown -R root:root *</span><br><span class="line">chmod -R 777 *</span><br><span class="line">chown -R www:www storage</span><br><span class="line">chattr -i .user.ini</span><br><span class="line">mv .user.ini public</span><br><span class="line">cd public</span><br><span class="line">chattr +i .user.ini</span><br><span class="line">service nginx restart</span><br></pre></td></tr></table></figure><h2 id="3-配置数据库"><a href="#3-配置数据库" class="headerlink" title="3.配置数据库"></a>3.配置数据库</h2><p>通过浏览器打开phpmyadmin：<code>http://你VPS的IP/phpmyadmin/</code><br>登录进去新建一个用户并为这个用户创建一个同名的数据库，并授予全部权限，<br>接着将glzjin_all.sql导入到这个新建的数据库中。<br>进行ss-panel-v3-mod的配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /home/wwwroot/你站点的域名</span><br><span class="line">php composer.phar install</span><br><span class="line">cp config/.config.php.example config/.config.php</span><br><span class="line">vi config/.config.php</span><br></pre></td></tr></table></figure></p><p>配置数据库等信息后给ss-panel-v3-mod创建一个管理员账号并同步用户：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">php -n xcat createAdmin</span><br><span class="line">php xcat syncusers</span><br></pre></td></tr></table></figure></p><p>设置几个定时任务确保ss-panel-v3-mod的长期稳定运行。<br>输入命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y vixie-cron</span><br><span class="line">crontab -e</span><br></pre></td></tr></table></figure></p><p>添加如下文本：<br>30 22 <em> </em> <em> php /home/wwwroot/你的站点域名/xcat sendDiaryMail</em>/1 <em> </em> <em> </em> php /home/wwwroot/你的站点域名/xcat synclogin<br><em>/1 </em> <em> </em> <em> php /home/wwwroot/你的站点域名/xcat syncvpn<br>0 0 </em> <em> </em> php -n /home/wwwroot/你的站点域名/xcat dailyjob<br><em>/1 </em> <em> </em> <em> php /home/wwwroot/你的站点域名/xcat checkjob    </em>/1 <em> </em> <em> </em> php -n /home/wwwroot/你的站点域名/xcat syncnas</p><h2 id="4-安装后端"><a href="#4-安装后端" class="headerlink" title="4.安装后端"></a>4.安装后端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">cd /root</span><br><span class="line">yum install python-setuptools &amp;&amp; easy_install pip</span><br><span class="line">yum install git</span><br><span class="line">yum -y groupinstall &quot;Development Tools&quot;</span><br><span class="line">wget https://github.com/jedisct1/libsodium/releases/download/1.0.10/libsodium-1.0.10.tar.gz</span><br><span class="line">tar xf libsodium-1.0.10.tar.gz &amp;&amp; cd libsodium-1.0.10</span><br><span class="line">./configure &amp;&amp; make -j2 &amp;&amp; make install</span><br><span class="line">echo /usr/local/lib &gt; /etc/ld.so.conf.d/usr_local_lib.conf</span><br><span class="line">ldconfig</span><br><span class="line">git clone -b manyuser https://github.com/glzjin/shadowsocks.git</span><br><span class="line">cd shadowsocks</span><br><span class="line">yum -y install python-devel</span><br><span class="line">yum -y install libffi-devel</span><br><span class="line">yum -y install openssl-devel</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line">cp apiconfig.py userapiconfig.py</span><br><span class="line">cp config.json user-config.json</span><br><span class="line">vi userapiconfig.py</span><br></pre></td></tr></table></figure><blockquote><p>将modwebapi改为：glzjinmod<br>将节点ID改为3<br>配置文件中的MySQL信息</p></blockquote><p>接着在后台运行后端：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./run.sh</span><br></pre></td></tr></table></figure></p><p>部署完毕。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-新建网站"><a href="#1-新建网站" class="headerlink" title="1.新建网站"></a>1.新建网站</h2><p>LNMP新建虚拟主机</p><pre><code>lnmp vhost add</code></pre><p>vi打开你的nginx站点配置文件：<code>/usr/local/nginx/conf/vhost/域名.conf</code></p><pre><code>vi /usr/local/nginx/conf/vhost/你的域名.conf</code></pre><p>添加下面这段代码到你的配置文件中:</p><blockquote><p>location /<br>{<br>    try_files $uri $uri/ /index.php$is_args$args;<br>}</p></blockquote><p>并在root那一行在后面添加一个public:</p><blockquote><p>root  /home/wwwroot/s.rpchen.com/public;</p></blockquote><h2 id="2-安装前端"><a href="#2-安装前端" class="headerlink" title="2.安装前端"></a>2.安装前端</h2><pre><code>cd /home/wwwroot/域名yum install git -ygit clone https://github.com/glzjin/ss-panel-v3-mod.git tmp -b new_master &amp;&amp; mv tmp/.git . &amp;&amp; rm -rf tmp &amp;&amp; git reset --hardchown -R root:root *chmod -R 777 *chown -R www:www storagechattr -i .user.inimv .user.ini publiccd publicchattr +i .user.iniservice nginx restart</code></pre><h2 id="3-配置数据库"><a href="#3-配置数据库" class="headerlink" title="3.配置数据库"></a>3.配置数据库</h2><p>通过浏览器打开phpmyadmin：<code>http://你VPS的IP/phpmyadmin/</code><br>登录进去新建一个用户并为这个用户创建一个同名的数据库，并授予全部权限，<br>接着将glzjin_all.sql导入到这个新建的数据库中。<br>进行ss-panel-v3-mod的配置：</p><pre><code>cd /home/wwwroot/你站点的域名php composer.phar installcp config/.config.php.example config/.config.phpvi config/.config.php</code></pre><p>配置数据库等信息后给ss-panel-v3-mod创建一个管理员账号并同步用户：</p><pre><code>php -n xcat createAdminphp xcat syncusers</code></pre><p>设置几个定时任务确保ss-panel-v3-mod的长期稳定运行。<br>输入命令:</p><pre><code>yum install -y vixie-croncrontab -e</code></pre><p>添加如下文本：</p><pre><code>30 22 * * * php /home/wwwroot/你的站点域名/xcat sendDiaryMail*/1 * * * * php /home/wwwroot/你的站点域名/xcat synclogin*/1 * * * * php /home/wwwroot/你的站点域名/xcat syncvpn0 0 * * * php -n /home/wwwroot/你的站点域名/xcat dailyjob*/1 * * * * php /home/wwwroot/你的站点域名/xcat checkjob    */1 * * * * php -n /home/wwwroot/你的站点域名/xcat syncnas</code></pre><h2 id="4-安装后端"><a href="#4-安装后端" class="headerlink" title="4.安装后端"></a>4.安装后端</h2><pre><code>cd /rootyum install python-setuptools &amp;&amp; easy_install pipyum install gityum -y groupinstall &quot;Development Tools&quot;wget https://github.com/jedisct1/libsodium/releases/download/1.0.10/libsodium-1.0.10.tar.gztar xf libsodium-1.0.10.tar.gz &amp;&amp; cd libsodium-1.0.10./configure &amp;&amp; make -j2 &amp;&amp; make installecho /usr/local/lib &gt; /etc/ld.so.conf.d/usr_local_lib.confldconfiggit clone -b manyuser https://github.com/glzjin/shadowsocks.gitcd shadowsocksyum -y install python-develyum -y install libffi-develyum -y install openssl-develpip install -r requirements.txtcp apiconfig.py userapiconfig.pycp config.json user-config.jsonvi userapiconfig.py</code></pre><blockquote><p>将modwebapi改为：glzjinmod<br>将节点ID改为3<br>配置文件中的MySQL信息</p></blockquote><p>接着在后台运行后端：</p><pre><code>./run.sh</code></pre><p>部署完毕。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;1-新建网站&quot;&gt;&lt;a href=&quot;#1-新建网站&quot; class=&quot;headerlink&quot; title=&quot;1.新建网站&quot;&gt;&lt;/a&gt;1.新建网站&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
+        &lt;h2 id=&quot;1-新建网站&quot;&gt;&lt;a href=&quot;#1-新建网站&quot; class=&quot;headerlink&quot; title=&quot;1.新建网站&quot;&gt;&lt;/a&gt;1.新建网站&lt;/h2&gt;&lt;p&gt;LNMP新建虚拟主机&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;lnmp vhost add
+&lt;/code&gt;&lt;/pre&gt;
       
     
     </summary>
@@ -105,16 +109,17 @@
     <link href="http://www.rpchen.com/2018/01/02/LNMP-use/"/>
     <id>http://www.rpchen.com/2018/01/02/LNMP-use/</id>
     <published>2018-01-02T02:26:35.000Z</published>
-    <updated>2018-01-02T02:31:33.432Z</updated>
+    <updated>2018-01-02T03:18:55.756Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="添加网站-虚拟主机"><a href="#添加网站-虚拟主机" class="headerlink" title="添加网站(虚拟主机)"></a>添加网站(虚拟主机)</h2><p>执行：<code>lnmp vhost add</code></p><h2 id="伪静态管理"><a href="#伪静态管理" class="headerlink" title="伪静态管理"></a>伪静态管理</h2><p>LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。<br>伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。<br>虚拟主机配置文件在：<code>/usr/local/nginx/conf/vhost/域名.conf</code></p><p>伪静态规则文件需要放在<code>/usr/local/nginx/conf/</code> 下面。<br>编辑虚拟主机配置文件，可以使用vi、nano或winscp，后2个工具对新手来说简单些。</p><p>例如前面我们添加的虚拟主机，打开后前半部分配置会显示如下：<br>在<code>root /home/wwwroot/www.vpser.net</code>;这一行下面添加：<br><code>include wordpress.conf;</code><br>上面的wordpress.conf为伪静态文件，如需要其他伪静态文件自己创建个并上传到/usr/local/nginx/conf/ 下面并include 伪静态.conf; 加完保存，</p><p>执行：<code>/etc/init.d/nginx restart</code> 重启生效，如果报错可能是添加有误或伪静态规则有误。</p><h2 id="上传网站程序"><a href="#上传网站程序" class="headerlink" title="上传网站程序"></a>上传网站程序</h2><p>如果已经安装FTP服务器可以直接使用ftp客户端通过你的FTP信息登录后上传网站或sftp等软件上传网站，设置好相关权限开始安装即可。<br>上传网站后建议执行：<code>chown www:www -R /path/to/dir</code> 对网站目录进行权限设置，/path/to/dir替换为你网站目录。<br>为了安全可以将一些不需要PHP运行的上传文件之类的目录去掉执行权限，参考：<a href="http://www.vpser.net/security/lnmp-remove-nginx-php-execute.html" target="_blank" rel="noopener">http://www.vpser.net/security/lnmp-remove-nginx-php-execute.html</a></p><h2 id="已存在虚拟主机添加ssl证书开启https"><a href="#已存在虚拟主机添加ssl证书开启https" class="headerlink" title="已存在虚拟主机添加ssl证书开启https"></a>已存在虚拟主机添加ssl证书开启https</h2><p>对于已存在的虚拟主机添加https站点，可以执行：<code>lnmp ssl add</code> 命令添加ssl证书，目前有两种方式一种是使用自备的ssl证书，二是采用Let’sEncrypt的免费证书。添加过程和前面的添加虚拟主机的过程是一样的，只是会多一项填写ssl证书和key的步骤或直接选择Let’sEncrypt自动生成证书。<br>如果是1.*版本升级到1.4或更改版本的需要参考：<a href="https://lnmp.org/faq/upgrade1-4.html" target="_blank" rel="noopener">https://lnmp.org/faq/upgrade1-4.html</a> 中的说明，如果有提示不安全或不显示小绿锁上面链接中也有说明。</p><h2 id="列出网站-虚拟主机"><a href="#列出网站-虚拟主机" class="headerlink" title="列出网站(虚拟主机)"></a>列出网站(虚拟主机)</h2><p>执行：<code>lnmp vhost list</code></p><p>##删除网站(虚拟主机)##<br>执行：<code>lnmp vhost del</code></p><p>删除网站会先列出当前已有虚拟主机，按提示输入要删除的虚拟主机域名 回车确认。</p><p>这里只是删除虚拟主机配置文件，网站文件并不会删除需要自己删除。<br>LNMP 1.2下需要执行：<code>chattr -i /网站目录/.user.ini</code> 后才能删除网站目录。</p><p>当执行chown或chmod对网站目录属主属组或权限进行操作时可能会提示chown: changing ownership of `/home/wwwroot/default/.user.ini’: Operation not permitted，不需要理会，如果有强迫症可以参考前面先进行chattr -i的操作。</p><p>##默认网站(虚拟主机)##<br>LNMP默认网站配置文件：<code>/usr/local/nginx/conf/nginx.conf</code><br>LNMPA默认网站配置文件：<code>/usr/local/nginx/conf/nginx.conf</code> 和 <code>/usr/local/apache/conf/extra/httpd-vhosts.conf</code><br>LAMP默认网站配置文件：<code>/usr/local/apache/conf/extra/httpd-vhosts.conf</code></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="添加网站-虚拟主机"><a href="#添加网站-虚拟主机" class="headerlink" title="添加网站(虚拟主机)"></a>添加网站(虚拟主机)</h2><p>执行：</p><pre><code>lnmp vhost add</code></pre><h2 id="伪静态管理"><a href="#伪静态管理" class="headerlink" title="伪静态管理"></a>伪静态管理</h2><p>LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。<br>伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。<br>虚拟主机配置文件在：<code>/usr/local/nginx/conf/vhost/域名.conf</code></p><p>伪静态规则文件需要放在<code>/usr/local/nginx/conf/</code> 下面。<br>编辑虚拟主机配置文件，可以使用vi、nano或winscp，后2个工具对新手来说简单些。</p><p>例如前面我们添加的虚拟主机，打开后前半部分配置会显示如下：<br>在<code>root /home/wwwroot/www.vpser.net</code>;这一行下面添加：<br><code>include wordpress.conf;</code><br>上面的wordpress.conf为伪静态文件，如需要其他伪静态文件自己创建个并上传到/usr/local/nginx/conf/ 下面并include 伪静态.conf; 加完保存，</p><p>执行：<code>/etc/init.d/nginx restart</code> 重启生效，如果报错可能是添加有误或伪静态规则有误。</p><h2 id="上传网站程序"><a href="#上传网站程序" class="headerlink" title="上传网站程序"></a>上传网站程序</h2><p>如果已经安装FTP服务器可以直接使用ftp客户端通过你的FTP信息登录后上传网站或sftp等软件上传网站，设置好相关权限开始安装即可。<br>上传网站后建议执行：<code>chown www:www -R /path/to/dir</code> 对网站目录进行权限设置，/path/to/dir替换为你网站目录。<br>为了安全可以将一些不需要PHP运行的上传文件之类的目录去掉执行权限，参考：<a href="http://www.vpser.net/security/lnmp-remove-nginx-php-execute.html" target="_blank" rel="noopener">http://www.vpser.net/security/lnmp-remove-nginx-php-execute.html</a></p><h2 id="已存在虚拟主机添加ssl证书开启https"><a href="#已存在虚拟主机添加ssl证书开启https" class="headerlink" title="已存在虚拟主机添加ssl证书开启https"></a>已存在虚拟主机添加ssl证书开启https</h2><p>对于已存在的虚拟主机添加https站点，可以执行：<code>lnmp ssl add</code> 命令添加ssl证书，目前有两种方式一种是使用自备的ssl证书，二是采用Let’sEncrypt的免费证书。添加过程和前面的添加虚拟主机的过程是一样的，只是会多一项填写ssl证书和key的步骤或直接选择Let’sEncrypt自动生成证书。<br>如果是1.*版本升级到1.4或更改版本的需要参考：<a href="https://lnmp.org/faq/upgrade1-4.html" target="_blank" rel="noopener">https://lnmp.org/faq/upgrade1-4.html</a> 中的说明，如果有提示不安全或不显示小绿锁上面链接中也有说明。</p><h2 id="列出网站-虚拟主机"><a href="#列出网站-虚拟主机" class="headerlink" title="列出网站(虚拟主机)"></a>列出网站(虚拟主机)</h2><p>执行：<code>lnmp vhost list</code></p><p>##删除网站(虚拟主机)##<br>执行：<code>lnmp vhost del</code></p><p>删除网站会先列出当前已有虚拟主机，按提示输入要删除的虚拟主机域名 回车确认。</p><p>这里只是删除虚拟主机配置文件，网站文件并不会删除需要自己删除。<br>LNMP 1.2下需要执行：<code>chattr -i /网站目录/.user.ini</code> 后才能删除网站目录。</p><p>当执行chown或chmod对网站目录属主属组或权限进行操作时可能会提示chown: changing ownership of `/home/wwwroot/default/.user.ini’: Operation not permitted，不需要理会，如果有强迫症可以参考前面先进行chattr -i的操作。</p><p>##默认网站(虚拟主机)##<br>LNMP默认网站配置文件：<code>/usr/local/nginx/conf/nginx.conf</code><br>LNMPA默认网站配置文件：<code>/usr/local/nginx/conf/nginx.conf</code> 和 <code>/usr/local/apache/conf/extra/httpd-vhosts.conf</code><br>LAMP默认网站配置文件：<code>/usr/local/apache/conf/extra/httpd-vhosts.conf</code></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;添加网站-虚拟主机&quot;&gt;&lt;a href=&quot;#添加网站-虚拟主机&quot; class=&quot;headerlink&quot; title=&quot;添加网站(虚拟主机)&quot;&gt;&lt;/a&gt;添加网站(虚拟主机)&lt;/h2&gt;&lt;p&gt;执行：&lt;code&gt;lnmp vhost add&lt;/code&gt;&lt;/p&gt;
-&lt;h2 i
+        &lt;h2 id=&quot;添加网站-虚拟主机&quot;&gt;&lt;a href=&quot;#添加网站-虚拟主机&quot; class=&quot;headerlink&quot; title=&quot;添加网站(虚拟主机)&quot;&gt;&lt;/a&gt;添加网站(虚拟主机)&lt;/h2&gt;&lt;p&gt;执行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;lnmp vhost add
+&lt;/code
       
     
     </summary>
@@ -156,15 +161,16 @@
     <link href="http://www.rpchen.com/2018/01/02/LNMPinstall/"/>
     <id>http://www.rpchen.com/2018/01/02/LNMPinstall/</id>
     <published>2018-01-02T02:16:23.000Z</published>
-    <updated>2018-01-02T02:19:18.535Z</updated>
+    <updated>2018-01-02T03:18:13.085Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br><span class="line">wget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;&amp; tar zxf lnmp1.4.tar.gz &amp;&amp; cd lnmp1.4 &amp;&amp; ./install.sh lnmp</span><br></pre></td></tr></table></figure><p>默认安装lnmp可不写，如需要安装LNMPA或LAMP，将./install.sh 后面的参数替换为lnmpa或lamp即可。如需更改网站和数据库目录先修改安装包目录下的 lnmp.conf 文件。</p>]]></content>
+    <content type="html"><![CDATA[<pre><code>yum -y install wgetwget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;&amp; tar zxf lnmp1.4.tar.gz &amp;&amp; cd lnmp1.4 &amp;&amp; ./install.sh lnmp</code></pre><p>默认安装lnmp可不写，如需要安装LNMPA或LAMP，将./install.sh 后面的参数替换为lnmpa或lamp即可。如需更改网站和数据库目录先修改安装包目录下的 lnmp.conf 文件。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;
+        &lt;pre&gt;&lt;code&gt;yum -y install wget
+wget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;amp;&amp;amp; tar zxf lnmp1.4.tar.gz &amp;amp;&amp;amp; cd lnmp1.4 &amp;am
       
     
     </summary>
@@ -185,19 +191,19 @@
     <link href="http://www.rpchen.com/2018/01/02/http2https/"/>
     <id>http://www.rpchen.com/2018/01/02/http2https/</id>
     <published>2018-01-02T02:01:59.000Z</published>
-    <updated>2018-01-02T02:06:54.453Z</updated>
+    <updated>2018-01-02T03:17:09.646Z</updated>
     
-    <content type="html"><![CDATA[<p><code>vi /usr/local/nginx/conf/vhost/{domain name}.conf</code></p><blockquote><pre><code>listen 80;  server_name www.rpchen.com ;  return 301 https://www.rpchen.com$request_uri;</code></pre></blockquote>]]></content>
+    <content type="html"><![CDATA[<pre><code>vi /usr/local/nginx/conf/vhost/{domain name}.conf</code></pre><blockquote><pre><code>listen 80;  server_name www.rpchen.com ;  return 301 https://www.rpchen.com$request_uri;</code></pre></blockquote>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;code&gt;vi /usr/local/nginx/conf/vhost/{domain name}.conf&lt;/code&gt;&lt;/p&gt;
-&lt;blockquote&gt;
+        &lt;pre&gt;&lt;code&gt;vi /usr/local/nginx/conf/vhost/{domain name}.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
 &lt;pre&gt;&lt;code&gt;listen 80;
   server_name www.rpchen.com ;
-  re
+
       
     
     </summary>

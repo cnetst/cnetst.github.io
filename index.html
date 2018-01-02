@@ -172,8 +172,10 @@
 
     
         nginx伪静态设置：
+vi /usr/local/nginx/conf/vhost/你的域名.conf
+添加
 
-vi /usr/local/nginx/conf/vhost/你的域名.conf添加location /{    try_files $uri $uri/ /index.php$is_args$args;}
+location /{    try_files $uri $uri/ /index.php$is_args$args;}
 
 
     
@@ -222,11 +224,13 @@ vi /usr/local/nginx/conf/vhost/你的域名.conf添加location /{    try_files $
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        1.新建网站1lnmp vhost add
-vi打开你的nginx站点配置文件：/usr/local/nginx/conf/vhost/域名.conf1vi /usr/local/nginx/conf/vhost/你的域名.conf
+        1.新建网站LNMP新建虚拟主机
+lnmp vhost add
+vi打开你的nginx站点配置文件：/usr/local/nginx/conf/vhost/域名.conf
+vi /usr/local/nginx/conf/vhost/你的域名.conf
 添加下面这段代码到你的配置文件中:
 
-location /{    try_files $uri $uri/ /index.php$is_args$args;}...
+location /{    try_files $uri $uri/ /index.php$is_a...
     
 
         <a href="/2018/01/02/SSPanel-install/" class="post-more waves-effect waves-button">
@@ -323,8 +327,9 @@ fastcgi_param PHP_ADMIN_VALUE “op...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        添加网站(虚拟主机)执行：lnmp vhost add
-伪静态管理LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。虚拟主机配置文件在：/usr/local/ng...
+        添加网站(虚拟主机)执行：
+lnmp vhost add
+伪静态管理LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。虚拟主机配置文件在：/usr/local/n...
     
 
         <a href="/2018/01/02/LNMP-use/" class="post-more waves-effect waves-button">
@@ -418,8 +423,9 @@ fastcgi_param PHP_ADMIN_VALUE “op...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        12yum -y install wgetwget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;&amp; tar zxf lnmp1.4.tar.gz &amp;&amp; cd lnmp1.4 &amp;&amp; ./install.sh lnmp
-默认安装lnmp可不写，如需要安装LNMPA或LAMP，将./install.sh...
+        yum -y install wget
+wget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;&amp; tar zxf lnmp1.4.tar.gz &amp;&amp; cd lnmp1.4 &amp;&amp; ./install.sh lnmp
+默认安装lnmp可不写，如需要安装LNMPA或LAMP，将./install.sh ...
     
 
         <a href="/2018/01/02/LNMPinstall/" class="post-more waves-effect waves-button">

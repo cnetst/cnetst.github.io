@@ -20,18 +20,18 @@
     
     
     <meta name="keywords" content="LNMP">
-    <meta name="description" content="添加网站(虚拟主机)执行：lnmp vhost add 伪静态管理LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。虚拟主机配置文件在：/usr/local/nginx">
+    <meta name="description" content="添加网站(虚拟主机)执行： lnmp vhost add 伪静态管理LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。虚拟主机配置文件在：/usr/local/ngin">
 <meta name="keywords" content="LNMP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LNMP使用教程">
 <meta property="og:url" content="http://www.rpchen.com/2018/01/02/LNMP-use/index.html">
 <meta property="og:site_name" content="RPChen`s Blog">
-<meta property="og:description" content="添加网站(虚拟主机)执行：lnmp vhost add 伪静态管理LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。虚拟主机配置文件在：/usr/local/nginx">
+<meta property="og:description" content="添加网站(虚拟主机)执行： lnmp vhost add 伪静态管理LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。虚拟主机配置文件在：/usr/local/ngin">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-02T02:31:33.432Z">
+<meta property="og:updated_time" content="2018-01-02T03:18:55.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LNMP使用教程">
-<meta name="twitter:description" content="添加网站(虚拟主机)执行：lnmp vhost add 伪静态管理LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。虚拟主机配置文件在：/usr/local/nginx">
+<meta name="twitter:description" content="添加网站(虚拟主机)执行： lnmp vhost add 伪静态管理LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。虚拟主机配置文件在：/usr/local/ngin">
     
         <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
     
@@ -177,8 +177,9 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="添加网站-虚拟主机"><a href="#添加网站-虚拟主机" class="headerlink" title="添加网站(虚拟主机)"></a>添加网站(虚拟主机)</h2><p>执行：<code>lnmp vhost add</code></p>
-<h2 id="伪静态管理"><a href="#伪静态管理" class="headerlink" title="伪静态管理"></a>伪静态管理</h2><p>LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。<br>伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。<br>虚拟主机配置文件在：<code>/usr/local/nginx/conf/vhost/域名.conf</code></p>
+            <h2 id="添加网站-虚拟主机"><a href="#添加网站-虚拟主机" class="headerlink" title="添加网站(虚拟主机)"></a>添加网站(虚拟主机)</h2><p>执行：</p>
+<pre><code>lnmp vhost add
+</code></pre><h2 id="伪静态管理"><a href="#伪静态管理" class="headerlink" title="伪静态管理"></a>伪静态管理</h2><p>LNMPA或LAMP可以直接使用网站根目录下放.htaccess 来设置伪静态规则(具体规则可以去程序官网网站找google百度)，但是在LNMP下，需要使用Nginx伪静态规则。<br>伪静态可以随时添加或删除，如果添加完虚拟主机后忘记或没有添加伪静态，可以通过修改配置文件来添加伪静态。<br>虚拟主机配置文件在：<code>/usr/local/nginx/conf/vhost/域名.conf</code></p>
 <p>伪静态规则文件需要放在<code>/usr/local/nginx/conf/</code> 下面。<br>编辑虚拟主机配置文件，可以使用vi、nano或winscp，后2个工具对新手来说简单些。</p>
 <p>例如前面我们添加的虚拟主机，打开后前半部分配置会显示如下：<br>在<code>root /home/wwwroot/www.vpser.net</code>;这一行下面添加：<br><code>include wordpress.conf;</code><br>上面的wordpress.conf为伪静态文件，如需要其他伪静态文件自己创建个并上传到/usr/local/nginx/conf/ 下面并include 伪静态.conf; 加完保存，</p>
 <p>执行：<code>/etc/init.d/nginx restart</code> 重启生效，如果报错可能是添加有误或伪静态规则有误。</p>
@@ -197,7 +198,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-01-02T02:31:33.432Z" itemprop="dateUpdated">2018-01-02 10:31:33</time>
+    最后更新时间：<time datetime="2018-01-02T03:18:55.756Z" itemprop="dateUpdated">2018-01-02 11:18:55</time>
 </span><br>
 
 
