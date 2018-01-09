@@ -20,18 +20,18 @@
     
     
     <meta name="keywords" content="PowerShell">
-    <meta name="description" content="1.查询值：Get-ADUser -Filter {pager -eq &amp;quot;a1&amp;quot;} 2.修改值：Set-ADUser -DisplayName * get-ADUser -Filter {employeeid -eq &amp;quot;010738955&amp;quot;}|Set-ADUser -employeeid **** Import-Csv -Path c:\abc.csv |">
+    <meta name="description" content="1.查询值Get-ADUser -Filter {pager -eq &amp;quot;a1&amp;quot;} 2.查询导出Get-ADUser -Filter * -Properties * -SearchBase &amp;quot;OU=GZ,DC=CONTOSO,DC=COM&amp;quot; | Select-Object name,department |Export-Csv -NoTypeInformati">
 <meta name="keywords" content="PowerShell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PowerShell命令">
 <meta property="og:url" content="http://www.rpchen.com/2017/12/04/powershellcode/index.html">
 <meta property="og:site_name" content="RPChen`s Blog">
-<meta property="og:description" content="1.查询值：Get-ADUser -Filter {pager -eq &amp;quot;a1&amp;quot;} 2.修改值：Set-ADUser -DisplayName * get-ADUser -Filter {employeeid -eq &amp;quot;010738955&amp;quot;}|Set-ADUser -employeeid **** Import-Csv -Path c:\abc.csv |">
+<meta property="og:description" content="1.查询值Get-ADUser -Filter {pager -eq &amp;quot;a1&amp;quot;} 2.查询导出Get-ADUser -Filter * -Properties * -SearchBase &amp;quot;OU=GZ,DC=CONTOSO,DC=COM&amp;quot; | Select-Object name,department |Export-Csv -NoTypeInformati">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-29T08:00:28.649Z">
+<meta property="og:updated_time" content="2018-01-03T05:58:10.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PowerShell命令">
-<meta name="twitter:description" content="1.查询值：Get-ADUser -Filter {pager -eq &amp;quot;a1&amp;quot;} 2.修改值：Set-ADUser -DisplayName * get-ADUser -Filter {employeeid -eq &amp;quot;010738955&amp;quot;}|Set-ADUser -employeeid **** Import-Csv -Path c:\abc.csv |">
+<meta name="twitter:description" content="1.查询值Get-ADUser -Filter {pager -eq &amp;quot;a1&amp;quot;} 2.查询导出Get-ADUser -Filter * -Properties * -SearchBase &amp;quot;OU=GZ,DC=CONTOSO,DC=COM&amp;quot; | Select-Object name,department |Export-Csv -NoTypeInformati">
     
         <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
     
@@ -94,6 +94,13 @@
               </a>
             </li>
         
+            <li class="waves-block waves-effect">
+              <a href="https://d.rpchen.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
       </ul>
     </div>
   </div>
@@ -152,7 +159,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-查询值："><span class="post-toc-text">1.查询值：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-修改值："><span class="post-toc-text">2.修改值：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-查询导出："><span class="post-toc-text">3.查询导出：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-批量导入查询导出："><span class="post-toc-text">4.批量导入查询导出：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5-新建："><span class="post-toc-text">5.新建：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6-批量创建AD："><span class="post-toc-text">6.批量创建AD：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7-启用Exchange："><span class="post-toc-text">7.启用Exchange：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#8-查询用户信息："><span class="post-toc-text">8.查询用户信息：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#9-迁移用户数据库："><span class="post-toc-text">9.迁移用户数据库：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#10-启用Skype"><span class="post-toc-text">10.启用Skype:</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-查询值"><span class="post-toc-text">1.查询值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-查询导出"><span class="post-toc-text">2.查询导出</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-修改值"><span class="post-toc-text">3.修改值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-批量导入查询导出"><span class="post-toc-text">4.批量导入查询导出</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-新建用户"><span class="post-toc-text">5.新建用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-批量新建用户"><span class="post-toc-text">6.批量新建用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-启用Exchange"><span class="post-toc-text">7.启用Exchange</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-查询Exchange用户信息"><span class="post-toc-text">8.查询Exchange用户信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-迁移Exchange用户数据库"><span class="post-toc-text">9.迁移Exchange用户数据库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-启用Skype"><span class="post-toc-text">10.启用Skype</span></a></li></ol>
         </nav>
     </aside>
     
@@ -177,29 +184,33 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="1-查询值："><a href="#1-查询值：" class="headerlink" title="1.查询值："></a>1.查询值：</h1><p><code>Get-ADUser -Filter {pager -eq &quot;a1&quot;}</code></p>
-<h1 id="2-修改值："><a href="#2-修改值：" class="headerlink" title="2.修改值："></a>2.修改值：</h1><p><code>Set-ADUser -DisplayName *</code></p>
-<p><code>get-ADUser -Filter {employeeid -eq &quot;010738955&quot;}|Set-ADUser -employeeid ****</code></p>
-<p><code>Import-Csv -Path c:\abc.csv | foreach {Set-ADUser -Identity $.name -DisplayName $.DisplayName}</code></p>
-<h1 id="3-查询导出："><a href="#3-查询导出：" class="headerlink" title="3.查询导出："></a>3.查询导出：</h1><p><code>Get-ADUser -Filter -Properties -SearchBase &quot;OU=GZ,DC=CONTOSO,DC=COM&quot; | Select-Object name,department |Export-Csv -NoTypeInformation -Encoding UTF8 -Path &quot;c:\dep.csv&quot;</code></p>
-<h1 id="4-批量导入查询导出："><a href="#4-批量导入查询导出：" class="headerlink" title="4.批量导入查询导出："></a>4.批量导入查询导出：</h1><p><code>Import-Csv -Path d:\1.csv | foreach {Get-ADUser $_.name -Properties * } |select name,LogonWorkstations|Export-Csv -NoTypeInformation -Encoding UTF8 -Path &quot;d:\dep.csv&quot;</code></p>
-<h1 id="5-新建："><a href="#5-新建：" class="headerlink" title="5.新建："></a>5.新建：</h1><p><code>New-ADUser -Name ken -DisplayName ken -SamAccountName ken -Company canway -UserPrincipalName ken -AccountPassword (ConvertTo-SecureString 1qaz@WSX -AsPlainText -Force) -Enabled $true -Path &quot;ou=it,ou=gz,dc=contoso,dc=com&quot;</code></p>
-<h1 id="6-批量创建AD："><a href="#6-批量创建AD：" class="headerlink" title="6.批量创建AD："></a>6.批量创建AD：</h1><p><code>Import-csv d:\0.csv | foreach {New-ADUser -Name $.name -description $.FullChineseName -givenName $.FirstName -DisplayName $.name -Samaccountname $.name -UserPrincipalName $.un -Surname $.LastName -Company $.StaffCompany -officephone $.officephone -employeeid $.StaffNo -department $.Department -manager $.SuperiorManager -title $_.AccountTitle -AccountPassword (ConvertTo-SecureString Kaifa@123 -AsPlainText -Force) -Path &quot;OU=MDBU1_Users,OU=MDBU1,OU=kfft,DC=gwkf,DC=cn&quot; -ChangePasswordAtlogon $True –Enabled $True}</code></p>
-<h1 id="7-启用Exchange："><a href="#7-启用Exchange：" class="headerlink" title="7.启用Exchange："></a>7.启用Exchange：</h1><p><code>Enable-Mailbox -Identity ShuangShuangGuan -Alias &#39;****&#39; -Database &#39;KFSZStaff05&#39;</code></p>
-<h1 id="8-查询用户信息："><a href="#8-查询用户信息：" class="headerlink" title="8.查询用户信息："></a>8.查询用户信息：</h1><p><code>Get-MailboxStatistics &#39;XiuJuanLi1&#39; | fl</code></p>
-<h1 id="9-迁移用户数据库："><a href="#9-迁移用户数据库：" class="headerlink" title="9.迁移用户数据库："></a>9.迁移用户数据库：</h1><p><code>&quot;BoXie&quot; | New-MoveRequest -TargetDatabase &#39;KFDGManagers01&#39;</code></p>
-<h1 id="10-启用Skype"><a href="#10-启用Skype" class="headerlink" title="10.启用Skype:"></a>10.启用Skype:</h1><p><code>Enable-CsUser –Identity ShuangShuangGuan -RegistrarPool SZSkypePool01.gwkf.cn -SipAddressType UserPrincipalName</code></p>
-<p><code>Import-csv d:\0.csv | foreach {New-ADUser -Name $.name -description $.description -givenName $.givenName -DisplayName $.name -Samaccountname $.name -UserPrincipalName $.un -Surname $.sn -Company $.company -title $_.title -AccountPassword (ConvertTo-SecureString Kaifa@123 -AsPlainText -Force) -Path &quot;OU=CCBU_Users,OU=CCBU,OU=KFPI,DC=gwkf,DC=cn&quot; -ChangePasswordAtlogon $True –Enabled $True}</code></p>
-<p><code>Import-csv c:\ADuser.csv | foreach {New-ADUser -Name $.Name -DisplayName $.Displayname -Samaccountname $.Samaccountname -UserPrincipalName $.UserPrincipalName -Company $.Company -Department $.Department -Surname $.Surname -GivenName $.GivenName -AccountPassword (ConvertTo-SecureString $.AccountPassword -AsPlainText -Force) -Path $.Path -ChangePasswordAtlogon $True –Enabled $True}</code></p>
-<p><code>Import-csv d:\A.csv|foreach{get-adcomputer $_.computer -properties * }|Select-Object name,operatingsystem |Export-Csv -NoTypeInformation -Encoding UTF8 -Path &quot;d:\c.csv&quot;</code></p>
+            <h2 id="1-查询值"><a href="#1-查询值" class="headerlink" title="1.查询值"></a>1.查询值</h2><pre><code>Get-ADUser -Filter {pager -eq &quot;a1&quot;}
+</code></pre><h2 id="2-查询导出"><a href="#2-查询导出" class="headerlink" title="2.查询导出"></a>2.查询导出</h2><pre><code>Get-ADUser -Filter * -Properties * -SearchBase &quot;OU=GZ,DC=CONTOSO,DC=COM&quot; | Select-Object name,department |Export-Csv -NoTypeInformation -Encoding UTF8 -Path &quot;c:\dep.csv&quot;
+</code></pre><h2 id="3-修改值"><a href="#3-修改值" class="headerlink" title="3.修改值"></a>3.修改值</h2><pre><code>Set-ADUser *** -DisplayName ****
+get-ADUser -Filter {employeeid -eq &quot;010738955&quot;}|Set-ADUser -employeeid 01073895
+Set-ADUser *** -replace @{pager =&quot;C4009&quot;}
+Import-Csv -Path c:\abc.csv | foreach {Set-ADUser -Identity $_.name -DisplayName $_.DisplayName}
+</code></pre><h2 id="4-批量导入查询导出"><a href="#4-批量导入查询导出" class="headerlink" title="4.批量导入查询导出"></a>4.批量导入查询导出</h2><pre><code>Import-Csv -Path d:\1.csv | foreach {Get-ADUser $_.name -Properties * } |select name,LogonWorkstations|Export-Csv -NoTypeInformation -Encoding UTF8 -Path &quot;d:\dep.csv&quot;
+</code></pre><h2 id="5-新建用户"><a href="#5-新建用户" class="headerlink" title="5.新建用户"></a>5.新建用户</h2><pre><code>New-ADUser -Name ken -DisplayName ken -SamAccountName ken -Company canway -UserPrincipalName ken -AccountPassword (ConvertTo-SecureString 1qaz@WSX -AsPlainText -Force) -Enabled $true -Path &quot;ou=it,ou=gz,dc=contoso,dc=com&quot;
+</code></pre><h2 id="6-批量新建用户"><a href="#6-批量新建用户" class="headerlink" title="6.批量新建用户"></a>6.批量新建用户</h2><pre><code>Import-csv d:\0.csv | foreach {New-ADUser -Name $_.name -description $_.FullChineseName -givenName $_.FirstName -DisplayName $_.name -Samaccountname $_.name -UserPrincipalName $_.un -Surname $_.LastName -Company $_.StaffCompany -officephone $_.officephone -employeeid $_.StaffNo -department $_.Department  -manager $_.SuperiorManager -title $_.AccountTitle -AccountPassword (ConvertTo-SecureString Kaifa@123 -AsPlainText -Force) -Path &quot;OU=MDBU1_Users,OU=MDBU1,OU=kfft,DC=gwkf,DC=cn&quot; -ChangePasswordAtlogon $True –Enabled $True}
 
+Import-csv d:\0.csv | foreach {New-ADUser -Name $_.name -description $_.description -givenName $_.givenName -DisplayName $_.name -Samaccountname $_.name -UserPrincipalName $_.un -Surname $_.sn -Company $_.company  -title $_.title -AccountPassword (ConvertTo-SecureString Kaifa@123 -AsPlainText -Force) -Path &quot;OU=CCBU_Users,OU=CCBU,OU=KFPI,DC=gwkf,DC=cn&quot; -ChangePasswordAtlogon $True –Enabled $True}
+
+Import-csv c:\ADuser.csv | foreach {New-ADUser -Name $_.Name -DisplayName $_.Displayname -Samaccountname $_.Samaccountname -UserPrincipalName $_.UserPrincipalName -Company $_.Company -Department $_.Department -Surname $_.Surname -GivenName $_.GivenName -AccountPassword (ConvertTo-SecureString $_.AccountPassword -AsPlainText -Force) -Path $_.Path -ChangePasswordAtlogon $True –Enabled $True}
+
+Import-csv d:\A.csv|foreach{get-adcomputer $_.computer -properties * }|Select-Object name,operatingsystem |Export-Csv -NoTypeInformation -Encoding UTF8 -Path &quot;d:\c.csv&quot;
+</code></pre><h2 id="7-启用Exchange"><a href="#7-启用Exchange" class="headerlink" title="7.启用Exchange"></a>7.启用Exchange</h2><pre><code>Enable-Mailbox -Identity ShuangShuangGuan -Alias &apos;ShuangShuangGuan&apos; -Database &apos;KFSZStaff05&apos;
+</code></pre><h2 id="8-查询Exchange用户信息"><a href="#8-查询Exchange用户信息" class="headerlink" title="8.查询Exchange用户信息"></a>8.查询Exchange用户信息</h2><pre><code>Get-MailboxStatistics &apos;XiuJuanLi1&apos; | fl
+</code></pre><h2 id="9-迁移Exchange用户数据库"><a href="#9-迁移Exchange用户数据库" class="headerlink" title="9.迁移Exchange用户数据库"></a>9.迁移Exchange用户数据库</h2><pre><code>&quot;BoXie&quot; | New-MoveRequest -TargetDatabase &apos;KFDGManagers01&apos;
+</code></pre><h2 id="10-启用Skype"><a href="#10-启用Skype" class="headerlink" title="10.启用Skype"></a>10.启用Skype</h2><pre><code>Enable-CsUser –Identity ShuangShuangGuan -RegistrarPool SZSkypePool01.gwkf.cn -SipAddressType UserPrincipalName
+</code></pre>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-12-29T08:00:28.649Z" itemprop="dateUpdated">2017-12-29 16:00:28</time>
+    最后更新时间：<time datetime="2018-01-03T05:58:10.417Z" itemprop="dateUpdated">2018-01-03 13:58:10</time>
 </span><br>
 
 

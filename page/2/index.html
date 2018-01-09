@@ -92,6 +92,13 @@
               </a>
             </li>
         
+            <li class="waves-block waves-effect">
+              <a href="https://d.rpchen.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
       </ul>
     </div>
   </div>
@@ -141,6 +148,55 @@
 <div class="container body-wrap">
 
     <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-letsencrypt"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-12-04 16:30:31" datetime="2017-12-04T08:30:31.000Z"  itemprop="datePublished">2017-12-04</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记存档/">笔记存档</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/12/04/letsencrypt/">申请Lets Encrypt证书</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        12345yum install git-allyum install epel-releasegit clone https://github.com/certbot/certbotcd certbot./letsencrypt-auto certolny -d www.rpchen.com
+Apache下，修改ssl.conf文件
+12vi /etc/httpd/conf/httpd.c...
+    
+
+        <a href="/2017/12/04/letsencrypt/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSl/">SSl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/建站/">建站</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/证书/">证书</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
     
         <li class="post-list-item fade">
             <article id="post-vsftpdconf"
@@ -266,10 +322,8 @@ local_enable=YES
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        1.查询值：Get-ADUser -Filter {pager -eq &quot;a1&quot;}
-2.修改值：Set-ADUser -DisplayName *
-get-ADUser -Filter {employeeid -eq &quot;010738955&quot;}|Set-ADUser -employeeid ****
-Import-Csv -Path c:\abc.csv...
+        1.查询值Get-ADUser -Filter {pager -eq &quot;a1&quot;}
+2.查询导出Get-ADUser -Filter * -Properties * -SearchBase &quot;OU=GZ,DC=CONTOSO,DC=COM&quot; | Select-Object name,department |Export-Csv -NoTypeInform...
     
 
         <a href="/2017/12/04/powershellcode/" class="post-more waves-effect waves-button">
