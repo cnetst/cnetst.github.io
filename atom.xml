@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.rpchen.com/"/>
-  <updated>2018-01-09T05:42:05.203Z</updated>
+  <updated>2018-01-12T00:28:17.612Z</updated>
   <id>http://www.rpchen.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS7单用户模式</title>
+    <link href="http://www.rpchen.com/2018/01/12/CentOS7SingleMode/"/>
+    <id>http://www.rpchen.com/2018/01/12/CentOS7SingleMode/</id>
+    <published>2018-01-12T00:25:53.000Z</published>
+    <updated>2018-01-12T00:28:17.612Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1、重启服务器，在选择内核界面使用上下箭头移动"><a href="#1、重启服务器，在选择内核界面使用上下箭头移动" class="headerlink" title="1、重启服务器，在选择内核界面使用上下箭头移动"></a>1、重启服务器，在选择内核界面使用上下箭头移动</h2><h2 id="2、选择内核并按-e"><a href="#2、选择内核并按-e" class="headerlink" title="2、选择内核并按 e"></a>2、选择内核并按 <code>e</code></h2><h2 id="3、找到"><a href="#3、找到" class="headerlink" title="3、找到"></a>3、找到</h2><h2 id="4、删除掉-rhgb-quiet-，ro-改为-rw-添加init-bin-bash"><a href="#4、删除掉-rhgb-quiet-，ro-改为-rw-添加init-bin-bash" class="headerlink" title="4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash"></a>4、删除掉 <em>rhgb quiet</em> ，<em>ro</em> 改为 <em>rw</em> 添加<code>init=/bin/bash</code></h2><h2 id="5、使用-ctrl-x-来重启服务器就可以了，重启后就会进入到单用户"><a href="#5、使用-ctrl-x-来重启服务器就可以了，重启后就会进入到单用户" class="headerlink" title="5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户"></a>5、使用 <code>ctrl + x</code> 来重启服务器就可以了，重启后就会进入到单用户</h2><h2 id="6、退出单用户命令"><a href="#6、退出单用户命令" class="headerlink" title="6、退出单用户命令"></a>6、退出单用户命令</h2><pre><code>exec /sbin/init</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1、重启服务器，在选择内核界面使用上下箭头移动&quot;&gt;&lt;a href=&quot;#1、重启服务器，在选择内核界面使用上下箭头移动&quot; class=&quot;headerlink&quot; title=&quot;1、重启服务器，在选择内核界面使用上下箭头移动&quot;&gt;&lt;/a&gt;1、重启服务器，在选择内核界面使用
+      
+    
+    </summary>
+    
+      <category term="笔记存档" scheme="http://www.rpchen.com/categories/%E7%AC%94%E8%AE%B0%E5%AD%98%E6%A1%A3/"/>
+    
+    
+      <category term="CentOS" scheme="http://www.rpchen.com/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS加入AD域</title>
+    <link href="http://www.rpchen.com/2018/01/12/CentOSJoinDomain/"/>
+    <id>http://www.rpchen.com/2018/01/12/CentOSJoinDomain/</id>
+    <published>2018-01-12T00:15:23.000Z</published>
+    <updated>2018-01-12T00:21:43.004Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-安装软件"><a href="#1-安装软件" class="headerlink" title="1.安装软件"></a>1.安装软件</h2><pre><code>yum install krb5-libs krb5-devel pam_krb5 krb5-workstation krb5-auth-dialog yum install samba-winbind samba samba-common samba-client samba-winbind-clients</code></pre><h2 id="2-图像化配置"><a href="#2-图像化配置" class="headerlink" title="2.图像化配置"></a>2.图像化配置</h2><pre><code>authconfig-tui</code></pre><p><code>use winbind</code><br><code>use kerberos</code><br><code>use winbind authertication</code></p><h2 id="3-vi-etc-sysconfig-network"><a href="#3-vi-etc-sysconfig-network" class="headerlink" title="3.vi /etc/sysconfig/network"></a>3.vi /etc/sysconfig/network</h2><blockquote><p>HOSTNAME= host.domian.com</p></blockquote><pre><code>hostname test01service network restart #重启网络。</code></pre><h2 id="4-vi-etc-nsswitch-conf"><a href="#4-vi-etc-nsswitch-conf" class="headerlink" title="4.vi /etc/nsswitch.conf"></a>4.vi /etc/nsswitch.conf</h2><blockquote><p>passwd:     files winbind<br>shadow:     files winbind<br>group:      files winbind</p></blockquote><h2 id="5-vi-etc-krb5-conf"><a href="#5-vi-etc-krb5-conf" class="headerlink" title="5.vi /etc/krb5.conf"></a>5.vi /etc/krb5.conf</h2><h2 id="6-vi-etc-resolv-conf"><a href="#6-vi-etc-resolv-conf" class="headerlink" title="6.vi /etc/resolv.conf"></a>6.vi /etc/resolv.conf</h2><blockquote><p>nameserver  10.2.232.191</p></blockquote><h2 id="7-vi-etc-hosts"><a href="#7-vi-etc-hosts" class="headerlink" title="7.vi /etc/hosts"></a>7.vi /etc/hosts</h2><blockquote><p>10.2.236.205 test01.testad.com test01</p></blockquote><h2 id="8-vi-etc-samba-smb-conf"><a href="#8-vi-etc-samba-smb-conf" class="headerlink" title="8.vi /etc/samba/smb.conf"></a>8.vi /etc/samba/smb.conf</h2><p>修改如下一行，可以实现登录时不需要输入域名 </p><blockquote><p>winbind use default domain = true</p><p>realm = TESTAD.COM</p></blockquote><p>启动相关服务并设置开机自启动，执行如下命令：</p><pre><code>service smb startchkconfig smb on</code></pre><h2 id="9-加域"><a href="#9-加域" class="headerlink" title="9.加域"></a>9.加域</h2><pre><code>net ads join -U administrator</code></pre><h2 id="10-测试加域是否成功"><a href="#10-测试加域是否成功" class="headerlink" title="10.测试加域是否成功"></a>10.测试加域是否成功</h2><pre><code>wbinfo -u ##查看域用户wbinfo -g ##查看域组</code></pre><p>测试ntlm组件</p><pre><code>ntlm_auth --username=administratorpassword: ##输入用户密码NT_STATUS_OK: Success (0x0)</code></pre><p>验证代域</p><pre><code>net ads testjoin</code></pre><h2 id="11-设置域用户家目录"><a href="#11-设置域用户家目录" class="headerlink" title="11.设置域用户家目录"></a>11.设置域用户家目录</h2><p>在/etc/pam.d/system-auth以及/etc/pam.d/sshd文件中的sesson部分添加</p><blockquote><p>session     required      /lib/security/$ISA/pam_mkhomedir.so skel=/etc/skel umask=0077</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-安装软件&quot;&gt;&lt;a href=&quot;#1-安装软件&quot; class=&quot;headerlink&quot; title=&quot;1.安装软件&quot;&gt;&lt;/a&gt;1.安装软件&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;yum install krb5-libs krb5-devel pam_krb5 krb5
+      
+    
+    </summary>
+    
+      <category term="笔记存档" scheme="http://www.rpchen.com/categories/%E7%AC%94%E8%AE%B0%E5%AD%98%E6%A1%A3/"/>
+    
+    
+      <category term="CentOS" scheme="http://www.rpchen.com/tags/CentOS/"/>
+    
+  </entry>
   
   <entry>
     <title>PowerShell远程执行命令</title>

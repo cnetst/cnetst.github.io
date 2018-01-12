@@ -13,25 +13,24 @@
     
     
     
-    <title>PowerShell远程执行命令 | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
+    <title>CentOSJoinDomain | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="PowerShell">
-    <meta name="description" content="$cred = Get-Credential     #输入凭证 $pcname=&amp;quot;*******&amp;quot;      #主机名 Enter-PSSession -ComputerName $pcname -Credential $cred     #登陆">
-<meta name="keywords" content="PowerShell">
+    <meta name="keywords" content="">
+    <meta name="description" content="1.安装软件yum install krb5-libs krb5-devel pam_krb5 krb5-workstation krb5-auth-dialogyum install samba-winbind samba samba-common samba-client samba-winbind-clients2.图像化配置    authconfig-tui“use winbind”“u">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PowerShell远程执行命令">
-<meta property="og:url" content="http://www.rpchen.com/2018/01/09/powershell-remote/index.html">
+<meta property="og:title" content="CentOSJoinDomain">
+<meta property="og:url" content="http://www.rpchen.com/2018/01/11/CentOSJoinDomain/index.html">
 <meta property="og:site_name" content="RPChen`s Blog">
-<meta property="og:description" content="$cred = Get-Credential     #输入凭证 $pcname=&amp;quot;*******&amp;quot;      #主机名 Enter-PSSession -ComputerName $pcname -Credential $cred     #登陆">
+<meta property="og:description" content="1.安装软件yum install krb5-libs krb5-devel pam_krb5 krb5-workstation krb5-auth-dialogyum install samba-winbind samba samba-common samba-client samba-winbind-clients2.图像化配置    authconfig-tui“use winbind”“u">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-09T05:42:05.203Z">
+<meta property="og:updated_time" content="2018-01-11T09:08:07.999Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PowerShell远程执行命令">
-<meta name="twitter:description" content="$cred = Get-Credential     #输入凭证 $pcname=&amp;quot;*******&amp;quot;      #主机名 Enter-PSSession -ComputerName $pcname -Credential $cred     #登陆">
+<meta name="twitter:title" content="CentOSJoinDomain">
+<meta name="twitter:description" content="1.安装软件yum install krb5-libs krb5-devel pam_krb5 krb5-workstation krb5-auth-dialogyum install samba-winbind samba samba-common samba-client samba-winbind-clients2.图像化配置    authconfig-tui“use winbind”“u">
     
         <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
     
@@ -112,7 +111,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">PowerShell远程执行命令</div>
+        <div class="flex-col header-title ellipsis">CentOSJoinDomain</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -134,15 +133,13 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">PowerShell远程执行命令</h1>
+        <h1 class="title">CentOSJoinDomain</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-01-09T05:38:43.000Z" itemprop="datePublished" class="page-time">
-  2018-01-09
+                <time datetime="2018-01-11T09:07:43.000Z" itemprop="datePublished" class="page-time">
+  2018-01-11
 </time>
 
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记存档/">笔记存档</a></li></ul>
 
             
         </h5>
@@ -156,17 +153,15 @@
 
 <div class="container body-wrap">
     
-<article id="post-powershell-remote"
+<article id="post-CentOSJoinDomain"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">PowerShell远程执行命令</h1>
+        <h1 class="post-card-title">CentOSJoinDomain</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-01-09 13:38:43" datetime="2018-01-09T05:38:43.000Z"  itemprop="datePublished">2018-01-09</time>
+            <time class="post-time" title="2018-01-11 17:07:43" datetime="2018-01-11T09:07:43.000Z"  itemprop="datePublished">2018-01-11</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记存档/">笔记存档</a></li></ul>
-
 
 
             
@@ -177,22 +172,30 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <pre><code>$cred = Get-Credential     #输入凭证
-$pcname=&quot;*******&quot;      #主机名
-Enter-PSSession -ComputerName $pcname -Credential $cred     #登陆
-</code></pre>
+            <p>1.安装软件<br>yum install krb5-libs krb5-devel pam_krb5 krb5-workstation krb5-auth-dialog<br>yum install samba-winbind samba samba-common samba-client samba-winbind-clients<br>2.图像化配置<br>    authconfig-tui<br>“use winbind”<br>“use kerberos”<br>“use winbind authertication”<br>3.vi /etc/sysconfig/network</p>
+<blockquote>
+<p>HOSTNAME= host.domian.com<br>    hostname test01<br>    service network restart #重启网络。<br>4.vi /etc/nsswitch.conf<br>passwd:     files winbind<br>shadow:     files winbind<br>group:      files winbind<br>5.vi /etc/krb5.conf<br>6.vi /etc/resolv.conf<br>nameserver  10.2.232.191<br>7.vi /etc/hosts<br>1&gt;0.2.236.205 test01.testad.com test01<br>8.vi /etc/samba/smb.conf<br>修改如下一行，可以实现登录时不需要输入域名<br>winbind use default domain = true<br>realm = TESTAD.COM<br>启动相关服务并设置开机自启动，执行如下命令：</p>
+</blockquote>
+<pre><code>service smb start
+
+chkconfig smb on
+</code></pre><p>9.加域<br>    net ads join -U administrator<br>10.测试加域是否成功<br>    wbinfo -u ##查看域用户<br>    wbinfo -g ##查看域组<br>测试ntlm组件<br>    ntlm_auth –username=administrator<br>    password: ##输入用户密码<br>    NT_STATUS_OK: Success (0x0)<br>验证代域<br>    net ads testjoin<br>11.设置域用户家目录<br>在/etc/pam.d/system-auth以及/etc/pam.d/sshd文件中的sesson部分添加</p>
+<blockquote>
+<p>session     required      /lib/security/$ISA/pam_mkhomedir.so skel=/etc/skel umask=0077</p>
+</blockquote>
+
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-01-09T05:42:05.203Z" itemprop="dateUpdated">2018-01-09 13:42:05</time>
+    最后更新时间：<time datetime="2018-01-11T09:08:07.999Z" itemprop="dateUpdated">2018-01-11 17:08:07</time>
 </span><br>
 
 
         
-        转载请注明出处：<a href="/2018/01/09/powershell-remote/" target="_blank" rel="external">http://www.rpchen.com/2018/01/09/powershell-remote/</a>
+        转载请注明出处：<a href="/2018/01/11/CentOSJoinDomain/" target="_blank" rel="external">http://www.rpchen.com/2018/01/11/CentOSJoinDomain/</a>
         
     </div>
     <footer>
@@ -208,8 +211,6 @@ Enter-PSSession -ComputerName $pcname -Credential $cred     #登陆
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PowerShell/">PowerShell</a></li></ul>
-
 
             
 <div class="page-share-wrap">
@@ -218,7 +219,7 @@ Enter-PSSession -ComputerName $pcname -Credential $cred     #登陆
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/01/09/powershell-remote/&title=《PowerShell远程执行命令》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/01/11/CentOSJoinDomain/&title=《CentOSJoinDomain》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -228,22 +229,22 @@ Enter-PSSession -ComputerName $pcname -Credential $cred     #登陆
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/01/09/powershell-remote/&title=《PowerShell远程执行命令》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/01/11/CentOSJoinDomain/&title=《CentOSJoinDomain》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/01/09/powershell-remote/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/01/11/CentOSJoinDomain/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PowerShell远程执行命令》 — RPChen`s Blog&url=http://www.rpchen.com/2018/01/09/powershell-remote/&via=http://www.rpchen.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOSJoinDomain》 — RPChen`s Blog&url=http://www.rpchen.com/2018/01/11/CentOSJoinDomain/&via=http://www.rpchen.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/01/09/powershell-remote/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/01/11/CentOSJoinDomain/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -263,21 +264,14 @@ Enter-PSSession -ComputerName $pcname -Credential $cred     #登陆
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/01/12/CentOSJoinDomain/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">CentOS加入AD域</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/01/02/SSPanel404/" id="post-next" class="post-nav-link">
+      <a href="/2018/01/09/powershell-remote/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">SSPanel 除主页外404错误</h4>
+        <h4 class="title">PowerShell远程执行命令</h4>
       </a>
     </div>
   
@@ -337,7 +331,7 @@ Enter-PSSession -ComputerName $pcname -Credential $cred     #登陆
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/01/09/powershell-remote/&title=《PowerShell远程执行命令》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/01/11/CentOSJoinDomain/&title=《CentOSJoinDomain》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -347,22 +341,22 @@ Enter-PSSession -ComputerName $pcname -Credential $cred     #登陆
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/01/09/powershell-remote/&title=《PowerShell远程执行命令》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/01/11/CentOSJoinDomain/&title=《CentOSJoinDomain》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/01/09/powershell-remote/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/01/11/CentOSJoinDomain/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PowerShell远程执行命令》 — RPChen`s Blog&url=http://www.rpchen.com/2018/01/09/powershell-remote/&via=http://www.rpchen.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOSJoinDomain》 — RPChen`s Blog&url=http://www.rpchen.com/2018/01/11/CentOSJoinDomain/&via=http://www.rpchen.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/01/09/powershell-remote/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/01/11/CentOSJoinDomain/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -373,7 +367,7 @@ Enter-PSSession -ComputerName $pcname -Credential $cred     #登陆
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aQW7DMAwEwPz/0+61QFB1STpFLY1OQeLaHh1YUuTrFa/r23r//v2a97X+q/VTblsYGBiPZSSPX39fpfbuud4aDAyMExg/RbDkmjUgv6b6XAwMDIzkdskL5a++JmFgYGDkjHXyd1cZjIGBgdErYquFa680/XgtjoGB8UBGfur+958/0t/AwMB4FOMqrl5Kl4TIa7AwMDD2ZvRK0CqpWtA2S2IMDIwDGPeWjr2DswkMAwNjb0YSUiejGMkL9dqZ0dkhBgbGFox89KHazpyf/zVDLQYGxkaMfJBrHnarQxXJJmJgYJzASH7ujbFWy+NqmoiBgYHRO9bvpXp5YC38D8HAwDiAcVfboDdmMcFjYGDsysiLzF45mofsvKxtVuQYGBiPZaxvkQAmxWq1FfrLZmFgYBzAqB7HV0ciqod6yeZiYGDszaiWl/Mxr3xT8gIYAwNjb0bhh5sO0aqv2DvCw8DA2JXRdMdty17eWh5cw8DA2JSRv26e8K0DbnUTky3AwMA4gdGL09WmZn6fctDHwMA4gFEddEge3ByYiN82GgvDwMB4OOMqrvxgrrc1vbQSAwNjb8bkyCxPNKvtydHMCAYGxqaMJMgmOzEJkdWAi4GBcSYjD3yTVO8uMAYGBkaeolXbDMlGNEtWDAwMjEFzsTfAWr4DBgbGAYykiO0Ne/WamtXGAwYGxt6Med41KUGrieMH00cMDIz/yPgCtg5+TPgeOU4AAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aQW7CQAwFUO5/aSp1hYQC/naoivNmhaKQzMvCsse+3crr/rsefz9eeb6zd8/rf52wMDAwvpZxf7meGUewo630PkF9bxgYGNdhpEG28srXb+l9vsPrGBgYGOVtVcJoJWRjYGBgTALuucG0kkpiYGBgzF85PzirP/+EWhwDA+MLGb3GwN/8/nh/AwMD498z7uGa/CtN+4LnY2BgrGacdXD2+vXntjwPwzEGBsZSRj0sps2DevCttB/eXMfAwFjNqATZXguznlDWA3qpxMXAwLgYo1empsdqleAetBwwMDDWMerFai8FPCspLBWxGBgYF2DUN5oOTPQAwT4xMDBWM9IeQnpP2jaoB9nDBBEDA2Mdo/e4XpMyHTgLklcMDIzVjMnIRZrY9Y77MTAwMOqHYmkp2wuvkxCMgYGxlZEOPaRHab1nxu1PDAyM1Yw0LKZjXukIxeQjYmBgbGXUW5VpgjgHBGkoBgbGasZkuKFeglau1O9/U8piYGCsY/QCXH2c4tyQ/SY1xMDAWM2YFK4Vajq6ETceMDAwVjN6Cd9Z6WNw/lcJvhgYGEsZ93Clm56MUwRHdRgYGKsZabBLC9r0EC1tbWJgYFyHMQmyaTJXH++ofHsMDIyrMXpBs/7iOMan52kYGBgYYeFaaQZM2pYYGBgYk2O1OmOSYr7pb2BgYCxlfOL1k+I23gMGBsZqRq+AnBzr97Y+H9fAwMD4QsYPeJH6CLyBtbIAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 

@@ -150,6 +150,104 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-CentOS7SingleMode"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-01-12 08:25:53" datetime="2018-01-12T00:25:53.000Z"  itemprop="datePublished">2018-01-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记存档/">笔记存档</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/01/12/CentOS7SingleMode/">CentOS7单用户模式</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        1、重启服务器，在选择内核界面使用上下箭头移动2、选择内核并按 e3、找到4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户6、退出单用户命令exec /sbin/init
+
+    
+
+        <a href="/2018/01/12/CentOS7SingleMode/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-CentOSJoinDomain"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018-01-12 08:15:23" datetime="2018-01-12T00:15:23.000Z"  itemprop="datePublished">2018-01-12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记存档/">笔记存档</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/01/12/CentOSJoinDomain/">CentOS加入AD域</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        1.安装软件yum install krb5-libs krb5-devel pam_krb5 krb5-workstation krb5-auth-dialog 
+yum install samba-winbind samba samba-common samba-client samba-winbind-clients
+2.图像化配置authconfig-tui
+use winbindu...
+    
+
+        <a href="/2018/01/12/CentOSJoinDomain/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-powershell-remote"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -546,141 +644,6 @@ listen 80;
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/">https</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl/">ssl</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-samsungcode"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-12-06 08:43:58" datetime="2017-12-06T00:43:58.000Z"  itemprop="datePublished">2017-12-06</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/移动终端/">移动终端</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/12/06/samsungcode/">三星工程代码</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-
-
-代码
-功能
-
-
-
-
-*#06#
-查询手机串号(IMEI)
-
-
-*#1111#
-查询FTASW版本
-
-
-*#2222#
-查询FTAHW版本
-
-
-*#1234#
-查询固件版本号
-
-
-#0#
-进入工程模式
-
-
-*#0228#
-电池状态
-
-
-#12580369#
-软硬件信息、出厂日期
-
-
-*#2663#
-固件信息更新等(TSPFW\TOUCHKEYFWSENSORHUBFW等)
-
-
-*#349...
-    
-
-        <a href="/2017/12/06/samsungcode/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SamSung/">SamSung</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/手机/">手机</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-esxi-HDD-SSD"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-12-04 16:44:22" datetime="2017-12-04T08:44:22.000Z"  itemprop="datePublished">2017-12-04</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记存档/">笔记存档</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/12/04/esxi-HDD-SSD/">ESXI强制标记硬盘为SSD</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        列出：esxcli storage core device list标记：esxcli storage nmp satp rule add -s VMW_SATP_LOCAL -d naa.6b8ca3a0f451a90021a1485e0526587c -o enable_ssd回收：esxcli storage core claiming reclaim -d naa.6b8ca3a0f...
-    
-
-        <a href="/2017/12/04/esxi-HDD-SSD/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Esxi/">Esxi</a></li></ul>
 
     </div>
     
