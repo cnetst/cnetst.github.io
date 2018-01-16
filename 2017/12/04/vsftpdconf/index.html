@@ -19,16 +19,16 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="建站,vsftpd">
+    <meta name="keywords" content="vsftpd,建站">
     <meta name="description" content="1.默认配置：1&amp;gt;允许匿名用户和本地用户登陆。 anonymous_enable=YES local_enable=YES 2&amp;gt;匿名用户使用的登陆名为ftp或anonymous，口令为空；匿名用户不能离开匿名用户家目录/var/ftp,且只能下载不能上传。 3&amp;gt;本地用户的登录名为本地用户名，口令为此本地用户的口令；本地用户可以在自 己家目录中进行读写操作；本地用户可以离开自家目录">
-<meta name="keywords" content="建站,vsftpd">
+<meta name="keywords" content="vsftpd,建站">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vsftpd配置文件详解">
 <meta property="og:url" content="http://www.rpchen.com/2017/12/04/vsftpdconf/index.html">
 <meta property="og:site_name" content="RPChen`s Blog">
 <meta property="og:description" content="1.默认配置：1&amp;gt;允许匿名用户和本地用户登陆。 anonymous_enable=YES local_enable=YES 2&amp;gt;匿名用户使用的登陆名为ftp或anonymous，口令为空；匿名用户不能离开匿名用户家目录/var/ftp,且只能下载不能上传。 3&amp;gt;本地用户的登录名为本地用户名，口令为此本地用户的口令；本地用户可以在自 己家目录中进行读写操作；本地用户可以离开自家目录">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-29T08:13:34.379Z">
+<meta property="og:updated_time" content="2018-01-16T08:48:55.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vsftpd配置文件详解">
 <meta name="twitter:description" content="1.默认配置：1&amp;gt;允许匿名用户和本地用户登陆。 anonymous_enable=YES local_enable=YES 2&amp;gt;匿名用户使用的登陆名为ftp或anonymous，口令为空；匿名用户不能离开匿名用户家目录/var/ftp,且只能下载不能上传。 3&amp;gt;本地用户的登录名为本地用户名，口令为此本地用户的口令；本地用户可以在自 己家目录中进行读写操作；本地用户可以离开自家目录">
@@ -342,8 +342,48 @@
 </blockquote>
 <p><em>主动</em></p>
 <blockquote>
-<p>anonymous_enable=NO<br>connect_from_port_20=YES<br>dirmessage_enable=YES<br>listen=YES<br>local_enable=YES<br>local_umask=022<br>pam_service_name=vsftpd<br>pasv_enable=NOtcp_wrappers=YES<br>userlist_enable=YES<br>write_enable=YES<br>xferlog_enable=YES<br>xferlog_std_format=YES</p>
+<p>anonymous_enable=NO<br>connect_from_port_20=YES<br>dirmessage_enable=YES<br>listen=YES<br>local_enable=YES<br>local_umask=022<br>pam_service_name=vsftpd<br>pasv_enable=NO<br>tcp_wrappers=YES<br>userlist_enable=YES<br>write_enable=YES<br>xferlog_enable=YES<br>xferlog_std_format=YES</p>
 </blockquote>
+<p><em>FTPS+被动</em></p>
+<pre><code>anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+local_umask=022
+dirmessage_enable=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+xferlog_std_format=YES
+listen=YES
+pam_service_name=vsftpd
+userlist_enable=YES
+tcp_wrappers=YES
+# 限制目录
+chroot_local_user=YES
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd/chroot_list
+allow_writeable_chroot=YES
+
+use_localtime=YES
+# 限制用户
+userlist_deny=NO
+userlist_file=/etc/vsftpd/user_list2
+# 启用SSl
+ssl_enable=YES
+allow_anon_ssl=NO
+force_local_data_ssl=YES
+force_local_logins_ssl=YES
+ssl_tlsv1=YES
+ssl_sslv2=NO
+ssl_sslv3=NO
+rsa_cert_file=/ftp/fullchain.pem
+rsa_private_key_file=/ftp/privkey.pem
+require_ssl_reuse=NO
+ssl_ciphers=HIGH
+# 主动被动模式
+pasv_enable=NO
+# pasv_min_port=10000
+# pasv_max_port=10010
+</code></pre><p><em>设置用户目录</em><br>    mkdir /var/ftp/aa<br>    useradd -d /var/ftp/aa -M aa<br>    passwd aa<br>    chown aa /var/ftp/aa<br>    chmod 700 /var/ftp/aa</p>
 
         </div>
 
@@ -351,7 +391,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-12-29T08:13:34.379Z" itemprop="dateUpdated">2017-12-29 16:13:34</time>
+    最后更新时间：<time datetime="2018-01-16T08:48:55.935Z" itemprop="dateUpdated">2018-01-16 16:48:55</time>
 </span><br>
 
 
