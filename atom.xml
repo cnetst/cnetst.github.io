@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.rpchen.com/"/>
-  <updated>2018-01-12T00:28:17.612Z</updated>
+  <updated>2018-02-11T05:53:54.543Z</updated>
   <id>http://www.rpchen.com/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IIS10 FTP 被动模式端口配置</title>
+    <link href="http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/"/>
+    <id>http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/</id>
+    <published>2018-02-11T05:50:53.000Z</published>
+    <updated>2018-02-11T05:53:54.543Z</updated>
+    
+    <content type="html"><![CDATA[<p>无法生效：<br>重启<em>FTPSVC</em>(Microsoft FTP Service) 服务</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;无法生效：&lt;br&gt;重启&lt;em&gt;FTPSVC&lt;/em&gt;(Microsoft FTP Service) 服务&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="FTP" scheme="http://www.rpchen.com/tags/FTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSTap加速游戏</title>
+    <link href="http://www.rpchen.com/2018/01/26/SSTap/"/>
+    <id>http://www.rpchen.com/2018/01/26/SSTap/</id>
+    <published>2018-01-26T07:25:11.000Z</published>
+    <updated>2018-01-26T07:50:11.797Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-SSTap简介"><a href="#1-SSTap简介" class="headerlink" title="1. SSTap简介"></a>1. SSTap简介</h2><blockquote><p>SSTap全称SOCKSTap, 是一款利用虚拟网卡技术在网络层实现的代理工具。<br>SSTap能在网络层拦截所有连接并转发给HTTP，SOCKS4，5，SHADOWSOCKS代理.<br>而无需对被代理的应用程序做任何修改或设置。<br>它能同时转发TCP, UDP数据包。<br>它非常适合于游戏玩家使用。<br>享受你的游戏时光！请使用SSTap！<br>最新版本： [1.1.0.1]<br>发布于： 2017-11-13 21:10:47<br>文件大小： 7.1M<br>安装文件MD5： 3a22361e0a94db8c42dfedb25a890688<br>安装文件SHA1: 4C82004B53ED569AB45078CDCC55DA7B50FEDA8C</p></blockquote><h2 id="2-SSTap安装"><a href="#2-SSTap安装" class="headerlink" title="2. SSTap安装"></a>2. SSTap安装</h2><p>下载并安装<a href="https://d.rpchen.com/SSTap/SSTap-beta-setup-1.1.0.1.exe" target="_blank" rel="noopener">SSTap</a></p><h2 id="3-添加代理"><a href="#3-添加代理" class="headerlink" title="3. 添加代理"></a>3. 添加代理</h2><p>运行SSTap<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://d.rpchen.com/Pic/S1.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>添加新代理<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://d.rpchen.com/Pic/S2.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://d.rpchen.com/Pic/S3.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><br>通过SSR连接添加<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://d.rpchen.com/Pic/S4.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure></p><h2 id="4-选择加速模式"><a href="#4-选择加速模式" class="headerlink" title="4. 选择加速模式"></a>4. 选择加速模式</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://d.rpchen.com/Pic/S5.jpg" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><h2 id="5-加速游戏"><a href="#5-加速游戏" class="headerlink" title="5. 加速游戏"></a>5. 加速游戏</h2><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://d.rpchen.com/Pic/S6.jpg" alt="开始加速" title="">                </div>                <div class="image-caption">开始加速</div>            </figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-SSTap简介&quot;&gt;&lt;a href=&quot;#1-SSTap简介&quot; class=&quot;headerlink&quot; title=&quot;1. SSTap简介&quot;&gt;&lt;/a&gt;1. SSTap简介&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;SSTap全称SOCKSTap, 是一款利用虚拟网卡技
+      
+    
+    </summary>
+    
+    
+      <category term="SS" scheme="http://www.rpchen.com/tags/SS/"/>
+    
+      <category term="SSTap" scheme="http://www.rpchen.com/tags/SSTap/"/>
+    
+  </entry>
   
   <entry>
     <title>CentOS7单用户模式</title>
@@ -387,9 +437,9 @@ wget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;amp;&amp;amp; tar zxf lnm
       <category term="笔记存档" scheme="http://www.rpchen.com/categories/%E7%AC%94%E8%AE%B0%E5%AD%98%E6%A1%A3/"/>
     
     
-      <category term="建站" scheme="http://www.rpchen.com/tags/%E5%BB%BA%E7%AB%99/"/>
-    
       <category term="SSl" scheme="http://www.rpchen.com/tags/SSl/"/>
+    
+      <category term="建站" scheme="http://www.rpchen.com/tags/%E5%BB%BA%E7%AB%99/"/>
     
       <category term="证书" scheme="http://www.rpchen.com/tags/%E8%AF%81%E4%B9%A6/"/>
     
@@ -417,9 +467,9 @@ wget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;amp;&amp;amp; tar zxf lnm
       <category term="转载存档" scheme="http://www.rpchen.com/categories/%E8%BD%AC%E8%BD%BD%E5%AD%98%E6%A1%A3/"/>
     
     
-      <category term="vsftpd" scheme="http://www.rpchen.com/tags/vsftpd/"/>
-    
       <category term="建站" scheme="http://www.rpchen.com/tags/%E5%BB%BA%E7%AB%99/"/>
+    
+      <category term="vsftpd" scheme="http://www.rpchen.com/tags/vsftpd/"/>
     
   </entry>
   
@@ -515,31 +565,6 @@ wget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;amp;&amp;amp; tar zxf lnm
     
       <category term="转载存档" scheme="http://www.rpchen.com/categories/%E8%BD%AC%E8%BD%BD%E5%AD%98%E6%A1%A3/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>SSR搭建</title>
-    <link href="http://www.rpchen.com/2017/12/04/ssr-deploy/"/>
-    <id>http://www.rpchen.com/2017/12/04/ssr-deploy/</id>
-    <published>2017-12-04T07:35:01.000Z</published>
-    <updated>2017-12-29T08:04:57.114Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="SSR服务器端搭建"><a href="#SSR服务器端搭建" class="headerlink" title="SSR服务器端搭建"></a>SSR服务器端搭建</h1><p>```<br>wget –no-check-certificate <a href="https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh" target="_blank" rel="noopener">https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh</a><br>chmod +x shadowsocksR.sh<br>./shadowsocksR.sh 2>&amp;1 | tee shadowsocksR.log</p><h1 id="shadowsocks-json-位置"><a href="#shadowsocks-json-位置" class="headerlink" title="shadowsocks.json 位置"></a>shadowsocks.json 位置</h1><p><code>/etc/shadowsocks.json</code></p><h1 id="重启进程"><a href="#重启进程" class="headerlink" title="重启进程"></a>重启进程</h1><p><code>/etc/init.d/shadowsocks restart</code></p><h1 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h1><p><code>./shadowsocksR.sh uninstall</code></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;SSR服务器端搭建&quot;&gt;&lt;a href=&quot;#SSR服务器端搭建&quot; class=&quot;headerlink&quot; title=&quot;SSR服务器端搭建&quot;&gt;&lt;/a&gt;SSR服务器端搭建&lt;/h1&gt;&lt;p&gt;```&lt;br&gt;wget –no-check-certificate &lt;a href=
-      
-    
-    </summary>
-    
-      <category term="上网" scheme="http://www.rpchen.com/categories/%E4%B8%8A%E7%BD%91/"/>
-    
-    
-      <category term="SS" scheme="http://www.rpchen.com/tags/SS/"/>
     
   </entry>
   
