@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>开启BBR加速 | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="BBR">
+    <meta name="description" content="一、升级内核导入Keyrpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org 安装源rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm 查看可安装内核yum --enablerepo=elrepo-kernel list | grep ker">
+<meta name="keywords" content="BBR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开启BBR加速">
+<meta property="og:url" content="http://www.rpchen.com/2018/04/16/bbr/index.html">
+<meta property="og:site_name" content="RPChen`s Blog">
+<meta property="og:description" content="一、升级内核导入Keyrpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org 安装源rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm 查看可安装内核yum --enablerepo=elrepo-kernel list | grep ker">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-16T03:08:38.559Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开启BBR加速">
+<meta name="twitter:description" content="一、升级内核导入Keyrpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org 安装源rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm 查看可安装内核yum --enablerepo=elrepo-kernel list | grep ker">
+    
+        <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">RPChen</h5>
+          <a href="mailto:rpccec@gmail.com" title="rpccec@gmail.com" class="mail">rpccec@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                存档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://d.rpchen.com" target="_blank" >
+                <i class="icon icon-lg icon-cloud"></i>
+                网盘
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">开启BBR加速</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">开启BBR加速</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-04-16T03:01:40.000Z" itemprop="datePublished" class="page-time">
+  2018-04-16
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、升级内核"><span class="post-toc-text">一、升级内核</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#导入Key"><span class="post-toc-text">导入Key</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装源"><span class="post-toc-text">安装源</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看可安装内核"><span class="post-toc-text">查看可安装内核</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装内核"><span class="post-toc-text">安装内核</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看内核顺序"><span class="post-toc-text">查看内核顺序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#默认第0个为新安装的内核"><span class="post-toc-text">默认第0个为新安装的内核</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重启系统"><span class="post-toc-text">重启系统</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#若不生效，执行"><span class="post-toc-text">若不生效，执行</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、开启BBR拥塞控制算法"><span class="post-toc-text">二、开启BBR拥塞控制算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看内核-BBR最低内核版本为4-9"><span class="post-toc-text">查看内核(BBR最低内核版本为4.9)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看是否加载BBR"><span class="post-toc-text">查看是否加载BBR</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#若无输出，执行"><span class="post-toc-text">若无输出，执行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启用BBR"><span class="post-toc-text">启用BBR</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#立即生效"><span class="post-toc-text">立即生效</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、检验是否启用BBR"><span class="post-toc-text">三、检验是否启用BBR</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看可用的拥塞控制算法"><span class="post-toc-text">查看可用的拥塞控制算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看当前使用的拥塞控制算法-输出为BBR表示已启用"><span class="post-toc-text">查看当前使用的拥塞控制算法,输出为BBR表示已启用</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-bbr"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">开启BBR加速</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-04-16 11:01:40" datetime="2018-04-16T03:01:40.000Z"  itemprop="datePublished">2018-04-16</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、升级内核"><a href="#一、升级内核" class="headerlink" title="一、升级内核"></a>一、升级内核</h1><h2 id="导入Key"><a href="#导入Key" class="headerlink" title="导入Key"></a>导入Key</h2><pre><code>rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+</code></pre><h2 id="安装源"><a href="#安装源" class="headerlink" title="安装源"></a>安装源</h2><pre><code>rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
+</code></pre><h2 id="查看可安装内核"><a href="#查看可安装内核" class="headerlink" title="查看可安装内核"></a>查看可安装内核</h2><pre><code>yum --enablerepo=elrepo-kernel list | grep kernel*
+</code></pre><h2 id="安装内核"><a href="#安装内核" class="headerlink" title="安装内核"></a>安装内核</h2><pre><code>yum --enablerepo=elrepo-kernel install kernel-ml kernel-ml-devel
+</code></pre><h2 id="查看内核顺序"><a href="#查看内核顺序" class="headerlink" title="查看内核顺序"></a>查看内核顺序</h2><pre><code>awk -F\&apos; &apos;$1==&quot;menuentry &quot; {print $2}&apos; /etc/grub2.cfg
+#or
+
+egrep ^menuentry /etc/grub2.cfg | cut -f 2 -d \&apos;
+</code></pre><h2 id="默认第0个为新安装的内核"><a href="#默认第0个为新安装的内核" class="headerlink" title="默认第0个为新安装的内核"></a>默认第0个为新安装的内核</h2><pre><code>grub2-set-default 0
+</code></pre><h2 id="重启系统"><a href="#重启系统" class="headerlink" title="重启系统"></a>重启系统</h2><pre><code>shutdown -r now
+</code></pre><h2 id="若不生效，执行"><a href="#若不生效，执行" class="headerlink" title="若不生效，执行"></a>若不生效，执行</h2><pre><code>grub2-mkconfig -o /boot/grub2/grub.cfg
+</code></pre><h1 id="二、开启BBR拥塞控制算法"><a href="#二、开启BBR拥塞控制算法" class="headerlink" title="二、开启BBR拥塞控制算法"></a>二、开启BBR拥塞控制算法</h1><h2 id="查看内核-BBR最低内核版本为4-9"><a href="#查看内核-BBR最低内核版本为4-9" class="headerlink" title="查看内核(BBR最低内核版本为4.9)"></a>查看内核(BBR最低内核版本为4.9)</h2><pre><code>uname -r
+</code></pre><h2 id="查看是否加载BBR"><a href="#查看是否加载BBR" class="headerlink" title="查看是否加载BBR"></a>查看是否加载BBR</h2><pre><code>lsmod | grep bbr
+</code></pre><h2 id="若无输出，执行"><a href="#若无输出，执行" class="headerlink" title="若无输出，执行"></a>若无输出，执行</h2><pre><code>modprobe tcp_bbr
+echo &quot;tcp_bbr&quot; &gt;&gt; /etc/modules-load.d/modules.conf
+</code></pre><h2 id="启用BBR"><a href="#启用BBR" class="headerlink" title="启用BBR"></a>启用BBR</h2><pre><code>echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf
+echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf
+</code></pre><h2 id="立即生效"><a href="#立即生效" class="headerlink" title="立即生效"></a>立即生效</h2><pre><code>sysctl -p
+</code></pre><h1 id="三、检验是否启用BBR"><a href="#三、检验是否启用BBR" class="headerlink" title="三、检验是否启用BBR"></a>三、检验是否启用BBR</h1><h2 id="查看可用的拥塞控制算法"><a href="#查看可用的拥塞控制算法" class="headerlink" title="查看可用的拥塞控制算法"></a>查看可用的拥塞控制算法</h2><pre><code>sysctl net.ipv4.tcp_available_congestion_control
+</code></pre><h2 id="查看当前使用的拥塞控制算法-输出为BBR表示已启用"><a href="#查看当前使用的拥塞控制算法-输出为BBR表示已启用" class="headerlink" title="查看当前使用的拥塞控制算法,输出为BBR表示已启用"></a>查看当前使用的拥塞控制算法,输出为BBR表示已启用</h2><pre><code>sysctl net.ipv4.tcp_congestion_control
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-16T03:08:38.559Z" itemprop="dateUpdated">2018-04-16 11:08:38</time>
+</span><br>
+
+
+        
+        转载请注明出处：<a href="/2018/04/16/bbr/" target="_blank" rel="external">http://www.rpchen.com/2018/04/16/bbr/</a>
+        
+    </div>
+    <footer>
+        <a href="http://www.rpchen.com">
+            <img src="/img/avatar.jpg" alt="RPChen">
+            RPChen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BBR/">BBR</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/04/16/bbr/&title=《开启BBR加速》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/04/16/bbr/&title=《开启BBR加速》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/04/16/bbr/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《开启BBR加速》 — RPChen`s Blog&url=http://www.rpchen.com/2018/04/16/bbr/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/04/16/bbr/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/04/16/VI-Code/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">VIM操作指令查询</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/02/11/IIS10FTP-PassiveMode/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">IIS10 FTP 被动模式端口配置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="bottom">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p><span>RPChen &copy; 2017 - 2018</span>
+            <span>
+                
+              Power by <a href="http://www.rpchen.com/" target="_blank">RPChen</a>
+		  </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/04/16/bbr/&title=《开启BBR加速》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/04/16/bbr/&title=《开启BBR加速》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/04/16/bbr/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《开启BBR加速》 — RPChen`s Blog&url=http://www.rpchen.com/2018/04/16/bbr/&via=http://www.rpchen.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/04/16/bbr/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3aSXLDMAwEQP//084DHCYDgKSdVOvksha2dEBh4eMRH8+X4/X/1ZXJXZsPXFzcMbe3wOrK1yev/qm+JC4u7n3uz4slQWfyMvkL4+LifiZ3FZ7yxGUVFnFxcf8fN0mGcHFx/xY3KX6qqU/1OZtrNVxc3AE371Ke+32kv4uLi9viPotHNaHJ741Wx8XFvcKtNkOrDZGfS5rmuri4uIe5+cAj2TxR3WyRrPjNd8XFxb3CTVKTc43RckaGi4t7kZvfXA1280CJi4t7kzvZZjHfVFENc7i4uHe4vTKmOnqZ3Lus1XBxcY9xe9smdg1o89HLL6vj4uJu5VZbG5NiZjKYwcXFvc/N05T8BXJQOZDh4uIe5uZbKPLQlgS76qfJZrC4uLj7ub2GSBKGqls9yv1dXFzcY9xe27R6TY+Ii4v7Xm4ycM0bIvMG66M3ocXFxR1wJ2VM9WxSRBWGqbi4uMe41eDSe3SS3GwOjri4uGNuHnR6my16jZLlWVxc3IvcPNBMBie9IIiLi/v53PnwNQ9z2zImXFzcw9wVvTAonbRQcXFxL3KrQadaAvVKI1xc3HdxJ82O3oAkL5lG/V1cXNwO9wtu8bloUw2jTwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

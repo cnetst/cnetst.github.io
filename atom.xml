@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.rpchen.com/"/>
-  <updated>2018-02-11T05:53:54.543Z</updated>
+  <updated>2018-04-19T01:13:54.911Z</updated>
   <id>http://www.rpchen.com/</id>
   
   <author>
@@ -15,6 +15,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SCDPM备份VM失败(0X800423F4)</title>
+    <link href="http://www.rpchen.com/2018/04/19/SCDPM-Error/"/>
+    <id>http://www.rpchen.com/2018/04/19/SCDPM-Error/</id>
+    <published>2018-04-19T01:06:12.000Z</published>
+    <updated>2018-04-19T01:13:54.911Z</updated>
+    
+    <content type="html"><![CDATA[<p>SCDPM备份Hyper-v虚拟机过程中报错</p><p>错误描述：</p><blockquote><p>VSS 应用程序编写器或 VSS 提供程序处于错误的状态。它可能本来就处于错误的状态，或者在执行当前操作的过程中进入错误的状态。 (ID 30111 详细信息: VssError:该写入程序遇到了非暂时性错误。如果重试备份过程，该错误可能再次发生。<br>(0x800423F4)</p></blockquote><p>解决方法：</p><p>找到备份失败的虚拟机，在Hyper-V中设置虚拟机的集成服务器去掉<strong>备份(卷检查点)</strong>项</p><p>具体原因不明，可能与虚拟机的集成服务有关，重启过物理服务器，没用，只好用以上方法临时解决。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;SCDPM备份Hyper-v虚拟机过程中报错&lt;/p&gt;
+&lt;p&gt;错误描述：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;VSS 应用程序编写器或 VSS 提供程序处于错误的状态。它可能本来就处于错误的状态，或者在执行当前操作的过程中进入错误的状态。 (ID 30111 详细信息: 
+      
+    
+    </summary>
+    
+    
+      <category term="SCDPM" scheme="http://www.rpchen.com/tags/SCDPM/"/>
+    
+      <category term="SystemCenter" scheme="http://www.rpchen.com/tags/SystemCenter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VIM操作指令查询</title>
+    <link href="http://www.rpchen.com/2018/04/16/VI-Code/"/>
+    <id>http://www.rpchen.com/2018/04/16/VI-Code/</id>
+    <published>2018-04-16T03:09:07.000Z</published>
+    <updated>2018-04-16T03:14:10.160Z</updated>
+    
+    <content type="html"><![CDATA[<p>VIM CHEATSHEET (中文速查表)  -  by skywind (created on 2017/10/12)<br>Version: 39, Last Modified: 2018/04/04 00:05<br>[<a href="https://github.com/skywind3000/awesome-cheatsheets" target="_blank" rel="noopener">https://github.com/skywind3000/awesome-cheatsheets</a>]</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;VIM CHEATSHEET (中文速查表)  -  by skywind (created on 2017/10/12)&lt;br&gt;Version: 39, Last Modified: 2018/04/04 00:05&lt;br&gt;[&lt;a href=&quot;https://github
+      
+    
+    </summary>
+    
+    
+      <category term="vim" scheme="http://www.rpchen.com/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开启BBR加速</title>
+    <link href="http://www.rpchen.com/2018/04/16/bbr/"/>
+    <id>http://www.rpchen.com/2018/04/16/bbr/</id>
+    <published>2018-04-16T03:01:40.000Z</published>
+    <updated>2018-04-16T03:08:38.559Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一、升级内核"><a href="#一、升级内核" class="headerlink" title="一、升级内核"></a>一、升级内核</h1><h2 id="导入Key"><a href="#导入Key" class="headerlink" title="导入Key"></a>导入Key</h2><pre><code>rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org</code></pre><h2 id="安装源"><a href="#安装源" class="headerlink" title="安装源"></a>安装源</h2><pre><code>rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm</code></pre><h2 id="查看可安装内核"><a href="#查看可安装内核" class="headerlink" title="查看可安装内核"></a>查看可安装内核</h2><pre><code>yum --enablerepo=elrepo-kernel list | grep kernel*</code></pre><h2 id="安装内核"><a href="#安装内核" class="headerlink" title="安装内核"></a>安装内核</h2><pre><code>yum --enablerepo=elrepo-kernel install kernel-ml kernel-ml-devel</code></pre><h2 id="查看内核顺序"><a href="#查看内核顺序" class="headerlink" title="查看内核顺序"></a>查看内核顺序</h2><pre><code>awk -F\&apos; &apos;$1==&quot;menuentry &quot; {print $2}&apos; /etc/grub2.cfg#oregrep ^menuentry /etc/grub2.cfg | cut -f 2 -d \&apos;</code></pre><h2 id="默认第0个为新安装的内核"><a href="#默认第0个为新安装的内核" class="headerlink" title="默认第0个为新安装的内核"></a>默认第0个为新安装的内核</h2><pre><code>grub2-set-default 0</code></pre><h2 id="重启系统"><a href="#重启系统" class="headerlink" title="重启系统"></a>重启系统</h2><pre><code>shutdown -r now</code></pre><h2 id="若不生效，执行"><a href="#若不生效，执行" class="headerlink" title="若不生效，执行"></a>若不生效，执行</h2><pre><code>grub2-mkconfig -o /boot/grub2/grub.cfg</code></pre><h1 id="二、开启BBR拥塞控制算法"><a href="#二、开启BBR拥塞控制算法" class="headerlink" title="二、开启BBR拥塞控制算法"></a>二、开启BBR拥塞控制算法</h1><h2 id="查看内核-BBR最低内核版本为4-9"><a href="#查看内核-BBR最低内核版本为4-9" class="headerlink" title="查看内核(BBR最低内核版本为4.9)"></a>查看内核(BBR最低内核版本为4.9)</h2><pre><code>uname -r</code></pre><h2 id="查看是否加载BBR"><a href="#查看是否加载BBR" class="headerlink" title="查看是否加载BBR"></a>查看是否加载BBR</h2><pre><code>lsmod | grep bbr</code></pre><h2 id="若无输出，执行"><a href="#若无输出，执行" class="headerlink" title="若无输出，执行"></a>若无输出，执行</h2><pre><code>modprobe tcp_bbrecho &quot;tcp_bbr&quot; &gt;&gt; /etc/modules-load.d/modules.conf</code></pre><h2 id="启用BBR"><a href="#启用BBR" class="headerlink" title="启用BBR"></a>启用BBR</h2><pre><code>echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.confecho &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf</code></pre><h2 id="立即生效"><a href="#立即生效" class="headerlink" title="立即生效"></a>立即生效</h2><pre><code>sysctl -p</code></pre><h1 id="三、检验是否启用BBR"><a href="#三、检验是否启用BBR" class="headerlink" title="三、检验是否启用BBR"></a>三、检验是否启用BBR</h1><h2 id="查看可用的拥塞控制算法"><a href="#查看可用的拥塞控制算法" class="headerlink" title="查看可用的拥塞控制算法"></a>查看可用的拥塞控制算法</h2><pre><code>sysctl net.ipv4.tcp_available_congestion_control</code></pre><h2 id="查看当前使用的拥塞控制算法-输出为BBR表示已启用"><a href="#查看当前使用的拥塞控制算法-输出为BBR表示已启用" class="headerlink" title="查看当前使用的拥塞控制算法,输出为BBR表示已启用"></a>查看当前使用的拥塞控制算法,输出为BBR表示已启用</h2><pre><code>sysctl net.ipv4.tcp_congestion_control</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;一、升级内核&quot;&gt;&lt;a href=&quot;#一、升级内核&quot; class=&quot;headerlink&quot; title=&quot;一、升级内核&quot;&gt;&lt;/a&gt;一、升级内核&lt;/h1&gt;&lt;h2 id=&quot;导入Key&quot;&gt;&lt;a href=&quot;#导入Key&quot; class=&quot;headerlink&quot; title=
+      
+    
+    </summary>
+    
+    
+      <category term="BBR" scheme="http://www.rpchen.com/tags/BBR/"/>
+    
+  </entry>
   
   <entry>
     <title>IIS10 FTP 被动模式端口配置</title>
@@ -492,78 +566,6 @@ wget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;amp;&amp;amp; tar zxf lnm
     </summary>
     
       <category term="笔记存档" scheme="http://www.rpchen.com/categories/%E7%AC%94%E8%AE%B0%E5%AD%98%E6%A1%A3/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>PowerShell命令</title>
-    <link href="http://www.rpchen.com/2017/12/04/powershellcode/"/>
-    <id>http://www.rpchen.com/2017/12/04/powershellcode/</id>
-    <published>2017-12-04T07:53:38.000Z</published>
-    <updated>2018-01-03T05:58:10.417Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-查询值"><a href="#1-查询值" class="headerlink" title="1.查询值"></a>1.查询值</h2><pre><code>Get-ADUser -Filter {pager -eq &quot;a1&quot;}</code></pre><h2 id="2-查询导出"><a href="#2-查询导出" class="headerlink" title="2.查询导出"></a>2.查询导出</h2><pre><code>Get-ADUser -Filter * -Properties * -SearchBase &quot;OU=GZ,DC=CONTOSO,DC=COM&quot; | Select-Object name,department |Export-Csv -NoTypeInformation -Encoding UTF8 -Path &quot;c:\dep.csv&quot;</code></pre><h2 id="3-修改值"><a href="#3-修改值" class="headerlink" title="3.修改值"></a>3.修改值</h2><pre><code>Set-ADUser *** -DisplayName ****get-ADUser -Filter {employeeid -eq &quot;010738955&quot;}|Set-ADUser -employeeid 01073895Set-ADUser *** -replace @{pager =&quot;C4009&quot;}Import-Csv -Path c:\abc.csv | foreach {Set-ADUser -Identity $_.name -DisplayName $_.DisplayName}</code></pre><h2 id="4-批量导入查询导出"><a href="#4-批量导入查询导出" class="headerlink" title="4.批量导入查询导出"></a>4.批量导入查询导出</h2><pre><code>Import-Csv -Path d:\1.csv | foreach {Get-ADUser $_.name -Properties * } |select name,LogonWorkstations|Export-Csv -NoTypeInformation -Encoding UTF8 -Path &quot;d:\dep.csv&quot;</code></pre><h2 id="5-新建用户"><a href="#5-新建用户" class="headerlink" title="5.新建用户"></a>5.新建用户</h2><pre><code>New-ADUser -Name ken -DisplayName ken -SamAccountName ken -Company canway -UserPrincipalName ken -AccountPassword (ConvertTo-SecureString 1qaz@WSX -AsPlainText -Force) -Enabled $true -Path &quot;ou=it,ou=gz,dc=contoso,dc=com&quot;</code></pre><h2 id="6-批量新建用户"><a href="#6-批量新建用户" class="headerlink" title="6.批量新建用户"></a>6.批量新建用户</h2><pre><code>Import-csv d:\0.csv | foreach {New-ADUser -Name $_.name -description $_.FullChineseName -givenName $_.FirstName -DisplayName $_.name -Samaccountname $_.name -UserPrincipalName $_.un -Surname $_.LastName -Company $_.StaffCompany -officephone $_.officephone -employeeid $_.StaffNo -department $_.Department  -manager $_.SuperiorManager -title $_.AccountTitle -AccountPassword (ConvertTo-SecureString Kaifa@123 -AsPlainText -Force) -Path &quot;OU=MDBU1_Users,OU=MDBU1,OU=kfft,DC=gwkf,DC=cn&quot; -ChangePasswordAtlogon $True –Enabled $True}Import-csv d:\0.csv | foreach {New-ADUser -Name $_.name -description $_.description -givenName $_.givenName -DisplayName $_.name -Samaccountname $_.name -UserPrincipalName $_.un -Surname $_.sn -Company $_.company  -title $_.title -AccountPassword (ConvertTo-SecureString Kaifa@123 -AsPlainText -Force) -Path &quot;OU=CCBU_Users,OU=CCBU,OU=KFPI,DC=gwkf,DC=cn&quot; -ChangePasswordAtlogon $True –Enabled $True}Import-csv c:\ADuser.csv | foreach {New-ADUser -Name $_.Name -DisplayName $_.Displayname -Samaccountname $_.Samaccountname -UserPrincipalName $_.UserPrincipalName -Company $_.Company -Department $_.Department -Surname $_.Surname -GivenName $_.GivenName -AccountPassword (ConvertTo-SecureString $_.AccountPassword -AsPlainText -Force) -Path $_.Path -ChangePasswordAtlogon $True –Enabled $True}Import-csv d:\A.csv|foreach{get-adcomputer $_.computer -properties * }|Select-Object name,operatingsystem |Export-Csv -NoTypeInformation -Encoding UTF8 -Path &quot;d:\c.csv&quot;</code></pre><h2 id="7-启用Exchange"><a href="#7-启用Exchange" class="headerlink" title="7.启用Exchange"></a>7.启用Exchange</h2><pre><code>Enable-Mailbox -Identity ShuangShuangGuan -Alias &apos;ShuangShuangGuan&apos; -Database &apos;KFSZStaff05&apos;</code></pre><h2 id="8-查询Exchange用户信息"><a href="#8-查询Exchange用户信息" class="headerlink" title="8.查询Exchange用户信息"></a>8.查询Exchange用户信息</h2><pre><code>Get-MailboxStatistics &apos;XiuJuanLi1&apos; | fl</code></pre><h2 id="9-迁移Exchange用户数据库"><a href="#9-迁移Exchange用户数据库" class="headerlink" title="9.迁移Exchange用户数据库"></a>9.迁移Exchange用户数据库</h2><pre><code>&quot;BoXie&quot; | New-MoveRequest -TargetDatabase &apos;KFDGManagers01&apos;</code></pre><h2 id="10-启用Skype"><a href="#10-启用Skype" class="headerlink" title="10.启用Skype"></a>10.启用Skype</h2><pre><code>Enable-CsUser –Identity ShuangShuangGuan -RegistrarPool SZSkypePool01.gwkf.cn -SipAddressType UserPrincipalName</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-查询值&quot;&gt;&lt;a href=&quot;#1-查询值&quot; class=&quot;headerlink&quot; title=&quot;1.查询值&quot;&gt;&lt;/a&gt;1.查询值&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;Get-ADUser -Filter {pager -eq &amp;quot;a1&amp;quot;}
-&lt;/co
-      
-    
-    </summary>
-    
-      <category term="笔记存档" scheme="http://www.rpchen.com/categories/%E7%AC%94%E8%AE%B0%E5%AD%98%E6%A1%A3/"/>
-    
-    
-      <category term="PowerShell" scheme="http://www.rpchen.com/tags/PowerShell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SSR协议的选择</title>
-    <link href="http://www.rpchen.com/2017/12/04/ssr-method/"/>
-    <id>http://www.rpchen.com/2017/12/04/ssr-method/</id>
-    <published>2017-12-04T07:41:46.000Z</published>
-    <updated>2017-12-29T03:44:34.913Z</updated>
-    
-    <content type="html"><![CDATA[<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">其实这个要说的少得多，总之就一句话，能用auth_aes128_md5或auth_aes128_sha1的，就直接用这两个，最好不要开启兼容，其它的协议都不建议。但如果要解释的话，这个说来话长，需要一点点说明其它的协议的特性。以下简略说明一下各协议的问题。</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">首先我们来看原版协议（origin），原版协议有着最少的数据冗余，在没有限制的情况下，必然是原版协议速度最快，这是毫无疑问的。其它的协议的兼容，全是为了兼容原版协议。那既然原版理论上最快为什么不直接用？因为它没有数据完整性校验，无法确认数据是否被篡改，容易被攻击，它也没有做数据包的长度混淆，可以通过数据包长度统计分析检测出来（例如此专利中所说的方案）。当然如果你所在的地区直接使用没有感觉有什么问题，那直接使用就可以了，没有必要考虑后面的。</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">接着来看原版的OTA协议，这个协议增加了从客户端到服务端单向的完整性校验，于是服务端到客户端的方向还是存在同样的问题，且它也没有做数据包的长度混淆，一样可以通过数据包长度统计分析检测出来。另外此协议并非能抵抗CCA（Chosen ciphertext attack），依然可以通过CCA来确定这是不是OTA协议（通过服务端行为攻击，具体方法这里不说）。</span></p><p>&nbsp;</p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">然后再看SSR的auth_sha1和auth_sha1_v2协议，这两协议几乎一样，这两协议都有双向的完整性校验，有数据包的长度混淆，有抵抗重放攻击的能力，但缺点是不能完全抵抗CCA，可使用检测OTA的方法检测出来（不用改动一行代码，但无法区分到底是OTA还是auth_sha1，如要确定，那只要对服务端发向客户端的方向发起CCA攻击即可区分）</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">再来看看SSR的auth_sha1_v4协议，相对于auth_sha1，在抵抗CCA方面有改进，但依然不是完全抵抗CCA，尽管多增加了长度校验避免服务端行为攻击，但因为校验使用的是CRC32，而CRC32可以通过已知的正确的数据包，再通过同时修改包长度字段和CRC32来伪造出正确的值，所以虽然攻击难度增加了，但并非完全抵抗CCA。不过某防火墙要如此针对性的攻击此协议的可能性非常低，可以认为基本安全，但如果你条件允许，那还是看下面两个协议吧。</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">最后再看看auth_aes128_md5和auth_aes128_sha1，这两协议在关键的认证数据区使用Encrypt-then-MAC，使其无法CCA，而后续的数据包均使用HMAC，且每个连接的不同数据包用的HMAC的KEY都不一样，之前的攻击方案均失效。对于这个协议我自己还没有想到有效的攻击手段，并且此协议的网络利用率比其它的auth系列协议要高，也是唯一一组抗CCA的协议，所以我推荐大家使用这个协议。不过唯一的缺点是这个协议计算量会比其它的协议要多，代码编写较复杂。关于此协议我写了一个简要的文档说明。</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">其它花絮：因为auth_aes128_md5协议的前数百个字节不是random的就是HMAC或加密的，总之前面一大堆表面看起来都像是random，所以我曾经试过直接用这个协议裸跑（不使用加密也不使用混淆），结果显示完全能正常使用。但还是不建议大家这么做，毕竟后面还是带着明文的，要是关键字检测会检测到那么后面的话就挂了（但给我的感觉是这个明文关键字检测并不严厉，似乎只针对http, TLS, socks等已知协议）</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">关于协议就简略讲到这里了（如何攻击这里不讲，否则要列举一堆例子和演示代码，更具体的以后会有机会讲的），有什么问题可补充。</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><hr><p>&nbsp;</p><p>&nbsp;</p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">最初我设计这个混淆的时候并没有想到如今产生了如此多的黑科技用法，只是想着伪装为看起来像正常的流量，减少被注意到的可能性而已。</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">对于大多数人来说，混淆并不是必须使用的，不使用混淆其实都能正常使用，而且在这当中有近一半人所在的地区的网络，直接使用原版的SS能获得更好的速度。那么什么时候你应该使用混淆呢？第一类是遇到QoS情况的，使用混淆能提速的人，第二类是所在网络有严格限制，仅能使用80/443端口，不认识的协议根本不能用的（如学校、公司、政府办公网络），第三类是对自己的隐私有要求的，希望在运营商的连接记录里留下看起来正常的访问记录，第四类是试图绕过学校或运营商的计费系统的人，第五类其它黑科技用途保密。以上第四类并不在本文的讨论范围，这属于漏洞利用的非法用途。下文仅针对前三类进行展开。</span></p><p>&nbsp;</p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">首先是混淆参数的问题。这个混淆参数可根据你的设定，伪装为对任意host的访问，但我不建议你填写此参数，但建议服务端节点带有域名及正确的解析，这样你不需要填写参数，客户端将直接使用你的节点的域名作为参数。为什么应该这样做呢？因为我了解到，运营商已经在少数地区布置了DNS验证系统（有可能是故意针对SSR的），如果你发出的http/tls请求里的域名解析出的IP地址列表，与你所连接的实际IP不一致，多次请求后就可能会把此IP加入临时黑名单。所以，如果节点有域名，那么参数不写其实是最好的，很多人都习惯写一个大公司网站的域名，其实这反而留下了一个可被检测的地方。</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">针对第一类人，关于QoS的问题，唯一的办法就是测试了，各地区不同，不同时间效果也不同，不同端口和混淆参数效果也不同。服务端同时开几个端口，一些开http，一些开tls，多测测测出你认为速度较好的组合使用就好。</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">针对第二类人，那么首先要了解清楚所在的网络环境的限制方式，包括访问端口限制，访问域名限制，协议类型限制，访问IP限制。如果你发现存在访问IP限制，那你可以死心了，除非你在此网络下有另一个节点可以通过它作二级代理访问无IP限制的外部网络。对于端口限制，它限制只能哪些端口，那么你在服务端就开哪些端口，而协议类型除了特别变态的，一般都能用http，如果有域名限制，那么混淆参数就填写能用的域名即可。另外很多公司还有一类外网的访问限制，就是必须通过它提供的二级代理，这时你只需要在客户端的二级代理的地方对应的填写一下即可（部分代理可能必须填写UserAgent）。基本上就是见招拆招，如果有太特别的，没法解决的可联系我说说是什么奇葩的限制（例如不少高校网络都要安装专用的登陆（监控）客户端还只能windows使用，还会劫持你流量的方式才能上网，还限制只能单网卡什么的，那确实非常恶心）。</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">针对第三类人，如果是联通的比较好办，它提供了可供查询的列表，实验一下你就明白具体效果了。对于其它的运营商，这个列表也绝对是有的，只是不公开给你查询罢了，如果你担心这个，那开启混淆就好了。这种情况下建议使用国内服务器中转并混淆参数使用国内的网站域名。当然，对于这类情况，能更好的减少流量被注意的可能性，即使你所在的网络并没有QoS或其它限制，也能减少被无故限速的风险。</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">关于混淆就讲到这里了，有什么问题可补充。下一篇将会讲协议的选择</span></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;span style=&quot;font-family: arial, helvetica, sans-serif; font-size: 10pt;&quot;&gt;其实这个要说的少得多，总之就一句话，能用auth_aes128_md5或auth_aes128_sha1的，就直接用这两个，最
-      
-    
-    </summary>
-    
-      <category term="转载存档" scheme="http://www.rpchen.com/categories/%E8%BD%AC%E8%BD%BD%E5%AD%98%E6%A1%A3/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>SSR单端口多用户配置方法</title>
-    <link href="http://www.rpchen.com/2017/12/04/ssr-oneportduouser/"/>
-    <id>http://www.rpchen.com/2017/12/04/ssr-oneportduouser/</id>
-    <published>2017-12-04T07:36:31.000Z</published>
-    <updated>2017-12-29T03:44:34.913Z</updated>
-    
-    <content type="html"><![CDATA[<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">第一部分：直接修改服务端配置文件大法，仅适用于使用单用户配置的情况</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 首先是服务端的配置</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 服务端把协议(protocol)配置为 auth_aes128_md5 或 auth_aes128_sha1，然后在协议参数(protocol_param)配置所有可用的用户id及其密码，示例如下：</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">“protocol”: “auth_aes128_sha1”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol_param”: “64#12345:breakwa11,233:zhihuyaowan”,</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">含义：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 在#前面的表示每个用户的最大客户端数，照着写这个值或者不填都可以，但必须有#号。在#后，以英文逗号分隔所有的用户，而英文冒号的前面是用户的id，注意这个id必须是范围在 1~2147483647之间，后面的是用户的密码，密码不能有特殊符号，建议仅使用数字和大小写字母</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">然后是客户端的配置（此处配置同样适合下文的其它配置模式）</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 客户端方面非常简单，需要使用用户id为12345的连接，那么在客户端的协议参数(protocol_param)里面填写 12345:breakwa11 就行了，如果使用id为233的同理，其它参数服务端怎么配置的就怎么写</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">那既然多用户可以单端口了，那能不能做得更像一个网站？完全可以的，如果是http的话，服务端安装一个nginx之类，把端口开在8080（监听127.0.0.1），然后SSR的端口开在80，同时在SSR的user-config.json里修改参数 “redirect” : “127.0.0.1:8080”, 这时，直接用浏览器打开，就可以直接看到你开的网站了，而改成用SSR客户端连接就成了服务端了。不过注意的是这时候最好要开相应的混淆哦ヽ(´▽｀)ノ</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">目前这个是刚出的功能，还在测试中，后端和面板还没有相应的支持，也没有流量控制等，建议几个人自己合玩的时候可以这样用，特别地在某些学校或公司这个功能非常好用的哦。</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">第二部分：使用mudbjson模式配置（适合单服务器多人合用或试用服务器）</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 2017-02-21更新：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 现mudbjson模式多用户已支持，简要说明如下：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 首先先创建对应的用户id，如果这个id大于65535，那么此用户仅用于多用户模式，小于等于65535时会同时监听这个端口。然后创建多用户端口，相应的protocol_param里就填写”#”就行了，以下是配置示例：</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">[</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “d”: 0,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “enable”: 1,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “method”: “aes-128-cfb”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs”: “tls1.2_ticket_auth_compatible”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “passwd”: “vwHF%35j”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “port”: 12345,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol”: “auth_aes128_sha1”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol_param”: “#”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “transfer_enable”: 1125899906842624,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “u”: 0,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “user”: “12345”</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> },</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “d”: 0,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “enable”: 1,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “method”: “aes-128-cfb”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs”: “tls1.2_ticket_auth_compatible”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “passwd”: “E&amp;iWmlxu”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “port”: 10001,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol”: “auth_sha1_v4”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “transfer_enable”: 536870912,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “u”: 0,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “user”: “10001”</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> },</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “d”: 0,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “enable”: 1,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “method”: “aes-128-cfb”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs”: “tls1.2_ticket_auth_compatible”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “passwd”: “4~fGiKeY”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “port”: 100002,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol”: “auth_sha1_v4”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “transfer_enable”: 10737418240,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “u”: 0,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “user”: “100002”</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> }</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> ]</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">在以上例子中，端口12345是多用户端口（可看成一个公共用户，但无法直接使用），有两个子用户，一个是10001，一个是100002，而10001用户，既可以使用10001端口，也能通过多用户方式使用12345端口。而100002用户只能使用端口12345。在使用端口12345时，实际的使用流量会统计到10001或100002上。注意的是用户10001在配置客户端使用多用户端口12345的话，配置密码为”vwHF%35j”，即除了协议参数均填写此端口的配置，仅协议参数改为”10001:E&amp;iWmlxu”即可。</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">其它：在使用mujson_mgr.py脚本添加协议参数时请使用-G且参数使用英文双引号包起来</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 如有不明白可留言问</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">第三部分：使用面板支持（适合站长多服务器下使用）</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 2017-01-24更新：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 现在已经有支持此单端口多用户的面板及相应的后端，具体参见 <a href="https://github.com/esdeathlove/ss-panel-v3-mod" target="_blank" rel="noopener">https://github.com/esdeathlove/ss-panel-v3-mod</a></span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">2017-02-21更新：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 如果使用老面板，包括sspanel和WHMCS等，后端更新到最新后，那么可以在user-config.json内，修改或添加如下字段</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “additional_ports” : {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “6666”: {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “passwd”: “pubpassword”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “method”: “aes-128-ctr”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol”: “auth_aes128_md5”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol_param”: “#”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs”: “tls1.2_ticket_auth_compatible”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs_param”: “”</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> }</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> },</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 其中6666是那个端口（如果要设置多个，就additional_ports内再添加一个，注意逗号分隔），protocol必须为auth_aes128_md5或auth_aes128_sha1，protocol_param只需且必须写一个#。（直接复制以上内容时记得修改密码配置）</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">第四部分：高级端口转发</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 如果设置多个多用户端口，想设置不同端口不同的转发规则以最大化伪装为其它服务，例如开了80端口和443端口作为多用户端口（以additional_ports方式作为示例）：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “additional_ports” : {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “80”: {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “passwd”: “pubpassword”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “method”: “aes-128-ctr”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol”: “auth_aes128_md5”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol_param”: “#”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs”: “tls1.2_ticket_auth_compatible”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs_param”: “”</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> },</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “443”: {</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “passwd”: “pubpassword”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “method”: “aes-128-ctr”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol”: “auth_aes128_md5”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “protocol_param”: “#”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs”: “tls1.2_ticket_auth_compatible”,</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “obfs_param”: “”</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> }</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> },</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 同时本地的nginx/apache开启端口1080和1443，那么在user-config.json里修改如下参数：</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> “redirect” : [“<em>:80#127.0.0.1:1080”, “</em>:443#127.0.0.1:1443”],</span></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">配置好后，直接访问80或443端口，将是个正常的网站，用SSR去连接则为代理服务。</span><br><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"> 其它：nginx的rewrite规则默认会使用监听的端口，这时会导致rewrite有问题，需要指定一下端口号</span></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;span style=&quot;font-family: arial, helvetica, sans-serif; font-size: 10pt;&quot;&gt;第一部分：直接修改服务端配置文件大法，仅适用于使用单用户配置的情况&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-f
-      
-    
-    </summary>
-    
-      <category term="转载存档" scheme="http://www.rpchen.com/categories/%E8%BD%AC%E8%BD%BD%E5%AD%98%E6%A1%A3/"/>
     
     
   </entry>

@@ -13,25 +13,25 @@
     
     
     
-    <title>IIS10 FTP 被动模式端口配置 | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
+    <title>SCDPM备份VM失败(0X800423F4) | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="FTP">
-    <meta name="description" content="无法生效：重启FTPSVC(Microsoft FTP Service) 服务">
-<meta name="keywords" content="FTP">
+    <meta name="keywords" content="SCDPM,SystemCenter">
+    <meta name="description" content="SCDPM备份Hyper-v虚拟机过程中报错 错误描述：  VSS 应用程序编写器或 VSS 提供程序处于错误的状态。它可能本来就处于错误的状态，或者在执行当前操作的过程中进入错误的状态。 (ID 30111 详细信息: VssError:该写入程序遇到了非暂时性错误。如果重试备份过程，该错误可能再次发生。(0x800423F4)  解决方法： 找到备份失败的虚拟机，在Hyper-V中设置虚拟机的">
+<meta name="keywords" content="SCDPM,SystemCenter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IIS10 FTP 被动模式端口配置">
-<meta property="og:url" content="http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/index.html">
+<meta property="og:title" content="SCDPM备份VM失败(0X800423F4)">
+<meta property="og:url" content="http://www.rpchen.com/2018/04/19/SCDPM-Error/index.html">
 <meta property="og:site_name" content="RPChen`s Blog">
-<meta property="og:description" content="无法生效：重启FTPSVC(Microsoft FTP Service) 服务">
+<meta property="og:description" content="SCDPM备份Hyper-v虚拟机过程中报错 错误描述：  VSS 应用程序编写器或 VSS 提供程序处于错误的状态。它可能本来就处于错误的状态，或者在执行当前操作的过程中进入错误的状态。 (ID 30111 详细信息: VssError:该写入程序遇到了非暂时性错误。如果重试备份过程，该错误可能再次发生。(0x800423F4)  解决方法： 找到备份失败的虚拟机，在Hyper-V中设置虚拟机的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-11T05:53:54.543Z">
+<meta property="og:updated_time" content="2018-04-19T01:13:54.911Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IIS10 FTP 被动模式端口配置">
-<meta name="twitter:description" content="无法生效：重启FTPSVC(Microsoft FTP Service) 服务">
+<meta name="twitter:title" content="SCDPM备份VM失败(0X800423F4)">
+<meta name="twitter:description" content="SCDPM备份Hyper-v虚拟机过程中报错 错误描述：  VSS 应用程序编写器或 VSS 提供程序处于错误的状态。它可能本来就处于错误的状态，或者在执行当前操作的过程中进入错误的状态。 (ID 30111 详细信息: VssError:该写入程序遇到了非暂时性错误。如果重试备份过程，该错误可能再次发生。(0x800423F4)  解决方法： 找到备份失败的虚拟机，在Hyper-V中设置虚拟机的">
     
         <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
     
@@ -112,7 +112,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">IIS10 FTP 被动模式端口配置</div>
+        <div class="flex-col header-title ellipsis">SCDPM备份VM失败(0X800423F4)</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -134,11 +134,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">IIS10 FTP 被动模式端口配置</h1>
+        <h1 class="title">SCDPM备份VM失败(0X800423F4)</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-02-11T05:50:53.000Z" itemprop="datePublished" class="page-time">
-  2018-02-11
+                <time datetime="2018-04-19T01:06:12.000Z" itemprop="datePublished" class="page-time">
+  2018-04-19
 </time>
 
 
@@ -154,13 +154,13 @@
 
 <div class="container body-wrap">
     
-<article id="post-IIS10FTP-PassiveMode"
+<article id="post-SCDPM-Error"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">IIS10 FTP 被动模式端口配置</h1>
+        <h1 class="post-card-title">SCDPM备份VM失败(0X800423F4)</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-02-11 13:50:53" datetime="2018-02-11T05:50:53.000Z"  itemprop="datePublished">2018-02-11</time>
+            <time class="post-time" title="2018-04-19 09:06:12" datetime="2018-04-19T01:06:12.000Z"  itemprop="datePublished">2018-04-19</time>
 
             
 
@@ -173,7 +173,14 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>无法生效：<br>重启<em>FTPSVC</em>(Microsoft FTP Service) 服务</p>
+            <p>SCDPM备份Hyper-v虚拟机过程中报错</p>
+<p>错误描述：</p>
+<blockquote>
+<p>VSS 应用程序编写器或 VSS 提供程序处于错误的状态。它可能本来就处于错误的状态，或者在执行当前操作的过程中进入错误的状态。 (ID 30111 详细信息: VssError:该写入程序遇到了非暂时性错误。如果重试备份过程，该错误可能再次发生。<br>(0x800423F4)</p>
+</blockquote>
+<p>解决方法：</p>
+<p>找到备份失败的虚拟机，在Hyper-V中设置虚拟机的集成服务器去掉<strong>备份(卷检查点)</strong>项</p>
+<p>具体原因不明，可能与虚拟机的集成服务有关，重启过物理服务器，没用，只好用以上方法临时解决。</p>
 
         </div>
 
@@ -181,12 +188,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-02-11T05:53:54.543Z" itemprop="dateUpdated">2018-02-11 13:53:54</time>
+    最后更新时间：<time datetime="2018-04-19T01:13:54.911Z" itemprop="dateUpdated">2018-04-19 09:13:54</time>
 </span><br>
 
 
         
-        转载请注明出处：<a href="/2018/02/11/IIS10FTP-PassiveMode/" target="_blank" rel="external">http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/</a>
+        转载请注明出处：<a href="/2018/04/19/SCDPM-Error/" target="_blank" rel="external">http://www.rpchen.com/2018/04/19/SCDPM-Error/</a>
         
     </div>
     <footer>
@@ -202,7 +209,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FTP/">FTP</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SCDPM/">SCDPM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SystemCenter/">SystemCenter</a></li></ul>
 
 
             
@@ -212,7 +219,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/&title=《IIS10 FTP 被动模式端口配置》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/04/19/SCDPM-Error/&title=《SCDPM备份VM失败(0X800423F4)》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -222,22 +229,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/&title=《IIS10 FTP 被动模式端口配置》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/04/19/SCDPM-Error/&title=《SCDPM备份VM失败(0X800423F4)》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/04/19/SCDPM-Error/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IIS10 FTP 被动模式端口配置》 — RPChen`s Blog&url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/&via=http://www.rpchen.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SCDPM备份VM失败(0X800423F4)》 — RPChen`s Blog&url=http://www.rpchen.com/2018/04/19/SCDPM-Error/&via=http://www.rpchen.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/04/19/SCDPM-Error/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -257,21 +264,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/04/16/bbr/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">开启BBR加速</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/01/26/SSTap/" id="post-next" class="post-nav-link">
+      <a href="/2018/04/16/VI-Code/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">SSTap加速游戏</h4>
+        <h4 class="title">VIM操作指令查询</h4>
       </a>
     </div>
   
@@ -331,7 +331,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/&title=《IIS10 FTP 被动模式端口配置》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/04/19/SCDPM-Error/&title=《SCDPM备份VM失败(0X800423F4)》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -341,22 +341,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/&title=《IIS10 FTP 被动模式端口配置》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/04/19/SCDPM-Error/&title=《SCDPM备份VM失败(0X800423F4)》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/04/19/SCDPM-Error/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IIS10 FTP 被动模式端口配置》 — RPChen`s Blog&url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/&via=http://www.rpchen.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SCDPM备份VM失败(0X800423F4)》 — RPChen`s Blog&url=http://www.rpchen.com/2018/04/19/SCDPM-Error/&via=http://www.rpchen.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/04/19/SCDPM-Error/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -367,7 +367,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3a0U7DMAwFUP7/p4vE61i5N+6Qmp48VWVkOUEyTuyvr3gcP+P1zfn788+8e379/GUDAwPjtozjdLRfnAAms72lYmBgPIBxHmTPQ2EeXifb98ecGBgYGHFYbLO4843AwMDAWAu4yXKTMJqnnhgYGBh5irb2Pr+8S7bvgrM4BgbGDRltYeA/nz9Y38DAwLgJ4yjHJB1sywbFqjAwMLZmJIlasohPFEGTnxb5JgYGxm0ZeRhtr+HWrviT5oxf3mNgYGzNaEuSa4FyrSSQbysGBsaTGZPWinlSWDeoYWBgbMqYhMJJITMBFEEZAwNja0ZydEzKA3lJoPg/UDauYWBg7M2YhLy8zNmG7LUiKAYGxn6MTyRtRe10EHAxMDAw1hq/inJjPEYBFwMDYwvGWoqWHFPrAmTZfhH9GgYGxhaM/Dh6VfvXpPHr7fdiYGA8hpEfMtskb61UUBx3MTAwHsaY9JdNGmHXNq4+i2NgYNyQkS+rnrS8aMsTwaIPFwMDYwvGeYicNFjkrWZtchn9HTAwMLZjtAGubY+YBPTFwgAGBsZGjPb6LG8wXbw4m7RiYGBgbMo4ytFe6yeMovHr3fwYGBhbM9YidHv1Nkn+1ho7MDAw9mPkTatrqVtyMdde+WFgYDyTkQfNthgw2YhiNgwMDIz4eVKqTOapu3ExMDAwgsSuPQAvhn4MDIwHMNYaLIpmiIuKoFGPGwYGxnaM+QGyDa/J4vIyJwYGxtaMb6FAk2FaAVcjAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIElEQVR42u3aW46jMBAF0Ox/05kFTEPuLdMtxT7+QogEHz5K9fDrFa/3f+vq/tVq/+31GwsDA+NrGcnrn73TXiefBgMD4wTGVQSbXSfhtX3Xhz1jYGBgXKR3V9u9T/VmQRkDAwOjZdzfvw+7yefAwMDAmBWx7eba0vSPanEMDIwvZOTh8u+vf2W+gYGB8VWMd7na0nQ2mKx3hYGBsTUjD3B5WjZ7pk37MDAwzmEkfzQ7wpWUwbNnfgjxGBgYBzDaNC5vfj07qrxMRjEwMA5gtAncrJRtk8ii9MXAwDiM0RarT22oHZpiYGBgPFBYxm219YIZAwPjHEZeZCZJ4XoWlx8aw8DA2JvxoY1VYvLwnTfdinQTAwNjU0aetN0/Mzsk0bbqolCLgYGxHaMtaPMXrIw5871hYGCcyUgSwXacMGvezQaoGBgY+zHe8cobarNytx2L/tA1xMDA2JTRJmrtALJtt+Utvw8fFAMDY1NGcQyrXLOjZvkgEwMD4wRGXnyuB9y8fZaPUTEwMM5htE3/tohdD9kf7mNgYBzDuC81ZwG3nTPWzTUMDIytGe9yzX47K1Dr+hsDA2NTxqxllr9sJRw/MOXAwMDYiNGGy7y5nzy5EnAxMDBOY6wcd1hv0rUHzi4DLgYGBkaQ8M3adithHQMDAyM/HtEmi7Mg+6GIxcDA2JqxfuRr5VdJ+L6HYWBg7M1YCZrrJehToRwDA2NTxj89KUupJESjmQAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
