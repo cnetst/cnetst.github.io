@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="RPChen`s Blog">
 <meta property="og:description" content="1.查询值Get-ADUser -Filter {pager -eq &amp;quot;***&amp;quot;} 2.查询导出Get-ADUser -Filter * -Properties * -SearchBase &amp;quot;OU=GZ,DC=CONTOSO,DC=COM&amp;quot; | Select-Object name,department |Export-Csv -NoTypeInformat">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-17T00:41:41.806Z">
+<meta property="og:updated_time" content="2018-05-25T01:36:47.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PowerShell命令">
 <meta name="twitter:description" content="1.查询值Get-ADUser -Filter {pager -eq &amp;quot;***&amp;quot;} 2.查询导出Get-ADUser -Filter * -Properties * -SearchBase &amp;quot;OU=GZ,DC=CONTOSO,DC=COM&amp;quot; | Select-Object name,department |Export-Csv -NoTypeInformat">
@@ -192,6 +192,11 @@ Set-ADUser *** -replace @{pager =&quot;ABC&quot;}
 Import-Csv -Path c:\abc.csv | foreach {Set-ADUser -Identity $_.name -DisplayName $_.DisplayName}
 Import-Csv -Path d:\dep.csv | foreach {Set-ADUser $_.name -replace @{telephonenumber = $_.telephonenumber}}
 </code></pre><h2 id="4-批量导入查询导出"><a href="#4-批量导入查询导出" class="headerlink" title="4.批量导入查询导出"></a>4.批量导入查询导出</h2><pre><code>Import-Csv -Path d:\1.csv | foreach {Get-ADUser $_.name -Properties * } |select name,LogonWorkstations|Export-Csv -NoTypeInformation -Encoding UTF8 -Path &quot;d:\dep.csv&quot;
+
+Import-csv -Path d:\1.csv | ForEach-Object {
+    $ID = $_.employeeid
+    get-aduser -filter {employeeid -eq $ID} -Properties employeeid,cn,description,mail | select employeeid,cn,description,mail  &gt;&gt;d:4.txt
+}
 </code></pre><h2 id="5-新建用户"><a href="#5-新建用户" class="headerlink" title="5.新建用户"></a>5.新建用户</h2><pre><code>New-ADUser -Name ken -DisplayName ken -SamAccountName ken -Company canway -UserPrincipalName ken -AccountPassword (ConvertTo-SecureString 1qaz@WSX -AsPlainText -Force) -Enabled $true -Path &quot;ou=it,ou=gz,dc=contoso,dc=com&quot;
 </code></pre><h2 id="6-批量新建用户"><a href="#6-批量新建用户" class="headerlink" title="6.批量新建用户"></a>6.批量新建用户</h2><pre><code>Import-csv d:\0.csv | foreach {New-ADUser -Name $_.name -description $_.FullChineseName -givenName $_.FirstName -DisplayName $_.name -Samaccountname $_.name -UserPrincipalName $_.un -Surname $_.LastName -Company $_.StaffCompany -officephone $_.officephone -employeeid $_.StaffNo -department $_.Department  -manager $_.SuperiorManager -title $_.AccountTitle -AccountPassword (ConvertTo-SecureString Kaifa@123 -AsPlainText -Force) -Path &quot;OU=MDBU1_Users,OU=MDBU1,OU=kfft,DC=gwkf,DC=cn&quot; -ChangePasswordAtlogon $True –Enabled $True}
 
@@ -211,7 +216,7 @@ Import-csv d:\A.csv|foreach{get-adcomputer $_.computer -properties * }|Select-Ob
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-17T00:41:41.806Z" itemprop="dateUpdated">2018-05-17 08:41:41</time>
+    最后更新时间：<time datetime="2018-05-25T01:36:47.576Z" itemprop="dateUpdated">2018-05-25 09:36:47</time>
 </span><br>
 
 
