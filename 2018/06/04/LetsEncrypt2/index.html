@@ -13,25 +13,25 @@
     
     
     
-    <title>IIS10 FTP 被动模式端口配置 | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
+    <title>LetsEncrypt通配符证书申请 | RPChen`s Blog | The quieter you become,the more you are able to hear.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="FTP">
-    <meta name="description" content="无法生效：重启FTPSVC(Microsoft FTP Service) 服务">
-<meta name="keywords" content="FTP">
+    <meta name="keywords" content="证书">
+    <meta name="description" content="下载 Certbot 客户端wget https://dl.eff.org/certbot-auto 设为可执行权限chmod a+x certbot-auto   ./certbot-auto certonly  -d &amp;quot;*.rpchen.com&amp;quot; --manual --preferred-challenges dns-01  --server https://acme-v0">
+<meta name="keywords" content="证书">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IIS10 FTP 被动模式端口配置">
-<meta property="og:url" content="http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/index.html">
+<meta property="og:title" content="LetsEncrypt通配符证书申请">
+<meta property="og:url" content="http://www.rpchen.com/2018/06/04/LetsEncrypt2/index.html">
 <meta property="og:site_name" content="RPChen`s Blog">
-<meta property="og:description" content="无法生效：重启FTPSVC(Microsoft FTP Service) 服务">
+<meta property="og:description" content="下载 Certbot 客户端wget https://dl.eff.org/certbot-auto 设为可执行权限chmod a+x certbot-auto   ./certbot-auto certonly  -d &amp;quot;*.rpchen.com&amp;quot; --manual --preferred-challenges dns-01  --server https://acme-v0">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-04T07:36:35.527Z">
+<meta property="og:updated_time" content="2018-06-04T07:29:29.503Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IIS10 FTP 被动模式端口配置">
-<meta name="twitter:description" content="无法生效：重启FTPSVC(Microsoft FTP Service) 服务">
+<meta name="twitter:title" content="LetsEncrypt通配符证书申请">
+<meta name="twitter:description" content="下载 Certbot 客户端wget https://dl.eff.org/certbot-auto 设为可执行权限chmod a+x certbot-auto   ./certbot-auto certonly  -d &amp;quot;*.rpchen.com&amp;quot; --manual --preferred-challenges dns-01  --server https://acme-v0">
     
         <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
     
@@ -112,7 +112,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">IIS10 FTP 被动模式端口配置</div>
+        <div class="flex-col header-title ellipsis">LetsEncrypt通配符证书申请</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -134,11 +134,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">IIS10 FTP 被动模式端口配置</h1>
+        <h1 class="title">LetsEncrypt通配符证书申请</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-02-11T05:50:53.000Z" itemprop="datePublished" class="page-time">
-  2018-02-11
+                <time datetime="2018-06-04T07:17:17.000Z" itemprop="datePublished" class="page-time">
+  2018-06-04
 </time>
 
 
@@ -156,13 +156,20 @@
 
 <div class="container body-wrap">
     
-<article id="post-IIS10FTP-PassiveMode"
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下载-Certbot-客户端"><span class="post-toc-text">下载 Certbot 客户端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设为可执行权限"><span class="post-toc-text">设为可执行权限</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#给域名添加一个-DNS-TXT-记录"><span class="post-toc-text">给域名添加一个 DNS TXT 记录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#续期可以执行："><span class="post-toc-text">续期可以执行：</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-LetsEncrypt2"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">IIS10 FTP 被动模式端口配置</h1>
+        <h1 class="post-card-title">LetsEncrypt通配符证书申请</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-02-11 13:50:53" datetime="2018-02-11T05:50:53.000Z"  itemprop="datePublished">2018-02-11</time>
+            <time class="post-time" title="2018-06-04 15:17:17" datetime="2018-06-04T07:17:17.000Z"  itemprop="datePublished">2018-06-04</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/建站/">建站</a></li></ul>
@@ -177,20 +184,25 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>无法生效：<br>重启<em>FTPSVC</em>(Microsoft FTP Service) 服务</p>
+            <h3 id="下载-Certbot-客户端"><a href="#下载-Certbot-客户端" class="headerlink" title="下载 Certbot 客户端"></a>下载 Certbot 客户端</h3><pre><code>wget https://dl.eff.org/certbot-auto
+</code></pre><h3 id="设为可执行权限"><a href="#设为可执行权限" class="headerlink" title="设为可执行权限"></a>设为可执行权限</h3><pre><code>chmod a+x certbot-auto
 
+
+./certbot-auto certonly  -d &quot;*.rpchen.com&quot; --manual --preferred-challenges dns-01  --server https://acme-v02.api.letsencrypt.org/directory
+</code></pre><h3 id="给域名添加一个-DNS-TXT-记录"><a href="#给域名添加一个-DNS-TXT-记录" class="headerlink" title="给域名添加一个 DNS TXT 记录"></a>给域名添加一个 DNS TXT 记录</h3><h3 id="续期可以执行："><a href="#续期可以执行：" class="headerlink" title="续期可以执行："></a>续期可以执行：</h3><pre><code>certbot-auto renew
+</code></pre>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-06-04T07:36:35.527Z" itemprop="dateUpdated">2018-06-04 15:36:35</time>
+    最后更新时间：<time datetime="2018-06-04T07:29:29.503Z" itemprop="dateUpdated">2018-06-04 15:29:29</time>
 </span><br>
 
 
         
-        转载请注明出处：<a href="/2018/02/11/IIS10FTP-PassiveMode/" target="_blank" rel="external">http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/</a>
+        转载请注明出处：<a href="/2018/06/04/LetsEncrypt2/" target="_blank" rel="external">http://www.rpchen.com/2018/06/04/LetsEncrypt2/</a>
         
     </div>
     <footer>
@@ -206,7 +218,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FTP/">FTP</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/证书/">证书</a></li></ul>
 
 
             
@@ -216,7 +228,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/&title=《IIS10 FTP 被动模式端口配置》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/06/04/LetsEncrypt2/&title=《LetsEncrypt通配符证书申请》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -226,22 +238,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/&title=《IIS10 FTP 被动模式端口配置》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/06/04/LetsEncrypt2/&title=《LetsEncrypt通配符证书申请》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/06/04/LetsEncrypt2/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IIS10 FTP 被动模式端口配置》 — RPChen`s Blog&url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/&via=http://www.rpchen.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LetsEncrypt通配符证书申请》 — RPChen`s Blog&url=http://www.rpchen.com/2018/06/04/LetsEncrypt2/&via=http://www.rpchen.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/06/04/LetsEncrypt2/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -261,21 +273,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/04/16/bbr/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">开启BBR加速</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/01/26/SSTap/" id="post-next" class="post-nav-link">
+      <a href="/2018/04/19/SCDPM-Error/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">SSTap加速游戏</h4>
+        <h4 class="title">SCDPM备份VM失败(0X800423F4)</h4>
       </a>
     </div>
   
@@ -335,7 +340,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/&title=《IIS10 FTP 被动模式端口配置》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.rpchen.com/2018/06/04/LetsEncrypt2/&title=《LetsEncrypt通配符证书申请》 — RPChen`s Blog&pic=http://www.rpchen.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -345,22 +350,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/&title=《IIS10 FTP 被动模式端口配置》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.rpchen.com/2018/06/04/LetsEncrypt2/&title=《LetsEncrypt通配符证书申请》 — RPChen`s Blog&source=个人博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.rpchen.com/2018/06/04/LetsEncrypt2/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IIS10 FTP 被动模式端口配置》 — RPChen`s Blog&url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/&via=http://www.rpchen.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LetsEncrypt通配符证书申请》 — RPChen`s Blog&url=http://www.rpchen.com/2018/06/04/LetsEncrypt2/&via=http://www.rpchen.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/02/11/IIS10FTP-PassiveMode/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.rpchen.com/2018/06/04/LetsEncrypt2/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -371,7 +376,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3a0U7DMAwFUP7/p4vE61i5N+6Qmp48VWVkOUEyTuyvr3gcP+P1zfn788+8e379/GUDAwPjtozjdLRfnAAms72lYmBgPIBxHmTPQ2EeXifb98ecGBgYGHFYbLO4843AwMDAWAu4yXKTMJqnnhgYGBh5irb2Pr+8S7bvgrM4BgbGDRltYeA/nz9Y38DAwLgJ4yjHJB1sywbFqjAwMLZmJIlasohPFEGTnxb5JgYGxm0ZeRhtr+HWrviT5oxf3mNgYGzNaEuSa4FyrSSQbysGBsaTGZPWinlSWDeoYWBgbMqYhMJJITMBFEEZAwNja0ZydEzKA3lJoPg/UDauYWBg7M2YhLy8zNmG7LUiKAYGxn6MTyRtRe10EHAxMDAw1hq/inJjPEYBFwMDYwvGWoqWHFPrAmTZfhH9GgYGxhaM/Dh6VfvXpPHr7fdiYGA8hpEfMtskb61UUBx3MTAwHsaY9JdNGmHXNq4+i2NgYNyQkS+rnrS8aMsTwaIPFwMDYwvGeYicNFjkrWZtchn9HTAwMLZjtAGubY+YBPTFwgAGBsZGjPb6LG8wXbw4m7RiYGBgbMo4ytFe6yeMovHr3fwYGBhbM9YidHv1Nkn+1ho7MDAw9mPkTatrqVtyMdde+WFgYDyTkQfNthgw2YhiNgwMDIz4eVKqTOapu3ExMDAwgsSuPQAvhn4MDIwHMNYaLIpmiIuKoFGPGwYGxnaM+QGyDa/J4vIyJwYGxtaMb6FAk2FaAVcjAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aQW7DMAwEwPz/0+4HIntXcltYHp2CwFE0KcBSJD+feB3BGj052m30evSpGxYGBsZjGe3hRgdKjpuAz58ZUjEwMF7AaMNicrjzPc93yM+GgYGBsbR1EKyTQI+BgYFx71Xz/BDJQTEwMDBWLrH5UZKw+293cQwMjAcy8qr737/+lf4GBgbGoxhHufKErw2Xx8LCwMDYmzGX2M2V8pN0ME/7MDAw3sPIS2b5JTNht6W3i/cxMDC2ZqwX/dthspW26MVQGgYGxtaMNhFceWaltDdZI8TAwHgBo/3KJHy3jcwiyGJgYGzKaItf7QBEmzhODnZgYGBsypi7cLbUNky3qScGBsbejHuLYm2Sl4OLxgAGBsZ2jLmCfv41+dHbdubw74CBgbEdo73E5g3LuUGKvMSGgYHxHsbKwFbbpGwT0OT5L6khBgbGpoz2w3PlubxVkKSYGBgYb2MkLcl8YCIPoPlA2MVrDAyMrRntgfJQOFdWy1uhSyMXGBgYD2fk4TVpQM41Qed2xsDAeDOjLbS1ATe/9C4FXAwMjK0Z7RBYsnMSTHMSBgbG3oyjXG0IzqltiwIDA+M9jDbMtZu25ba2JVDDMDAwHstYD7LtUEXeTsDAwMBom5F5yewcsPIfYLgzBgYGxkJxf2XUrC66YWBgYJTPn4PnguzNqSEGBsajGMklNn8nT/5y/MUPgYGBsTWjHXFYv5TmV9z2JBgYGNsxfgCJGfoIhauW9AAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
