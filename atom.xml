@@ -174,9 +174,9 @@
     <link href="http://www.rpchen.com/2018/01/12/CentOS7SingleMode/"/>
     <id>http://www.rpchen.com/2018/01/12/CentOS7SingleMode/</id>
     <published>2018-01-12T00:25:53.000Z</published>
-    <updated>2018-01-12T00:28:17.612Z</updated>
+    <updated>2018-06-15T06:15:17.350Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1、重启服务器，在选择内核界面使用上下箭头移动"><a href="#1、重启服务器，在选择内核界面使用上下箭头移动" class="headerlink" title="1、重启服务器，在选择内核界面使用上下箭头移动"></a>1、重启服务器，在选择内核界面使用上下箭头移动</h2><h2 id="2、选择内核并按-e"><a href="#2、选择内核并按-e" class="headerlink" title="2、选择内核并按 e"></a>2、选择内核并按 <code>e</code></h2><h2 id="3、找到"><a href="#3、找到" class="headerlink" title="3、找到"></a>3、找到</h2><h2 id="4、删除掉-rhgb-quiet-，ro-改为-rw-添加init-bin-bash"><a href="#4、删除掉-rhgb-quiet-，ro-改为-rw-添加init-bin-bash" class="headerlink" title="4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash"></a>4、删除掉 <em>rhgb quiet</em> ，<em>ro</em> 改为 <em>rw</em> 添加<code>init=/bin/bash</code></h2><h2 id="5、使用-ctrl-x-来重启服务器就可以了，重启后就会进入到单用户"><a href="#5、使用-ctrl-x-来重启服务器就可以了，重启后就会进入到单用户" class="headerlink" title="5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户"></a>5、使用 <code>ctrl + x</code> 来重启服务器就可以了，重启后就会进入到单用户</h2><h2 id="6、退出单用户命令"><a href="#6、退出单用户命令" class="headerlink" title="6、退出单用户命令"></a>6、退出单用户命令</h2><pre><code>exec /sbin/init</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="1、重启服务器，在选择内核界面使用上下箭头移动"><a href="#1、重启服务器，在选择内核界面使用上下箭头移动" class="headerlink" title="1、重启服务器，在选择内核界面使用上下箭头移动"></a>1、重启服务器，在选择内核界面使用上下箭头移动</h2><h2 id="2、选择内核并按-e"><a href="#2、选择内核并按-e" class="headerlink" title="2、选择内核并按 e"></a>2、选择内核并按 <code>e</code></h2><h2 id="3、找到"><a href="#3、找到" class="headerlink" title="3、找到"></a>3、找到</h2><h2 id="4、删除掉-rhgb-quiet-，ro-改为-rw-添加init-bin-bash"><a href="#4、删除掉-rhgb-quiet-，ro-改为-rw-添加init-bin-bash" class="headerlink" title="4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash"></a>4、删除掉 <em>rhgb quiet</em> ，<em>ro</em> 改为 <em>rw</em> 添加<code>init=/bin/bash</code></h2><h2 id="5、使用-ctrl-x-来重启服务器就可以了，重启后就会进入到单用户"><a href="#5、使用-ctrl-x-来重启服务器就可以了，重启后就会进入到单用户" class="headerlink" title="5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户"></a>5、使用 <code>ctrl + x</code> 来重启服务器就可以了，重启后就会进入到单用户</h2><h3 id="5-1-重置密码"><a href="#5-1-重置密码" class="headerlink" title="5.1 重置密码"></a>5.1 重置密码</h3><p>现在，可以使用下面的命令访问系统</p><pre><code>chroot  /sysroot</code></pre><p>重置密码</p><pre><code>passwd root</code></pre><p>进行以上这步操作的时候会让你输入新密码，然后重复输入一次，提示successfully就表示更改成功了<br>更新系统信息</p><pre><code>touch /.autorelabel</code></pre><p>退出chroot</p><pre><code>exit</code></pre><h2 id="6、退出单用户命令"><a href="#6、退出单用户命令" class="headerlink" title="6、退出单用户命令"></a>6、退出单用户命令</h2><pre><code>exec /sbin/init</code></pre>]]></content>
     
     <summary type="html">
     
@@ -483,9 +483,9 @@ wget -c http://soft.vpser.net/lnmp/lnmp1.4.tar.gz &amp;amp;&amp;amp; tar zxf lnm
     <link href="http://www.rpchen.com/2017/12/04/esxi-HDD-SSD/"/>
     <id>http://www.rpchen.com/2017/12/04/esxi-HDD-SSD/</id>
     <published>2017-12-04T08:44:22.000Z</published>
-    <updated>2017-12-29T07:42:57.577Z</updated>
+    <updated>2018-06-25T08:27:56.385Z</updated>
     
-    <content type="html"><![CDATA[<p>列出：<br><code>esxcli storage core device list</code><br>标记：<br><code>esxcli storage nmp satp rule add -s VMW_SATP_LOCAL -d naa.6b8ca3a0f451a90021a1485e0526587c -o enable_ssd</code><br>回收：<br><code>esxcli storage core claiming reclaim -d naa.6b8ca3a0f451a90021a1485e0526587c</code><br>查看：<br><code>esxcli storage core device list -d naa.6b8ca3a0f451a90021a1485e0526587c</code></p>]]></content>
+    <content type="html"><![CDATA[<p>列出：<br><code>esxcli storage core device list</code><br>标记：<br><code>esxcli storage nmp satp rule add -s VMW_SATP_LOCAL -d naa.6b8ca3a0f451a90021a1485e0526587c -o enable_ssd</code><br>回收：<br><code>esxcli storage core claiming reclaim -d naa.6b8ca3a0f451a90021a1485e0526587c</code><br>查看：<br><code>esxcli storage core device list -d naa.6b8ca3a0f451a90021a1485e0526587c</code><br>查看硬盘位置：<br><code>esxcli storage core path list</code></p>]]></content>
     
     <summary type="html">
     

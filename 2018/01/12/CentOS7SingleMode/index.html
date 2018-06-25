@@ -20,18 +20,18 @@
     
     
     <meta name="keywords" content="CentOS">
-    <meta name="description" content="1、重启服务器，在选择内核界面使用上下箭头移动2、选择内核并按 e3、找到4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户6、退出单用户命令exec /sbin/init">
+    <meta name="description" content="1、重启服务器，在选择内核界面使用上下箭头移动2、选择内核并按 e3、找到4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户5.1 重置密码现在，可以使用下面的命令访问系统 chroot  /sysroot 重置密码 passwd root 进行以上这步操作的时候会让你输入新密码，然后重复输">
 <meta name="keywords" content="CentOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS7单用户模式">
 <meta property="og:url" content="http://www.rpchen.com/2018/01/12/CentOS7SingleMode/index.html">
 <meta property="og:site_name" content="RPChen`s Blog">
-<meta property="og:description" content="1、重启服务器，在选择内核界面使用上下箭头移动2、选择内核并按 e3、找到4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户6、退出单用户命令exec /sbin/init">
+<meta property="og:description" content="1、重启服务器，在选择内核界面使用上下箭头移动2、选择内核并按 e3、找到4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户5.1 重置密码现在，可以使用下面的命令访问系统 chroot  /sysroot 重置密码 passwd root 进行以上这步操作的时候会让你输入新密码，然后重复输">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-12T00:28:17.612Z">
+<meta property="og:updated_time" content="2018-06-15T06:15:17.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7单用户模式">
-<meta name="twitter:description" content="1、重启服务器，在选择内核界面使用上下箭头移动2、选择内核并按 e3、找到4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户6、退出单用户命令exec /sbin/init">
+<meta name="twitter:description" content="1、重启服务器，在选择内核界面使用上下箭头移动2、选择内核并按 e3、找到4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户5.1 重置密码现在，可以使用下面的命令访问系统 chroot  /sysroot 重置密码 passwd root 进行以上这步操作的时候会让你输入新密码，然后重复输">
     
         <link rel="alternate" type="application/atom+xml" title="RPChen`s Blog" href="/atom.xml">
     
@@ -159,7 +159,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、重启服务器，在选择内核界面使用上下箭头移动"><span class="post-toc-text">1、重启服务器，在选择内核界面使用上下箭头移动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、选择内核并按-e"><span class="post-toc-text">2、选择内核并按 e</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、找到"><span class="post-toc-text">3、找到</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、删除掉-rhgb-quiet-，ro-改为-rw-添加init-bin-bash"><span class="post-toc-text">4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、使用-ctrl-x-来重启服务器就可以了，重启后就会进入到单用户"><span class="post-toc-text">5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、退出单用户命令"><span class="post-toc-text">6、退出单用户命令</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、重启服务器，在选择内核界面使用上下箭头移动"><span class="post-toc-text">1、重启服务器，在选择内核界面使用上下箭头移动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、选择内核并按-e"><span class="post-toc-text">2、选择内核并按 e</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、找到"><span class="post-toc-text">3、找到</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、删除掉-rhgb-quiet-，ro-改为-rw-添加init-bin-bash"><span class="post-toc-text">4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5、使用-ctrl-x-来重启服务器就可以了，重启后就会进入到单用户"><span class="post-toc-text">5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-1-重置密码"><span class="post-toc-text">5.1 重置密码</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6、退出单用户命令"><span class="post-toc-text">6、退出单用户命令</span></a></li></ol>
         </nav>
     </aside>
     
@@ -184,7 +184,15 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="1、重启服务器，在选择内核界面使用上下箭头移动"><a href="#1、重启服务器，在选择内核界面使用上下箭头移动" class="headerlink" title="1、重启服务器，在选择内核界面使用上下箭头移动"></a>1、重启服务器，在选择内核界面使用上下箭头移动</h2><h2 id="2、选择内核并按-e"><a href="#2、选择内核并按-e" class="headerlink" title="2、选择内核并按 e"></a>2、选择内核并按 <code>e</code></h2><h2 id="3、找到"><a href="#3、找到" class="headerlink" title="3、找到"></a>3、找到</h2><h2 id="4、删除掉-rhgb-quiet-，ro-改为-rw-添加init-bin-bash"><a href="#4、删除掉-rhgb-quiet-，ro-改为-rw-添加init-bin-bash" class="headerlink" title="4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash"></a>4、删除掉 <em>rhgb quiet</em> ，<em>ro</em> 改为 <em>rw</em> 添加<code>init=/bin/bash</code></h2><h2 id="5、使用-ctrl-x-来重启服务器就可以了，重启后就会进入到单用户"><a href="#5、使用-ctrl-x-来重启服务器就可以了，重启后就会进入到单用户" class="headerlink" title="5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户"></a>5、使用 <code>ctrl + x</code> 来重启服务器就可以了，重启后就会进入到单用户</h2><h2 id="6、退出单用户命令"><a href="#6、退出单用户命令" class="headerlink" title="6、退出单用户命令"></a>6、退出单用户命令</h2><pre><code>exec /sbin/init
+            <h2 id="1、重启服务器，在选择内核界面使用上下箭头移动"><a href="#1、重启服务器，在选择内核界面使用上下箭头移动" class="headerlink" title="1、重启服务器，在选择内核界面使用上下箭头移动"></a>1、重启服务器，在选择内核界面使用上下箭头移动</h2><h2 id="2、选择内核并按-e"><a href="#2、选择内核并按-e" class="headerlink" title="2、选择内核并按 e"></a>2、选择内核并按 <code>e</code></h2><h2 id="3、找到"><a href="#3、找到" class="headerlink" title="3、找到"></a>3、找到</h2><h2 id="4、删除掉-rhgb-quiet-，ro-改为-rw-添加init-bin-bash"><a href="#4、删除掉-rhgb-quiet-，ro-改为-rw-添加init-bin-bash" class="headerlink" title="4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash"></a>4、删除掉 <em>rhgb quiet</em> ，<em>ro</em> 改为 <em>rw</em> 添加<code>init=/bin/bash</code></h2><h2 id="5、使用-ctrl-x-来重启服务器就可以了，重启后就会进入到单用户"><a href="#5、使用-ctrl-x-来重启服务器就可以了，重启后就会进入到单用户" class="headerlink" title="5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户"></a>5、使用 <code>ctrl + x</code> 来重启服务器就可以了，重启后就会进入到单用户</h2><h3 id="5-1-重置密码"><a href="#5-1-重置密码" class="headerlink" title="5.1 重置密码"></a>5.1 重置密码</h3><p>现在，可以使用下面的命令访问系统</p>
+<pre><code>chroot  /sysroot
+</code></pre><p>重置密码</p>
+<pre><code>passwd root
+</code></pre><p>进行以上这步操作的时候会让你输入新密码，然后重复输入一次，提示successfully就表示更改成功了<br>更新系统信息</p>
+<pre><code>touch /.autorelabel
+</code></pre><p>退出chroot</p>
+<pre><code>exit
+</code></pre><h2 id="6、退出单用户命令"><a href="#6、退出单用户命令" class="headerlink" title="6、退出单用户命令"></a>6、退出单用户命令</h2><pre><code>exec /sbin/init
 </code></pre>
         </div>
 
@@ -192,7 +200,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-01-12T00:28:17.612Z" itemprop="dateUpdated">2018-01-12 08:28:17</time>
+    最后更新时间：<time datetime="2018-06-15T06:15:17.350Z" itemprop="dateUpdated">2018-06-15 14:15:17</time>
 </span><br>
 
 

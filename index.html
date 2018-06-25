@@ -473,8 +473,11 @@ SSTap全称SOCKSTap, 是一款利用虚拟网卡技术在网络层实现的代�
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        1、重启服务器，在选择内核界面使用上下箭头移动2、选择内核并按 e3、找到4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户6、退出单用户命令exec /sbin/init
-
+        1、重启服务器，在选择内核界面使用上下箭头移动2、选择内核并按 e3、找到4、删除掉 rhgb quiet ，ro 改为 rw 添加init=/bin/bash5、使用 ctrl + x 来重启服务器就可以了，重启后就会进入到单用户5.1 重置密码现在，可以使用下面的命令访问系统
+chroot  /sysroot
+重置密码
+passwd root
+进行以上这步操作的时候会让你输入新密码，然后...
     
 
         <a href="/2018/01/12/CentOS7SingleMode/" class="post-more waves-effect waves-button">
