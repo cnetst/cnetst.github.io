@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="RPChen`s Blog">
 <meta property="og:description" content="1.查询值Get-ADUser -Filter {pager -eq &amp;quot;***&amp;quot;} 2.查询导出Get-ADUser -Filter * -Properties * -SearchBase &amp;quot;OU=GZ,DC=CONTOSO,DC=COM&amp;quot; | Select-Object name,department |Export-Csv -NoTypeInformat">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-25T01:36:47.576Z">
+<meta property="og:updated_time" content="2018-08-14T01:42:21.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PowerShell命令">
 <meta name="twitter:description" content="1.查询值Get-ADUser -Filter {pager -eq &amp;quot;***&amp;quot;} 2.查询导出Get-ADUser -Filter * -Properties * -SearchBase &amp;quot;OU=GZ,DC=CONTOSO,DC=COM&amp;quot; | Select-Object name,department |Export-Csv -NoTypeInformat">
@@ -159,7 +159,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-查询值"><span class="post-toc-text">1.查询值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-查询导出"><span class="post-toc-text">2.查询导出</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-修改值"><span class="post-toc-text">3.修改值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-批量导入查询导出"><span class="post-toc-text">4.批量导入查询导出</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-新建用户"><span class="post-toc-text">5.新建用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-批量新建用户"><span class="post-toc-text">6.批量新建用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-启用Exchange"><span class="post-toc-text">7.启用Exchange</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-查询Exchange用户信息"><span class="post-toc-text">8.查询Exchange用户信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-迁移Exchange用户数据库"><span class="post-toc-text">9.迁移Exchange用户数据库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-启用Skype"><span class="post-toc-text">10.启用Skype</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-查询值"><span class="post-toc-text">1.查询值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-查询导出"><span class="post-toc-text">2.查询导出</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-修改值"><span class="post-toc-text">3.修改值</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-批量导入查询导出"><span class="post-toc-text">4.批量导入查询导出</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-新建用户"><span class="post-toc-text">5.新建用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-批量新建用户"><span class="post-toc-text">6.批量新建用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-启用Exchange"><span class="post-toc-text">7.启用Exchange</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-查询Exchange用户信息"><span class="post-toc-text">8.查询Exchange用户信息</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-迁移Exchange用户数据库"><span class="post-toc-text">9.迁移Exchange用户数据库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-启用Skype"><span class="post-toc-text">10.启用Skype</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-批量删除计算机"><span class="post-toc-text">11.批量删除计算机</span></a></li></ol>
         </nav>
     </aside>
     
@@ -209,6 +209,7 @@ Import-csv d:\A.csv|foreach{get-adcomputer $_.computer -properties * }|Select-Ob
 </code></pre><h2 id="8-查询Exchange用户信息"><a href="#8-查询Exchange用户信息" class="headerlink" title="8.查询Exchange用户信息"></a>8.查询Exchange用户信息</h2><pre><code>Get-MailboxStatistics &apos;*****&apos; | fl
 </code></pre><h2 id="9-迁移Exchange用户数据库"><a href="#9-迁移Exchange用户数据库" class="headerlink" title="9.迁移Exchange用户数据库"></a>9.迁移Exchange用户数据库</h2><pre><code>&quot;***&quot; | New-MoveRequest -TargetDatabase &apos;*****&apos;
 </code></pre><h2 id="10-启用Skype"><a href="#10-启用Skype" class="headerlink" title="10.启用Skype"></a>10.启用Skype</h2><pre><code>Enable-CsUser –Identity ShuangShuangGuan -RegistrarPool ****.***.cn -SipAddressType UserPrincipalName
+</code></pre><h2 id="11-批量删除计算机"><a href="#11-批量删除计算机" class="headerlink" title="11.批量删除计算机"></a>11.批量删除计算机</h2><pre><code>Import-Csv -Path d:\1.csv | foreach {Get-ADComputer $_.ComputerName  | Remove-ADObject -Recursive -Confirm:$False }
 </code></pre>
         </div>
 
@@ -216,7 +217,7 @@ Import-csv d:\A.csv|foreach{get-adcomputer $_.computer -properties * }|Select-Ob
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-05-25T01:36:47.576Z" itemprop="dateUpdated">2018-05-25 09:36:47</time>
+    最后更新时间：<time datetime="2018-08-14T01:42:21.937Z" itemprop="dateUpdated">2018-08-14 09:42:21</time>
 </span><br>
 
 
